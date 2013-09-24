@@ -23,9 +23,8 @@ module Healthy
     private
 
     def ensure_valid_response(response)
-      unless response.code == '200'
-        raise "Request not successful for patient #{patient_id}. Got: #{response.code}"
-      end
+      return true if response.code == '200'
+      raise "Request not successful for patient #{patient_id}. Got: #{response.code}"
     end
 
     def parse_response(body)
