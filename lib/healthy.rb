@@ -1,0 +1,1 @@
+require 'healthy/version'
