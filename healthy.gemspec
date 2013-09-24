@@ -5,12 +5,12 @@ require File.expand_path('../lib/healthy/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.name          = "healthy"
   gem.version       = Healthy::VERSION
-  gem.summary       = %q{TODO: Summary}
-  gem.description   = %q{TODO: Description}
+  gem.summary       = %q{Arranges communication between Mirth and RoQua}
+  gem.description   = %q{Receives queries from RoQua, sends them to Mirth, and translates Mirth's responses back into Rubyland.}
   gem.license       = "MIT"
   gem.authors       = ["Marten Veldthuis"]
-  gem.email         = "marten@veldthuis.com"
-  gem.homepage      = "https://github.com/marten/healthy#readme"
+  gem.email         = "marten@roqua.nl"
+  gem.homepage      = "https://github.com/roqua/healthy"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
