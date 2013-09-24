@@ -1,4 +1,7 @@
 require 'rspec'
 require 'healthy/version'
 
-include Healthy
+if ENV["CODECLIMATE_REPO_TOKEN"]
+  require "codeclimate-test-reporter"
+  CodeClimate::TestReporter.start
+end

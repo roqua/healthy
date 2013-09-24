@@ -2,6 +2,5 @@ source 'https://rubygems.org'
 
 gemspec
 
-group :development do
-  gem 'kramdown'
-end
+gem 'kramdown', group: :development
+gem "codeclimate-test-reporter", group: :test, require: nil
