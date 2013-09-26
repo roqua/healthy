@@ -45,14 +45,6 @@ module Healthy
 
       def lastname
         # TODO UMCG
-        #                   // lastname zit in 5.1.3, maar "van der" zit misschien in 5.1.2
-        #                   lastname        = clean(legal_name['PID.5.1']['PID.5.1.3'].toString()); // Fictief
-        #                   lastname_prefix = clean(legal_name['PID.5.1']['PID.5.1.2'].toString()); // van der
-        #                   if (lastname_prefix != "") {
-        #                       tmp['lastname'] = lastname_prefix + " " + lastname;
-        #                   } else {
-        #                       tmp['lastname'] = lastname;
-        #                   }
         prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
         lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
         "#{prefix} #{lastname}".strip
@@ -62,10 +54,6 @@ module Healthy
         return unless names[:display]
         names[:display].fetch('PID.5.1')
       end
-
-#           if (nick_name) {
-#               tmp['firstname'] = clean(nick_name['PID.5.2'].toString());
-#           }
 
       def birthdate
         message.fetch('PID').fetch('PID.7').fetch('PID.7.1')
