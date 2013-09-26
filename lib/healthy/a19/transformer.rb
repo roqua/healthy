@@ -10,9 +10,9 @@ module Healthy
 
       def to_patient
         patient = {}
-        %i(status channel source identities birthdate gender
+        %w(status channel source identities birthdate gender
            firstname initials lastname display_name nick_name email
-           address_type street city zipcode country).each do |key|
+           address_type street city zipcode country).map(&:to_sym).each do |key|
           begin
             patient[key] = send(key)
           rescue NameError
