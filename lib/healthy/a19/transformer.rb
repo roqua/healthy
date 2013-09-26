@@ -5,7 +5,6 @@ module Healthy
 
       def initialize(message)
         @message = message
-        puts message.inspect
       end
 
       def to_patient
@@ -54,8 +53,8 @@ module Healthy
         #                   } else {
         #                       tmp['lastname'] = lastname;
         #                   }
-        prefix   = names[:legal].fetch('PID.5.1').fetch('PID.5.1.2')
-        lastname = names[:legal].fetch('PID.5.1').fetch('PID.5.1.3')
+        prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
+        lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
         "#{prefix} #{lastname}".strip
       end
 
@@ -99,6 +98,10 @@ module Healthy
           end
         end
         names
+      end
+
+      def clean(string)
+        string.gsub(/^""$/, "")
       end
     end
   end
