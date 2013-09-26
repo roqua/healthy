@@ -34,8 +34,16 @@ describe Healthy::A19::Fetcher do
     expect { Healthy::A19.fetch("123") }.to raise_exception(Healthy::ConnectionRefused)
   end
 
+  it 'raises when upstream is unreachable' do
+    stub_mirth.to_raise Errno::EHOSTUNREACH
+    expect { Healthy::A19.fetch("123") }.to raise_exception(Healthy::HostUnreachable)
+  end
+
   it "raises when upstream is timing out" do
     stub_mirth.to_timeout
+    expect { Healthy::A19.fetch("123") }.to raise_exception(Healthy::Timeout)
+
+    stub_mirth.to_raise Errno::ETIMEDOUT
     expect { Healthy::A19.fetch("123") }.to raise_exception(Healthy::Timeout)
   end
 end
