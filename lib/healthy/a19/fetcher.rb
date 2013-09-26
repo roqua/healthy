@@ -40,6 +40,7 @@ module Healthy
         data
       rescue REXML::ParseException => e
         raise IllegalMirthResponse if e.message =~ /Illegal character '&' in raw string/
+        raise e
       end
 
       private
