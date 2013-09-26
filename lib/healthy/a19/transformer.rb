@@ -1,17 +1,106 @@
-# function process_a19_adr() {
-#   var request = channelMap.get("msg");
-#     var remoteResponse = responseMap.get('A19');
-#     //  logger.error("Remote response: " + remoteResponse.getMessage());
+module Healthy
+  module A19
+    class Transformer
+      attr_reader :message
 
-#     var status = remoteResponse.getStatus();
-#     //logger.error("Remote response status: " + status);
+      def initialize(message)
+        @message = message
+        puts message.inspect
+      end
 
-#     var msg = new XML(SerializerFactory.getHL7Serializer(false, false, true, true, true).toXML(remoteResponse.getMessage()));
+      def to_patient
+        patient = {}
+        %i(status channel source identities birthdate gender
+           firstname initials lastname display_name nick_name email
+           address_type street city zipcode country).each do |key|
+          begin
+            patient[key] = send(key)
+          rescue NameError
+            patient[key] = :todo
+          end
+        end
+        patient
+      end
 
-#   if (request && request["Parameters"]["application"] == "healthy") {
-#     // healthy does it's own processing.
-#     responseMap.put("A19", ResponseFactory.getSuccessResponse(msg.toXMLString()));
-#     } else {
+      def source
+        message.fetch('MSH').fetch('MSH.4').fetch('MSH.4.1')
+      end
+
+      def identities
+        message.fetch('PID').fetch('PID.3').map do |identity|
+          next if identity.fetch('PID.3.1') == "\"\""
+          {ident: identity.fetch('PID.3.1'), authority: identity.fetch('PID.3.5')}
+        end.compact
+      end
+
+      def firstname
+        return unless names[:nick]
+        names[:nick].fetch('PID.5.2')
+      end
+
+      def display_name
+        return unless names[:display]
+        names[:display].fetch('PID.5.1')
+      end
+
+#           if (nick_name) {
+#               tmp['firstname'] = clean(nick_name['PID.5.2'].toString());
+#           }
+
+      def birthdate
+        message.fetch('PID').fetch('PID.7').fetch('PID.7.1')
+      end
+
+      def email
+        message.fetch('PID').fetch('PID.13').find do |record|
+          record.fetch('PID.13.2') == 'NET'
+        end.fetch('PID.13.1')
+      end
+
+      def gender
+        message.fetch('PID').fetch('PID.8').fetch('PID.8.1')
+      end
+
+      private
+
+      def names
+        names = {}
+        message.fetch('PID').fetch('PID.5').each do |record|
+          case record.fetch('PID.5.7')
+          when 'L'
+            names[:legal] = record
+          when 'D'
+            names[:display] = record
+          when 'N'
+            names[:nick] = record
+          else
+            # ignore record
+          end
+        end
+        names
+      end
+
+      def addresses
+        addressses = {}
+        message.fetch('PID').fetch('PID.5').each do |record|
+          case record.fetch('PID.5.7')
+          when 'L'
+            addressses[:legal] = record
+          when 'D'
+            addressses[:display] = record
+          when 'N'
+            addressses[:nick] = record
+          else
+            # ignore record
+          end
+        end
+        addressses
+      end
+
+    end
+  end
+end
+
 #       var tmp = new XML("<patient></patient>");
 #       tmp["status"] = status;
 #       tmp["channel"] = Packages.com.mirth.connect.server.controllers.ChannelController.getInstance().getDeployedChannelById(channelId).getName();;
@@ -22,19 +111,6 @@
 #           // tmp["ack"] = remoteResponse.getMessage();
 #           tmp["source"] = msg['MSH']['MSH.4']['MSH.4.1'].toString();
 
-#           ///////////////////////////////////////////////////////////////////////////////
-#           var identities = msg['PID']['PID.3'];
-#           var idx = 0;
-#           for each (identity in identities) {
-#               //    if (clean(identity["PID.3.1"].toString()) != "") {
-#               var newIdentity = new XML("<identities/>");
-#               newIdentity["ident"] = identity["PID.3.1"].toString();
-#               newIdentity["authority"] = identity["PID.3.5"].toString();
-
-#               tmp["identities"][idx] = newIdentity;
-#               idx++;
-#               //    }
-#           }
 
 #           ///////////////////////////////////////////////////////////////////////////////
 #           var names = msg['PID']['PID.5']
@@ -85,14 +161,6 @@
 #               }
 #           }
 
-#           if (display_name) {
-#               tmp['display_name'] = clean(display_name['PID.5.1']['PID.5.1.1'].toString());
-#           }
-
-#           if (nick_name) {
-#               tmp['firstname'] = clean(nick_name['PID.5.2'].toString());
-#           }
-
 #           for each (phone in msg['PID']['PID.13']) {
 #               if (phone['PID.13.2'] && phone['PID.13.2'].toString() == "NET") {
 #                   tmp['email'] = clean(phone['PID.13.1'].toString());
@@ -122,8 +190,6 @@
 #               }
 #           }
 
-#           tmp['birthdate'] = msg['PID']['PID.7']['PID.7.1'].toString();
-#           tmp['gender'] = msg['PID']['PID.8']['PID.8.1'].toString();
 #       }
 
 #       //logger.debug("Our response: " + tmp.toXMLString());

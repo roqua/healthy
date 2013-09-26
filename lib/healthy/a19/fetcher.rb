@@ -36,7 +36,7 @@ module Healthy
       end
 
       def parse_response(body)
-        data = Hash.from_xml(body).fetch("Hl7Message") { Hash.new }
+        data = Hash.from_xml(body).fetch("HL7Message") { Hash.new }
         data
       rescue REXML::ParseException => e
         raise IllegalMirthResponse, e.message
