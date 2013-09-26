@@ -8,6 +8,9 @@ if ENV["CODECLIMATE_REPO_TOKEN"]
   CodeClimate::TestReporter.start
 end
 
-require 'healthy'
+# Requires supporting ruby files with custom matchers and macros, etc,
+# in spec/support/ and its subdirectories.
+Dir["spec/support/**/*.rb"].each {|f| load f}
 
+require 'healthy'
 Healthy.a19_endpoint = "http://10.220.0.101:60101"
