@@ -79,24 +79,6 @@ module Healthy
         end
         names
       end
-
-      def addresses
-        addressses = {}
-        message.fetch('PID').fetch('PID.5').each do |record|
-          case record.fetch('PID.5.7')
-          when 'L'
-            addressses[:legal] = record
-          when 'D'
-            addressses[:display] = record
-          when 'N'
-            addressses[:nick] = record
-          else
-            # ignore record
-          end
-        end
-        addressses
-      end
-
     end
   end
 end
