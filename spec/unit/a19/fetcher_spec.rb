@@ -14,6 +14,9 @@ describe Healthy::A19::Fetcher do
   it 'raises when upstream responds with illegal XML' do
     stub_mirth_response "<patient><firstname>Jan & Piet</firstname></patient>"
     expect { Healthy::A19.fetch("123") }.to raise_error(Healthy::IllegalMirthResponse)
+
+    stub_mirth_response "<patient><firstname>Jan</patient>"
+    expect { Healthy::A19.fetch("123") }.to raise_error(Healthy::IllegalMirthResponse)
   end
 
   it "returns an error when upstream is returning ACK timeouts" do

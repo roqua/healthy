@@ -39,8 +39,7 @@ module Healthy
         data = Hash.from_xml(body).fetch("Hl7Message") { Hash.new }
         data
       rescue REXML::ParseException => e
-        raise IllegalMirthResponse if e.message =~ /Illegal character '&' in raw string/
-        raise e
+        raise IllegalMirthResponse, e.message
       end
 
       private
