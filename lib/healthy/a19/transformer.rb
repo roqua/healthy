@@ -34,8 +34,29 @@ module Healthy
       end
 
       def firstname
+        # TODO UMCG
         return unless names[:nick]
         names[:nick].fetch('PID.5.2')
+      end
+
+      def initials
+        # TODO UMCG
+        "#{names[:legal].fetch('PID.5.2')} #{names[:legal].fetch('PID.5.3')}".strip
+      end
+
+      def lastname
+        # TODO UMCG
+        #                   // lastname zit in 5.1.3, maar "van der" zit misschien in 5.1.2
+        #                   lastname        = clean(legal_name['PID.5.1']['PID.5.1.3'].toString()); // Fictief
+        #                   lastname_prefix = clean(legal_name['PID.5.1']['PID.5.1.2'].toString()); // van der
+        #                   if (lastname_prefix != "") {
+        #                       tmp['lastname'] = lastname_prefix + " " + lastname;
+        #                   } else {
+        #                       tmp['lastname'] = lastname;
+        #                   }
+        prefix   = names[:legal].fetch('PID.5.1').fetch('PID.5.1.2')
+        lastname = names[:legal].fetch('PID.5.1').fetch('PID.5.1.3')
+        "#{prefix} #{lastname}".strip
       end
 
       def display_name
