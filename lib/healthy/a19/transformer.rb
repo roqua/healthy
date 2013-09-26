@@ -11,7 +11,7 @@ module Healthy
       def to_patient
         patient = {}
         %w(status channel source identities birthdate gender
-           firstname initials lastname display_name nick_name email
+           firstname initials lastname display_name email
            address_type street city zipcode country).map(&:to_sym).each do |key|
           begin
             patient[key] = send(key)

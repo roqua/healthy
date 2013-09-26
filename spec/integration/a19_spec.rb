@@ -17,7 +17,6 @@ describe 'Fetching A19 from XMcare' do
       initials: 'A B',
       lastname: 'Meisjesnaam - Achternaam',
       display_name: 'Meisjesnaam - Achternaam',
-      nick_name: nil,
       email: 'email@example.com',
       address_type: nil,
       street: nil,
