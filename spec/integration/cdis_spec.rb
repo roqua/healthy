@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'Fetching A19 from CDIS' do
-  it 'returns data for basic record' do
-    load_fixture 'cdis_patient', '7767853'
+  it 'returns data for Jan Fictief' do
+    load_fixture 'cdis_jan_fictief', '7767853'
     data = {
       status: 'SUCCESS',
       channel: 'FOO',
