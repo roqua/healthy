@@ -1,4 +1,5 @@
 require 'healthy/a19/name_parser'
+require 'healthy/a19/cdis_name_parser'
 require 'healthy/a19/address_parser'
 
 module Healthy
@@ -67,7 +68,12 @@ module Healthy
       private
 
       def names
-        NameParser.new(message)
+        case source
+        when "UMCG"
+          CdisNameParser.new(message)
+        else
+          NameParser.new(message)
+        end
       end
 
       def address

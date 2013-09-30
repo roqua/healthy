@@ -8,30 +8,18 @@ module Healthy
       end
 
       def firstname
-        if source == "UMCG"
-          names[:legal].fetch('PID.5.2')
-        else
-          return unless names[:nick]
-          names[:nick].fetch('PID.5.2')
-        end
+        return unless names[:nick]
+        names[:nick].fetch('PID.5.2')
       end
 
       def initials
-        if source == "UMCG"
-          names[:legal].fetch('PID.5.3')
-        else
-          "#{names[:legal].fetch('PID.5.2')} #{names[:legal].fetch('PID.5.3')}".strip
-        end
+        "#{names[:legal].fetch('PID.5.2')} #{names[:legal].fetch('PID.5.3')}".strip
       end
 
       def lastname
-        if source == "UMCG"
-          names[:legal].fetch('PID.5.1').fetch('PID.5.1.3')
-        else
-          prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
-          lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
-          "#{prefix} #{lastname}".strip
-        end
+        prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
+        lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
+        "#{prefix} #{lastname}".strip
       end
 
       def display_name
