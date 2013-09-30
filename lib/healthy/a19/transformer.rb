@@ -14,22 +14,21 @@ module Healthy
 
       def to_patient
         {
-          status: status,
-          source: source,
-          identities: identities,
-          firstname: firstname,
-          initials: initials,
-          lastname: lastname,
+          status:       status,
+          source:       source,
+          identities:   identities,
+          firstname:    firstname,
+          initials:     initials,
+          lastname:     lastname,
           display_name: display_name,
-          email: email,
-          address_type: address_type,
-          street: street,
-          city: city,
-          zipcode: zipcode,
-          country: country,
-          email: email,
-          birthdate: birthdate,
-          gender: gender
+          email:        email,
+          address_type: address.address_type,
+          street:       address.street,
+          city:         address.city,
+          zipcode:      address.zipcode,
+          country:      address.country,
+          birthdate:    birthdate,
+          gender:       gender
         }
       end
 
@@ -94,26 +93,6 @@ module Healthy
 
       def gender
         message.fetch('PID').fetch('PID.8').fetch('PID.8.1')
-      end
-
-      def address_type
-        address.address_type
-      end
-
-      def street
-        address.street
-      end
-
-      def city
-        address.city
-      end
-
-      def zipcode
-        address.zipcode
-      end
-
-      def country
-        address.country
       end
 
       private
