@@ -15,11 +15,11 @@ describe 'Fetching A19 from CDIS' do
     its([:lastname])     { should == 'Fictief' }
     its([:display_name]) { should == nil }
     its([:email])        { should == nil }
-    its([:address_type]) { should == :todo }
-    its([:street])       { should == :todo }
-    its([:city])         { should == :todo }
-    its([:zipcode])      { should == :todo }
-    its([:country])      { should == :todo }
+    its([:address_type]) { should == 'M' }
+    its([:street])       { should == '-Hanzepleinfout 1' }
+    its([:city])         { should == 'Groningen' }
+    its([:zipcode])      { should == '42869' }
+    its([:country])      { should == '' }
     its([:birthdate])    { should == '19800101' }
     its([:gender])       { should == 'M' }
   end
@@ -38,11 +38,11 @@ describe 'Fetching A19 from CDIS' do
     its([:lastname])     { should == 'Fictief' }
     its([:display_name]) { should == nil }
     its([:email])        { should == nil }
-    its([:address_type]) { should == :todo }
-    its([:street])       { should == :todo }
-    its([:city])         { should == :todo }
-    its([:zipcode])      { should == :todo }
-    its([:country])      { should == :todo }
+    its([:address_type]) { should == 'M' }
+    its([:street])       { should == 'Ziekenhuisplein 1' }
+    its([:city])         { should == 'Assen' }
+    its([:zipcode])      { should == '9402XX' }
+    its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '19121212' }
     its([:gender])       { should == 'M' }
   end
@@ -61,13 +61,12 @@ describe 'Fetching A19 from CDIS' do
     its([:lastname])     { should == 'Geit' }
     its([:display_name]) { should == nil }
     its([:email])        { should == nil }
-    its([:address_type]) { should == :todo }
-    its([:street])       { should == :todo }
-    its([:city])         { should == :todo }
-    its([:zipcode])      { should == :todo }
-    its([:country])      { should == :todo }
+    its([:address_type]) { should == 'M' }
+    its([:street])       { should == '-Oostersnglfout ' }
+    its([:city])         { should == 'Groningen' }
+    its([:zipcode])      { should == '9713EZ' }
+    its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '19880101' }
     its([:gender])       { should == 'F' }
   end
-
 end

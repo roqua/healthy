@@ -15,11 +15,11 @@ describe 'Fetching A19 from XMcare' do
     its([:lastname])     { should == 'Achternaam' }
     its([:display_name]) { should == 'Achternaam' }
     its([:email])        { should == '' }
-    its([:address_type]) { should == :todo }
-    its([:street])       { should == :todo }
-    its([:city])         { should == :todo }
-    its([:zipcode])      { should == :todo }
-    its([:country])      { should == :todo }
+    its([:address_type]) { should == 'H' }
+    its([:street])       { should == 'Straatnaam 37' }
+    its([:city])         { should == 'PLAATSNAAM' }
+    its([:zipcode])      { should == '1234AB' }
+    its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
   end
@@ -38,11 +38,11 @@ describe 'Fetching A19 from XMcare' do
     its([:lastname])     { should == 'Achternaam' }
     its([:display_name]) { should == 'Meisjesnaam - Achternaam' }
     its([:email])        { should == 'email@example.com' }
-    its([:address_type]) { should == :todo }
-    its([:street])       { should == :todo }
-    its([:city])         { should == :todo }
-    its([:zipcode])      { should == :todo }
-    its([:country])      { should == :todo }
+    its([:address_type]) { should == 'H' }
+    its([:street])       { should == 'Straatnaam 37' }
+    its([:city])         { should == 'PLAATSNAAM' }
+    its([:zipcode])      { should == '1234AB' }
+    its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
   end

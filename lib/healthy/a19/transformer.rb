@@ -6,6 +6,7 @@ module Healthy
       def initialize(message)
         @message = message
         @message['PID']['PID.5'] = [@message.fetch('PID').fetch('PID.5')].flatten
+        @message['PID']['PID.11'] = [@message.fetch('PID').fetch('PID.11')].flatten.compact
         @message['PID']['PID.13'] = [@message.fetch('PID').fetch('PID.13')].flatten.compact
       end
 
@@ -14,13 +15,17 @@ module Healthy
         %w(status channel source identities birthdate gender
            firstname initials lastname display_name email
            address_type street city zipcode country).map(&:to_sym).each do |key|
-          begin
-            patient[key] = send(key)
-          rescue NameError
-            patient[key] = :todo
-          end
+          patient[key] = send(key)
         end
         patient
+      end
+
+      def status
+        :todo
+      end
+
+      def channel
+        :todo
       end
 
       def source
@@ -82,6 +87,26 @@ module Healthy
         message.fetch('PID').fetch('PID.8').fetch('PID.8.1')
       end
 
+      def address_type
+        address[:address_type]
+      end
+
+      def street
+        address[:street]
+      end
+
+      def city
+        address[:city]
+      end
+
+      def zipcode
+        address[:zipcode]
+      end
+
+      def country
+        address[:country]
+      end
+
       private
 
       def names
@@ -101,105 +126,38 @@ module Healthy
         names
       end
 
+      def address
+        address = {}
+
+        message.fetch('PID').fetch('PID.11').each do |record|
+          # HOME ADDRESS
+          if record.fetch('PID.11.7', :unknown_type_of_address_record) == 'H'
+            address[:address_type] = clean(record.fetch('PID.11.7'))
+            address[:street]       = clean(record.fetch('PID.11.1').fetch('PID.11.1.1'))
+            address[:city]         = clean(record.fetch('PID.11.3'))
+            address[:zipcode]      = clean(record.fetch('PID.11.5'))
+            address[:country]      = clean(record.fetch('PID.11.6'))
+          end
+        end
+
+        message.fetch('PID').fetch('PID.11').each do |record|
+          # MAILING ADDRESS
+          if record.fetch('PID.11.7', :unknown_type_of_address_record) == 'M'
+            address[:address_type] = clean(record.fetch('PID.11.7'))
+            address[:street]       = clean(record.fetch('PID.11.1').fetch('PID.11.1.1'))
+            address[:city]         = clean(record.fetch('PID.11.3'))
+            address[:zipcode]      = clean(record.fetch('PID.11.5'))
+            address[:country]      = clean(record.fetch('PID.11.6'))
+          end
+        end
+
+        address
+      end
+
+
       def clean(string)
         string.gsub(/^""$/, "")
       end
     end
   end
 end
-
-#       var tmp = new XML("<patient></patient>");
-#       tmp["status"] = status;
-#       tmp["channel"] = Packages.com.mirth.connect.server.controllers.ChannelController.getInstance().getDeployedChannelById(channelId).getName();;
-
-#       if (status == "FAILURE" || status == "NACK") {
-#           tmp["error"] = remoteResponse.getMessage();
-#       } else {
-#           // tmp["ack"] = remoteResponse.getMessage();
-#           tmp["source"] = msg['MSH']['MSH.4']['MSH.4.1'].toString();
-
-
-#           ///////////////////////////////////////////////////////////////////////////////
-#           var names = msg['PID']['PID.5']
-#           var legal_name;
-#           var display_name;
-#           var nick_name;
-
-#           for each (name in names) {
-#               if (name['PID.5.7'].toString() == "L") {
-#                   legal_name = name;
-#               }
-
-#               if (name['PID.5.7'].toString() == "D") {
-#                   display_name = name;
-#               }
-
-#               if (name['PID.5.7'].toString() == "N") {
-#                   nick_name = name;
-#               }
-#           }
-
-#           if (legal_name) {
-#               if (tmp['source'] == "UMCG") { // UCP
-#                   tmp['firstname']    = clean(legal_name['PID.5.2'].toString());                // J
-#                   tmp['initials']     = clean(legal_name['PID.5.3'].toString());                // A
-#                   tmp['lastname']     = clean(legal_name['PID.5.1']['PID.5.1.3'].toString());   // Fictief
-#               } else {                // DE REST
-#                   // firstname zit niet in legal name maar in nickname. die pikken we er later uit
-#                   // tmp['firstname']    = '';
-
-#                   // eerste initiaal zit in 5.2, overige initialen zitten in 5.3 indien aanwezig
-#                   first_initial = clean(legal_name['PID.5.2'].toString()); // J
-#                   rest_initials = clean(legal_name['PID.5.3'].toString()); // A X
-#                   if (rest_initials == '') {
-#                       tmp['initials']   = first_initial;
-#                   } else {
-#                       tmp['initials']   = first_initial + ' ' + rest_initials;
-#                   }
-
-#                   // lastname zit in 5.1.3, maar "van der" zit misschien in 5.1.2
-#                   lastname        = clean(legal_name['PID.5.1']['PID.5.1.3'].toString()); // Fictief
-#                   lastname_prefix = clean(legal_name['PID.5.1']['PID.5.1.2'].toString()); // van der
-#                   if (lastname_prefix != "") {
-#                       tmp['lastname'] = lastname_prefix + " " + lastname;
-#                   } else {
-#                       tmp['lastname'] = lastname;
-#                   }
-#               }
-#           }
-
-#           for each (phone in msg['PID']['PID.13']) {
-#               if (phone['PID.13.2'] && phone['PID.13.2'].toString() == "NET") {
-#                   tmp['email'] = clean(phone['PID.13.1'].toString());
-#                   if (tmp['email'] && tmp['email'] == "") {
-#                       tmp['email'] = clean(phone['PID.13.4'].toString());
-#                   }
-#               }
-#           }
-
-#           for each (address in msg['PID']['PID.11']) {
-#               if (address['PID.11.7'] && address['PID.11.7'].toString() == "H") {
-#                   tmp['address_type'] = clean(address['PID.11.7'].toString());
-#                   tmp['street']  = clean(address['PID.11.1']['PID.11.1.1'].toString());
-#                   tmp['city']    = clean(address['PID.11.3'].toString());
-#                   tmp['zipcode'] = clean(address['PID.11.5'].toString());
-#                   tmp['country'] = clean(address['PID.11.6'].toString());
-#               }
-#           }
-
-#           for each (address in msg['PID']['PID.11']) {
-#               if (address['PID.11.7'] && address['PID.11.7'].toString() == "M") {
-#                   tmp['address_type'] = clean(address['PID.11.7'].toString());
-#                   tmp['street']  = clean(address['PID.11.1']['PID.11.1.1'].toString());
-#                   tmp['city']    = clean(address['PID.11.3'].toString());
-#                   tmp['zipcode'] = clean(address['PID.11.5'].toString());
-#                   tmp['country'] = clean(address['PID.11.6'].toString());
-#               }
-#           }
-
-#       }
-
-#       //logger.debug("Our response: " + tmp.toXMLString());
-#       responseMap.put("A19", ResponseFactory.getSuccessResponse(tmp.toXMLString()));
-#   }
-# }
