@@ -1,4 +1,4 @@
-# healthy
+# Healthy [![Code Climate](https://codeclimate.com/repos/524944dd56b10217490074e8/badges/5dd696b69c4614c83c2d/gpa.png)](https://codeclimate.com/repos/524944dd56b10217490074e8/feed) [![CircleCi](https://circleci.com/gh/roqua/healthy.png?circle-token=ece8f36798b00bc8659d5c76f720b22693d6600a)](https://circleci.com/gh/roqua/healthy)
 
 * [Homepage](https://github.com/roqua/healthy#readme)
 * [Issues](https://github.com/roqua/healthy/issues)
