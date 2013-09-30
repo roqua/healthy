@@ -5,19 +5,30 @@ module Healthy
 
       def initialize(message)
         @message = message
-        @message['PID']['PID.5'] = [@message.fetch('PID').fetch('PID.5')].flatten
+        @message['PID']['PID.5']  = [@message.fetch('PID').fetch('PID.5')].flatten.compact
         @message['PID']['PID.11'] = [@message.fetch('PID').fetch('PID.11')].flatten.compact
         @message['PID']['PID.13'] = [@message.fetch('PID').fetch('PID.13')].flatten.compact
       end
 
       def to_patient
-        patient = {}
-        %w(status source identities birthdate gender
-           firstname initials lastname display_name email
-           address_type street city zipcode country).map(&:to_sym).each do |key|
-          patient[key] = send(key)
-        end
-        patient
+        {
+          status: status,
+          source: source,
+          identities: identities,
+          firstname: firstname,
+          initials: initials,
+          lastname: lastname,
+          display_name: display_name,
+          email: email,
+          address_type: address_type,
+          street: street,
+          city: city,
+          zipcode: zipcode,
+          country: country,
+          email: email,
+          birthdate: birthdate,
+          gender: gender
+        }
       end
 
       def status
@@ -123,33 +134,18 @@ module Healthy
       end
 
       def address
+        record   = message.fetch('PID').fetch('PID.11').find {|record| record.fetch('PID.11.7', :unknown_type_of_address_record) == 'M' }
+        record ||= message.fetch('PID').fetch('PID.11').find {|record| record.fetch('PID.11.7', :unknown_type_of_address_record) == 'H' }
+
         address = {}
-
-        message.fetch('PID').fetch('PID.11').each do |record|
-          # HOME ADDRESS
-          if record.fetch('PID.11.7', :unknown_type_of_address_record) == 'H'
-            address[:address_type] = clean(record.fetch('PID.11.7'))
-            address[:street]       = clean(record.fetch('PID.11.1').fetch('PID.11.1.1'))
-            address[:city]         = clean(record.fetch('PID.11.3'))
-            address[:zipcode]      = clean(record.fetch('PID.11.5'))
-            address[:country]      = clean(record.fetch('PID.11.6'))
-          end
-        end
-
-        message.fetch('PID').fetch('PID.11').each do |record|
-          # MAILING ADDRESS
-          if record.fetch('PID.11.7', :unknown_type_of_address_record) == 'M'
-            address[:address_type] = clean(record.fetch('PID.11.7'))
-            address[:street]       = clean(record.fetch('PID.11.1').fetch('PID.11.1.1'))
-            address[:city]         = clean(record.fetch('PID.11.3'))
-            address[:zipcode]      = clean(record.fetch('PID.11.5'))
-            address[:country]      = clean(record.fetch('PID.11.6'))
-          end
-        end
+        address[:address_type] = clean(record.fetch('PID.11.7'))
+        address[:street]       = clean(record.fetch('PID.11.1').fetch('PID.11.1.1'))
+        address[:city]         = clean(record.fetch('PID.11.3'))
+        address[:zipcode]      = clean(record.fetch('PID.11.5'))
+        address[:country]      = clean(record.fetch('PID.11.6'))
 
         address
       end
-
 
       def clean(string)
         string.gsub(/^""$/, "")
