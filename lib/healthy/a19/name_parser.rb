@@ -29,10 +29,6 @@ module Healthy
 
       private
 
-      def source
-        message.fetch('MSH').fetch('MSH.4').fetch('MSH.4.1')
-      end
-
       def names
         names = {}
         message.fetch('PID').fetch('PID.5').each do |record|
