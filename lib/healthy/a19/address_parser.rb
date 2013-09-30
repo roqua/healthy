@@ -7,18 +7,24 @@ module Healthy
         @message = message
       end
 
-      def [](key)
-        address[key]
+      def address_type
+        clean(record.fetch('PID.11.7'))
       end
 
-      def address
-        address = {}
-        address[:address_type] = clean(record.fetch('PID.11.7'))
-        address[:street]       = clean(record.fetch('PID.11.1').fetch('PID.11.1.1'))
-        address[:city]         = clean(record.fetch('PID.11.3'))
-        address[:zipcode]      = clean(record.fetch('PID.11.5'))
-        address[:country]      = clean(record.fetch('PID.11.6'))
-        address
+      def street
+        clean(record.fetch('PID.11.1').fetch('PID.11.1.1'))
+      end
+
+      def city
+        clean(record.fetch('PID.11.3'))
+      end
+
+      def zipcode
+        clean(record.fetch('PID.11.5'))
+      end
+
+      def country
+        clean(record.fetch('PID.11.6'))
       end
 
       def record

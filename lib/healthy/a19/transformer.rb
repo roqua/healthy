@@ -97,23 +97,23 @@ module Healthy
       end
 
       def address_type
-        address[:address_type]
+        address.address_type
       end
 
       def street
-        address[:street]
+        address.street
       end
 
       def city
-        address[:city]
+        address.city
       end
 
       def zipcode
-        address[:zipcode]
+        address.zipcode
       end
 
       def country
-        address[:country]
+        address.country
       end
 
       private
