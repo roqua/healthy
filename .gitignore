@@ -4,5 +4,4 @@ Gemfile.lock
 doc/
 pkg/
 vendor/cache/*.gem
-
 tmp/rspec_guard_result
