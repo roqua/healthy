@@ -26,4 +26,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'yard', '~> 0.8'
 
   gem.add_development_dependency 'webmock', '~> 1.13'
+  gem.add_development_dependency 'guard'
+  gem.add_development_dependency 'guard-rspec'
 end
