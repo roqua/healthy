@@ -5,6 +5,8 @@ module Healthy
 
       def initialize(message)
         @message = message
+        @message['PID']['PID.5'] = [@message.fetch('PID').fetch('PID.5')].flatten
+        @message['PID']['PID.13'] = [@message.fetch('PID').fetch('PID.13')].flatten.compact
       end
 
       def to_patient
@@ -33,21 +35,30 @@ module Healthy
       end
 
       def firstname
-        # TODO UMCG
-        return unless names[:nick]
-        names[:nick].fetch('PID.5.2')
+        if source == "UMCG"
+          names[:legal].fetch('PID.5.2')
+        else
+          return unless names[:nick]
+          names[:nick].fetch('PID.5.2')
+        end
       end
 
       def initials
-        # TODO UMCG
-        "#{names[:legal].fetch('PID.5.2')} #{names[:legal].fetch('PID.5.3')}".strip
+        if source == "UMCG"
+          names[:legal].fetch('PID.5.3')
+        else
+          "#{names[:legal].fetch('PID.5.2')} #{names[:legal].fetch('PID.5.3')}".strip
+        end
       end
 
       def lastname
-        # TODO UMCG
-        prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
-        lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
-        "#{prefix} #{lastname}".strip
+        if source == "UMCG"
+          names[:legal].fetch('PID.5.1').fetch('PID.5.1.3')
+        else
+          prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
+          lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
+          "#{prefix} #{lastname}".strip
+        end
       end
 
       def display_name
@@ -60,9 +71,11 @@ module Healthy
       end
 
       def email
-        message.fetch('PID').fetch('PID.13').find do |record|
-          record.fetch('PID.13.2') == 'NET'
-        end.fetch('PID.13.1')
+        email_record = message.fetch('PID').fetch('PID.13').find do |record|
+          record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'NET'
+        end
+        return nil unless email_record
+        email_record.fetch('PID.13.1')
       end
 
       def gender
