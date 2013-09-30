@@ -5,8 +5,7 @@ describe 'Fetching A19 from XMcare' do
     before { load_fixture 'xmcare_patient', '12345678901' }
     subject { Healthy::A19.fetch("12345678901") }
 
-    its([:status])       { should == :todo }
-    its([:channel])      { should == :todo }
+    its([:status])       { should == 'SUCCESS' }
     its([:error])        { should == nil }
     its([:source])       { should == 'ZIS' }
     its([:identities])   { should == [{ident: '12345678901', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }
@@ -28,8 +27,7 @@ describe 'Fetching A19 from XMcare' do
     before { load_fixture 'xmcare_patient_with_maiden_name', '12345678901' }
     subject { Healthy::A19.fetch("12345678901") }
 
-    its([:status])       { should == :todo }
-    its([:channel])      { should == :todo }
+    its([:status])       { should == 'SUCCESS' }
     its([:error])        { should == nil }
     its([:source])       { should == 'ZIS' }
     its([:identities])   { should == [{ident: '12345678901', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }

@@ -5,8 +5,7 @@ describe 'Fetching A19 from CDIS' do
     before { load_fixture 'cdis_jan_fictief', '7767853' }
     subject { Healthy::A19.fetch("7767853") }
 
-    its([:status])       { should == :todo }
-    its([:channel])      { should == :todo }
+    its([:status])       { should == 'SUCCESS' }
     its([:error])        { should == nil }
     its([:source])       { should == 'UMCG' }
     its([:identities])   { should == [{ident: '7767853', authority: 'PI'}] }
@@ -28,8 +27,7 @@ describe 'Fetching A19 from CDIS' do
     before { load_fixture 'cdis_piet_fictief', '7718758' }
     subject { Healthy::A19.fetch("7718758") }
 
-    its([:status])       { should == :todo }
-    its([:channel])      { should == :todo }
+    its([:status])       { should == 'SUCCESS' }
     its([:error])        { should == nil }
     its([:source])       { should == 'UMCG' }
     its([:identities])   { should == [{ident: '7718758', authority: 'PI'}] }
@@ -51,8 +49,7 @@ describe 'Fetching A19 from CDIS' do
     before { load_fixture 'cdis_gerda_geit', '7078387' }
     subject { Healthy::A19.fetch("7078387") }
 
-    its([:status])       { should == :todo }
-    its([:channel])      { should == :todo }
+    its([:status])       { should == 'SUCCESS' }
     its([:error])        { should == nil }
     its([:source])       { should == 'UMCG' }
     its([:identities])   { should == [{ident: '7078387', authority: 'PI'}, {ident: '003704397', authority: 'NNNLD'}] }

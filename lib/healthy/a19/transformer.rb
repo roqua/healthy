@@ -12,7 +12,7 @@ module Healthy
 
       def to_patient
         patient = {}
-        %w(status channel source identities birthdate gender
+        %w(status source identities birthdate gender
            firstname initials lastname display_name email
            address_type street city zipcode country).map(&:to_sym).each do |key|
           patient[key] = send(key)
@@ -21,11 +21,7 @@ module Healthy
       end
 
       def status
-        :todo
-      end
-
-      def channel
-        :todo
+        'SUCCESS'
       end
 
       def source
