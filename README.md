@@ -1,6 +1,16 @@
 # Healthy [![Code Climate](https://codeclimate.com/repos/524944dd56b10217490074e8/badges/5dd696b69c4614c83c2d/gpa.png)](https://codeclimate.com/repos/524944dd56b10217490074e8/feed) [![CircleCi](https://circleci.com/gh/roqua/healthy.png?circle-token=ece8f36798b00bc8659d5c76f720b22693d6600a)](https://circleci.com/gh/roqua/healthy)
 
-## Adding integration tests
+## Patient details aka QRY\^A19
+
+### Usage
+
+```ruby
+Healthy::A19.fetch(patient_identifier)
+```
+
+### Adding integration tests
+
+If you find any A19 response that Healthy currently does not handle correctly, please add a fixture and integration test for it.
 
 * `curl --data "method=A19&application=healthy&patient_id=7767853" "http://10.20.11.100:60401"`
 * Paste the resulting XML into a new file in `spec/fixtures`
