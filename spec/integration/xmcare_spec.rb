@@ -1,34 +1,49 @@
 require 'spec_helper'
 
 describe 'Fetching A19 from XMcare' do
-  it 'returns data for records with maiden name' do
-    load_fixture 'xmcare_patient_with_maiden_name'
-    data = {
-      status: 'SUCCESS',
-      channel: 'FOO',
-      error: nil,
-      source: 'ZIS',
-      identities: [
-        {ident: '12345678901', authority: 'PI'},
-        {ident: '123456789',   authority: 'NNNLD'}
-      ],
-      firstname: 'Babette',
-      initials: 'A B',
-      lastname: 'Achternaam',
-      display_name: 'Meisjesnaam - Achternaam',
-      email: 'email@example.com',
-      address_type: nil,
-      street: nil,
-      city: nil,
-      zipcode: nil,
-      country: nil,
-      birthdate: '17070415',
-      gender: 'F'
-    }
+  describe 'a patient' do
+    before { load_fixture 'xmcare_patient', '12345678901' }
+    subject { Healthy::A19.fetch("12345678901") }
 
-    response = Healthy::A19.fetch("123")
-    data.each do |key, value|
-      [:todo, value].should include(response[key])
-    end
+    its([:status])       { should == :todo }
+    its([:channel])      { should == :todo }
+    its([:error])        { should == nil }
+    its([:source])       { should == 'ZIS' }
+    its([:identities])   { should == [{ident: '12345678901', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }
+    its([:firstname])    { should == 'Babette' }
+    its([:initials])     { should == 'A B' }
+    its([:lastname])     { should == 'Achternaam' }
+    its([:display_name]) { should == 'Achternaam' }
+    its([:email])        { should == '' }
+    its([:address_type]) { should == :todo }
+    its([:street])       { should == :todo }
+    its([:city])         { should == :todo }
+    its([:zipcode])      { should == :todo }
+    its([:country])      { should == :todo }
+    its([:birthdate])    { should == '17070415' }
+    its([:gender])       { should == 'F' }
+  end
+
+  describe 'a patient with a maiden name' do
+    before { load_fixture 'xmcare_patient_with_maiden_name', '12345678901' }
+    subject { Healthy::A19.fetch("12345678901") }
+
+    its([:status])       { should == :todo }
+    its([:channel])      { should == :todo }
+    its([:error])        { should == nil }
+    its([:source])       { should == 'ZIS' }
+    its([:identities])   { should == [{ident: '12345678901', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }
+    its([:firstname])    { should == 'Babette' }
+    its([:initials])     { should == 'A B' }
+    its([:lastname])     { should == 'Achternaam' }
+    its([:display_name]) { should == 'Meisjesnaam - Achternaam' }
+    its([:email])        { should == 'email@example.com' }
+    its([:address_type]) { should == :todo }
+    its([:street])       { should == :todo }
+    its([:city])         { should == :todo }
+    its([:zipcode])      { should == :todo }
+    its([:country])      { should == :todo }
+    its([:birthdate])    { should == '17070415' }
+    its([:gender])       { should == 'F' }
   end
 end

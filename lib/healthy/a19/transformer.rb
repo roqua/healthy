@@ -75,7 +75,7 @@ module Healthy
           record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'NET'
         end
         return nil unless email_record
-        email_record.fetch('PID.13.1')
+        clean(email_record.fetch('PID.13.1'))
       end
 
       def gender
