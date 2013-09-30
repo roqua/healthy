@@ -19,10 +19,10 @@ module Healthy
           status:       status,
           source:       source,
           identities:   identities,
-          firstname:    names.firstname,
-          initials:     names.initials,
-          lastname:     names.lastname,
-          display_name: names.display_name,
+          firstname:    name.firstname,
+          initials:     name.initials,
+          lastname:     name.lastname,
+          display_name: name.display_name,
           email:        email,
           address_type: address.address_type,
           street:       address.street,
@@ -67,7 +67,7 @@ module Healthy
 
       private
 
-      def names
+      def name
         case source
         when "UMCG"
           CdisNameParser.new(message)

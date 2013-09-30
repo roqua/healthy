@@ -1,3 +1,5 @@
+require 'healthy/a19/name_parser'
+
 module Healthy
   module A19
     class CdisNameParser < NameParser
