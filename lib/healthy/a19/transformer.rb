@@ -1,3 +1,4 @@
+require 'healthy/a19/name_parser'
 require 'healthy/a19/address_parser'
 
 module Healthy
@@ -98,20 +99,7 @@ module Healthy
       private
 
       def names
-        names = {}
-        message.fetch('PID').fetch('PID.5').each do |record|
-          case record.fetch('PID.5.7')
-          when 'L'
-            names[:legal] = record
-          when 'D'
-            names[:display] = record
-          when 'N'
-            names[:nick] = record
-          else
-            # ignore record
-          end
-        end
-        names
+        NameParser.new(message).names
       end
 
       def address
