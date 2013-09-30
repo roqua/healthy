@@ -25,7 +25,13 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec', '~> 2.4'
   gem.add_development_dependency 'yard', '~> 0.8'
 
+  # Required for the tests
   gem.add_development_dependency 'webmock', '~> 1.13'
-  gem.add_development_dependency 'guard'
-  gem.add_development_dependency 'guard-rspec'
+
+  # Workflow and tools
+  gem.add_development_dependency 'guard', '~> 1.8'
+  gem.add_development_dependency 'guard-rspec', '~> 2.5'
+
+  # Documentation generation
+  gem.add_development_dependency 'kramdown', '1.2'
 end
