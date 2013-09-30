@@ -5,27 +5,14 @@
 * [Documentation](http://rubydoc.info/gems/healthy/frames)
 * [Email](mailto:marten at roqua.nl)
 
-## Description
+## Adding integration tests
 
-How to get test data:
-
-`curl --data "method=A19&application=healthy&patient_id=7767853" "http://10.20.11.100:60401"`
-
-## Features
-
-
-## Examples
-
-    require 'healthy'
-
-## Requirements
-
-## Install
-
-    $ gem install healthy
+* `curl --data "method=A19&application=healthy&patient_id=7767853" "http://10.20.11.100:60401"`
+* Paste the resulting XML into a new file in `spec/fixtures`
+* Please run it through an XML pretty printer like `xmllint --format` to get indented output.
+* Remove/sanitize/anonymize the XML file where needed.
+* Add an integration spec example that uses it and checks all currently returned values.
 
 ## Copyright
 
-Copyright (c) 2013 Marten Veldthuis
-
-See {file:LICENSE.txt} for details.
+Copyright (c) 2013 Marten Veldthuis. Publicly available under an MIT license. See [LICENSE.txt](https://github.com/roqua/healthy/blob/master/LICENSE.txt) for details.
