@@ -18,10 +18,10 @@ module Healthy
           status:       status,
           source:       source,
           identities:   identities,
-          firstname:    firstname,
-          initials:     initials,
-          lastname:     lastname,
-          display_name: display_name,
+          firstname:    names.firstname,
+          initials:     names.initials,
+          lastname:     names.lastname,
+          display_name: names.display_name,
           email:        email,
           address_type: address.address_type,
           street:       address.street,
@@ -48,38 +48,6 @@ module Healthy
         end.compact
       end
 
-      def firstname
-        if source == "UMCG"
-          names[:legal].fetch('PID.5.2')
-        else
-          return unless names[:nick]
-          names[:nick].fetch('PID.5.2')
-        end
-      end
-
-      def initials
-        if source == "UMCG"
-          names[:legal].fetch('PID.5.3')
-        else
-          "#{names[:legal].fetch('PID.5.2')} #{names[:legal].fetch('PID.5.3')}".strip
-        end
-      end
-
-      def lastname
-        if source == "UMCG"
-          names[:legal].fetch('PID.5.1').fetch('PID.5.1.3')
-        else
-          prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
-          lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
-          "#{prefix} #{lastname}".strip
-        end
-      end
-
-      def display_name
-        return unless names[:display]
-        names[:display].fetch('PID.5.1')
-      end
-
       def birthdate
         message.fetch('PID').fetch('PID.7').fetch('PID.7.1')
       end
@@ -99,7 +67,7 @@ module Healthy
       private
 
       def names
-        NameParser.new(message).names
+        NameParser.new(message)
       end
 
       def address

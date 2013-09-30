@@ -7,6 +7,44 @@ module Healthy
         @message = message
       end
 
+      def firstname
+        if source == "UMCG"
+          names[:legal].fetch('PID.5.2')
+        else
+          return unless names[:nick]
+          names[:nick].fetch('PID.5.2')
+        end
+      end
+
+      def initials
+        if source == "UMCG"
+          names[:legal].fetch('PID.5.3')
+        else
+          "#{names[:legal].fetch('PID.5.2')} #{names[:legal].fetch('PID.5.3')}".strip
+        end
+      end
+
+      def lastname
+        if source == "UMCG"
+          names[:legal].fetch('PID.5.1').fetch('PID.5.1.3')
+        else
+          prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
+          lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
+          "#{prefix} #{lastname}".strip
+        end
+      end
+
+      def display_name
+        return unless names[:display]
+        names[:display].fetch('PID.5.1')
+      end
+
+      private
+
+      def source
+        message.fetch('MSH').fetch('MSH.4').fetch('MSH.4.1')
+      end
+
       def names
         names = {}
         message.fetch('PID').fetch('PID.5').each do |record|
@@ -22,6 +60,10 @@ module Healthy
           end
         end
         names
+      end
+
+      def clean(string)
+        string.gsub(/^""$/, "")
       end
     end
   end
