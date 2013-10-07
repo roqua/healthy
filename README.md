@@ -24,7 +24,7 @@ There are two helpers in `bin`: `get_xml_for_patient` and `parse_local_xml`. The
 
 These two commands are then chained together by `bin/get`:
 
-`bin/get 7767853 '10.20.11.100:60201'`
+`bin/get 7767853 10.20.11.100:60201`
 
 ## Copyright
 
