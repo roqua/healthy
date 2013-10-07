@@ -58,7 +58,10 @@ module Healthy
           record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'NET'
         end
         return nil unless email_record
-        clean(email_record.fetch('PID.13.1'))
+
+        email_address = clean(email_record.fetch('PID.13.1', ""))
+        email_address = clean(email_record.fetch('PID.13.4', "")) if email_address.blank?
+        email_address
       end
 
       def gender
@@ -81,6 +84,7 @@ module Healthy
       end
 
       def clean(string)
+        return "" unless string
         string.gsub(/^""$/, "")
       end
     end
