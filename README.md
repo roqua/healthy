@@ -15,7 +15,7 @@ If you find any A19 response that Healthy currently does not handle correctly, p
 * `curl --data "method=A19&application=healthy&patient_id=7767853" "http://10.20.11.100:60401"`
 * Paste the resulting XML into a new file in `spec/fixtures`
 * Please run it through an XML pretty printer like `xmllint --format` to get indented output.
-* Remove/sanitize/anonymize the XML file where needed.
+* **&lt;blink&gt;Remove/sanitize/anonymize the XML file where needed.&lt;/blink&gt;**
 * Add an integration spec example that uses it and checks all currently returned values.
 
 ## Copyright
