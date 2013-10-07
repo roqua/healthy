@@ -32,7 +32,7 @@ module Healthy
       def names
         names = {}
         message.fetch('PID').fetch('PID.5').each do |record|
-          case record.fetch('PID.5.7')
+          case record.fetch('PID.5.7', :unknown_type_of_name_record)
           when 'L'
             names[:legal] = record
           when 'D'
