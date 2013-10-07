@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'healthy'
+require 'ap'
+
+body    = ARGF.read
+message = Hash.from_xml(body).fetch("HL7Message") { Hash.new }
+
+ap Healthy::A19::Transformer.new(message).to_patient

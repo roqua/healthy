@@ -18,6 +18,14 @@ If you find any A19 response that Healthy currently does not handle correctly, p
 * **&lt;blink&gt;Remove/sanitize/anonymize the XML file where needed.&lt;/blink&gt;** We can't do this automatically with a script, because having a script normalize e.g. all names to "Voornaam Achternaam" would defeat the entire point of having multiple fixtures to show the different styles of names we can encounter.
 * Add an integration spec example that uses it and checks all currently returned values.
 
+### Manually trying out parsing of a given record
+
+There are two helpers in `bin`: `get_xml_for_patient` and `parse_local_xml`. The first one takes a patient number and ip+port on the mirth machine, and gets the XML from there. The second parses a chunk of XML from either standard input or a given file.
+
+You can then chain these two together like:
+
+`bin/get_xml_for_patient 7767853 '10.20.11.100:60201' | ruby -Ilib bin/parse_local_xml`
+
 ## Copyright
 
 Copyright (c) 2013 Marten Veldthuis. Publicly available under an MIT license. See [LICENSE.txt](https://github.com/roqua/healthy/blob/master/LICENSE.txt) for details.
