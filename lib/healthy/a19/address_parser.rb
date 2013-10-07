@@ -8,22 +8,27 @@ module Healthy
       end
 
       def address_type
+        return nil unless record
         record.fetch('PID.11.7')
       end
 
       def street
+        return nil unless record
         record.fetch('PID.11.1').fetch('PID.11.1.1')
       end
 
       def city
+        return nil unless record
         record.fetch('PID.11.3')
       end
 
       def zipcode
+        return nil unless record
         record.fetch('PID.11.5')
       end
 
       def country
+        return nil unless record
         record.fetch('PID.11.6')
       end
 
