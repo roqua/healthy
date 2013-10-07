@@ -1,4 +1,5 @@
 require 'net/http'
+require 'addressable/uri'
 require 'active_support/core_ext/hash/conversions'
 
 module Healthy
