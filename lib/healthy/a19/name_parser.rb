@@ -17,8 +17,8 @@ module Healthy
       end
 
       def lastname
-        prefix   = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.2'))
-        lastname = clean(names[:legal].fetch('PID.5.1').fetch('PID.5.1.3'))
+        prefix   = names[:legal].fetch('PID.5.1').fetch('PID.5.1.2')
+        lastname = names[:legal].fetch('PID.5.1').fetch('PID.5.1.3')
         "#{prefix} #{lastname}".strip
       end
 
@@ -44,10 +44,6 @@ module Healthy
           end
         end
         names
-      end
-
-      def clean(string)
-        string.gsub(/^""$/, "")
       end
     end
   end

@@ -8,23 +8,23 @@ module Healthy
       end
 
       def address_type
-        clean(record.fetch('PID.11.7'))
+        record.fetch('PID.11.7')
       end
 
       def street
-        clean(record.fetch('PID.11.1').fetch('PID.11.1.1'))
+        record.fetch('PID.11.1').fetch('PID.11.1.1')
       end
 
       def city
-        clean(record.fetch('PID.11.3'))
+        record.fetch('PID.11.3')
       end
 
       def zipcode
-        clean(record.fetch('PID.11.5'))
+        record.fetch('PID.11.5')
       end
 
       def country
-        clean(record.fetch('PID.11.6'))
+        record.fetch('PID.11.6')
       end
 
       def record
@@ -32,10 +32,6 @@ module Healthy
         @record ||= message.fetch('PID').fetch('PID.11').find {|record| record.fetch('PID.11.7', :unknown_type_of_address_record) == 'M' }
         @record ||= message.fetch('PID').fetch('PID.11').find {|record| record.fetch('PID.11.7', :unknown_type_of_address_record) == 'H' }
         @record
-      end
-
-      def clean(string)
-        string.gsub(/^""$/, "")
       end
     end
   end

@@ -12,6 +12,7 @@ module Healthy
         @message['PID']['PID.5']  = [@message.fetch('PID').fetch('PID.5')].flatten.compact
         @message['PID']['PID.11'] = [@message.fetch('PID').fetch('PID.11')].flatten.compact
         @message['PID']['PID.13'] = [@message.fetch('PID').fetch('PID.13')].flatten.compact
+        @message = MessageCleaner.new(@message).message
       end
 
       def to_patient
@@ -44,7 +45,7 @@ module Healthy
 
       def identities
         message.fetch('PID').fetch('PID.3').map do |identity|
-          next if identity.fetch('PID.3.1') == "\"\""
+          next if identity.fetch('PID.3.1').blank?
           {ident: identity.fetch('PID.3.1'), authority: identity.fetch('PID.3.5')}
         end.compact
       end
@@ -59,8 +60,8 @@ module Healthy
         end
         return nil unless email_record
 
-        email_address = clean(email_record.fetch('PID.13.1', ""))
-        email_address = clean(email_record.fetch('PID.13.4', "")) if email_address.blank?
+        email_address = email_record.fetch('PID.13.1', "")
+        email_address = email_record.fetch('PID.13.4', "") if email_address.blank?
         email_address
       end
 
@@ -81,11 +82,6 @@ module Healthy
 
       def address
         AddressParser.new(message)
-      end
-
-      def clean(string)
-        return "" unless string
-        string.gsub(/^""$/, "")
       end
     end
   end

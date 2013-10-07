@@ -59,7 +59,7 @@ describe 'Fetching A19 from CDIS' do
     its([:display_name]) { should == nil }
     its([:email])        { should == nil }
     its([:address_type]) { should == 'M' }
-    its([:street])       { should == '-Oostersnglfout ' }
+    its([:street])       { should == '-Oostersnglfout' }
     its([:city])         { should == 'Groningen' }
     its([:zipcode])      { should == '9713EZ' }
     its([:country])      { should == 'NL' }

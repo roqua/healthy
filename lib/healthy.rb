@@ -1,4 +1,5 @@
 require 'healthy/version'
+require 'healthy/message_cleaner'
 require 'healthy/a19'
 require 'healthy/errors'
 
