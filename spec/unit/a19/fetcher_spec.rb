@@ -19,17 +19,9 @@ describe Healthy::A19::Fetcher do
     expect { Healthy::A19::Fetcher.new("123").fetch }.to raise_error(Healthy::IllegalMirthResponse)
   end
 
-  it "returns an error when upstream is returning ACK timeouts" do
-    pending
-    stub_mirth_response "<patient>
-                  <status>FAILURE</status>
-                  <channel>Meerkanten - Outbound port 60401</channel>
-                  <error>Timeout waiting for ACK</error>
-                </patient>"
-
-    response = Healthy::A19::Fetcher.new("123").fetch
-    response["status"].should eq("FAILURE")
-    response["error"].should =~ /Timeout waiting for ACK/
+  it "raises upstream is returning 'Timeout waiting for ACK' messages" do
+    stub_mirth_response "<failure><error>Timeout waiting for ACK</error></failure>", 500
+    expect { Healthy::A19::Fetcher.new("123").fetch }.to raise_exception(Healthy::Timeout)
   end
 
   it "raises when upstream does not accept connections" do

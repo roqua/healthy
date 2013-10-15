@@ -14,7 +14,7 @@ module Healthy
       def fetch
         response = mirth_response
         raise_unless_valid_response(response)
-        parse_response(response.body)
+        parse_response(response).fetch("HL7Message") { Hash.new }
       end
 
       def mirth_response
@@ -32,13 +32,19 @@ module Healthy
       end
 
       def raise_unless_valid_response(response)
-        return true if response.code == '200'
-        raise "Request not successful for patient #{patient_id}. Got: #{response.code}"
+        case response.code
+        when '200'
+          true
+        when '500'
+          failure = parse_response(response).fetch("failure")
+          raise ::Healthy::Timeout if failure["error"] == "Timeout waiting for ACK"
+        else
+          raise "Unexpected HTTP response code #{response.code} while fetching #{patient_id}."
+        end
       end
 
-      def parse_response(body)
-        data = Hash.from_xml(body).fetch("HL7Message") { Hash.new }
-        data
+      def parse_response(response)
+        Hash.from_xml(response.body)
       rescue REXML::ParseException => e
         raise IllegalMirthResponse, e.message
       end
