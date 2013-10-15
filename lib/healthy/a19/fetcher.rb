@@ -37,7 +37,7 @@ module Healthy
           true
         when '500'
           failure = parse_response(response).fetch("failure")
-          raise ::Healthy::Timeout if failure["error"] == "Timeout waiting for ACK"
+          raise ::Healthy::Timeout, failure["error'"] if failure["error"] == "Timeout waiting for ACK"
         else
           raise "Unexpected HTTP response code #{response.code} while fetching #{patient_id}."
         end
