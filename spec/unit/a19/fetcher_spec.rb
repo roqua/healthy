@@ -7,7 +7,7 @@ describe Healthy::A19::Fetcher do
   end
 
   it "raises when upstream does not return HTTP 200" do
-    stub_mirth_response "Request not successful", 403
+    stub_mirth_response "Request not successful", 500
     expect { Healthy::A19::Fetcher.new("123").fetch }.to raise_exception
   end
 
