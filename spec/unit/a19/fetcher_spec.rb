@@ -24,6 +24,11 @@ describe Healthy::A19::Fetcher do
     expect { Healthy::A19::Fetcher.new("123").fetch }.to raise_exception(Healthy::Timeout)
   end
 
+  it "raises upstream is returning 'connection timeout' messages" do
+    stub_mirth_response "<failure><error>Unable to connect to destination\tSocketTimeoutException\tconnect timed out</error></failure>", 500
+    expect { Healthy::A19::Fetcher.new("123").fetch }.to raise_exception(Healthy::Timeout)
+  end
+
   it "raises when upstream does not accept connections" do
     stub_mirth.to_raise Errno::ECONNREFUSED
     expect { Healthy::A19::Fetcher.new("123").fetch }.to raise_exception(Healthy::ConnectionRefused)
