@@ -1,6 +1,8 @@
 require 'net/http'
 require 'addressable/uri'
-require 'active_support/core_ext/hash/conversions'
+
+require 'healthy/a19/response_validator'
+require 'healthy/a19/response_parser'
 
 module Healthy
   module A19
@@ -13,8 +15,8 @@ module Healthy
 
       def fetch
         response = mirth_response
-        raise_unless_valid_response(response)
-        parse_response(response).fetch("HL7Message") { Hash.new }
+        ResponseValidator.new(response).validate
+        ResponseParser.new(response).parse("HL7Message")
       end
 
       def mirth_response
@@ -29,27 +31,6 @@ module Healthy
         raise ::Healthy::HostUnreachable, error.message
       rescue Errno::ECONNREFUSED => error
         raise ::Healthy::ConnectionRefused, error.message
-      end
-
-      def raise_unless_valid_response(response)
-        case response.code
-        when '200'
-          true
-        when '500'
-          failure = parse_response(response).fetch("failure")
-          raise ::Healthy::Timeout, failure["error"] if failure["error"] == "Timeout waiting for ACK"
-          raise ::Healthy::Timeout, failure["error"] if failure["error"] == "Unable to connect to destination\tSocketTimeoutException\tconnect timed out"
-          raise ::Healthy::ConnectionRefused, failure["error"] if failure["error"] == "Unable to connect to destination\tConnectException\tConnection refused"
-          raise ::Healthy::UnknownFailure, failure["error"]
-        else
-          raise "Unexpected HTTP response code #{response.code} while fetching #{patient_id}."
-        end
-      end
-
-      def parse_response(response)
-        Hash.from_xml(response.body)
-      rescue REXML::ParseException => e
-        raise IllegalMirthResponse, e.message
       end
 
       private
