@@ -59,7 +59,7 @@ module Healthy
       end
 
       def use_ssl?
-        remote_url.port == 443 or remote_url.scheme == 'https'
+        remote_url.port == 443 || remote_url.scheme == 'https'
       end
 
       def remote_url

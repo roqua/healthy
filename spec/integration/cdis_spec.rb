@@ -6,14 +6,14 @@ describe 'Fetching A19 from CDIS' do
     subject { Healthy::A19.fetch("7767853") }
 
     its([:status])       { should == 'SUCCESS' }
-    its([:error])        { should == nil }
+    its([:error])        { should be_nil }
     its([:source])       { should == 'UMCG' }
     its([:identities])   { should == [{ident: '7767853', authority: 'PI'}] }
     its([:firstname])    { should == 'Jan' }
     its([:initials])     { should == 'J.A.B.C.' }
     its([:lastname])     { should == 'Fictief' }
-    its([:display_name]) { should == nil }
-    its([:email])        { should == nil }
+    its([:display_name]) { should be_nil }
+    its([:email])        { should be_nil }
     its([:address_type]) { should == 'M' }
     its([:street])       { should == '-Hanzepleinfout 1' }
     its([:city])         { should == 'Groningen' }
@@ -28,14 +28,14 @@ describe 'Fetching A19 from CDIS' do
     subject { Healthy::A19.fetch("7718758") }
 
     its([:status])       { should == 'SUCCESS' }
-    its([:error])        { should == nil }
+    its([:error])        { should be_nil }
     its([:source])       { should == 'UMCG' }
     its([:identities])   { should == [{ident: '7718758', authority: 'PI'}] }
     its([:firstname])    { should == 'Piet' }
     its([:initials])     { should == 'P.X.X.X.' }
     its([:lastname])     { should == 'Fictief' }
-    its([:display_name]) { should == nil }
-    its([:email])        { should == nil }
+    its([:display_name]) { should be_nil }
+    its([:email])        { should be_nil }
     its([:address_type]) { should == 'M' }
     its([:street])       { should == 'Ziekenhuisplein 1' }
     its([:city])         { should == 'Assen' }
@@ -50,14 +50,14 @@ describe 'Fetching A19 from CDIS' do
     subject { Healthy::A19.fetch("7078387") }
 
     its([:status])       { should == 'SUCCESS' }
-    its([:error])        { should == nil }
+    its([:error])        { should be_nil }
     its([:source])       { should == 'UMCG' }
     its([:identities])   { should == [{ident: '7078387', authority: 'PI'}, {ident: '003704397', authority: 'NNNLD'}] }
     its([:firstname])    { should == 'Gerda' }
     its([:initials])     { should == 'G.' }
     its([:lastname])     { should == 'Geit' }
-    its([:display_name]) { should == nil }
-    its([:email])        { should == nil }
+    its([:display_name]) { should be_nil }
+    its([:email])        { should be_nil }
     its([:address_type]) { should == 'M' }
     its([:street])       { should == '-Oostersnglfout' }
     its([:city])         { should == 'Groningen' }

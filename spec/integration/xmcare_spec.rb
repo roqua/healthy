@@ -6,7 +6,7 @@ describe 'Fetching A19 from XMcare' do
     subject { Healthy::A19.fetch("12345678901") }
 
     its([:status])       { should == 'SUCCESS' }
-    its([:error])        { should == nil }
+    its([:error])        { should be_nil }
     its([:source])       { should == 'ZIS' }
     its([:identities])   { should == [{ident: '12345678901', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }
     its([:firstname])    { should == 'Babette' }
@@ -28,7 +28,7 @@ describe 'Fetching A19 from XMcare' do
     subject { Healthy::A19.fetch("12345678901") }
 
     its([:status])       { should == 'SUCCESS' }
-    its([:error])        { should == nil }
+    its([:error])        { should be_nil }
     its([:source])       { should == 'ZIS' }
     its([:identities])   { should == [{ident: '12345678901', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }
     its([:firstname])    { should == 'Babette' }
@@ -50,7 +50,7 @@ describe 'Fetching A19 from XMcare' do
     subject { Healthy::A19.fetch("12345678901") }
 
     its([:status])       { should == 'SUCCESS' }
-    its([:error])        { should == nil }
+    its([:error])        { should be_nil }
     its([:source])       { should == 'ZIS' }
     its([:identities])   { should == [{ident: '12345678901', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }
     its([:firstname])    { should == 'Babette' }

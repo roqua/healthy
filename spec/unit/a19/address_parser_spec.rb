@@ -33,7 +33,7 @@ describe Healthy::A19::AddressParser do
 
     it 'returns H if home address is present' do
       message = msg('H', '?')
-      parser  = described_class.new(msg('H', '?'))
+      parser  = described_class.new(message)
       expect(parser.address_type).to eq("H")
     end
 
@@ -44,8 +44,8 @@ describe Healthy::A19::AddressParser do
     end
 
     it 'returns nil if no addresses are present' do
-      message = msg
-      parser  = described_class.new(msg('?'))
+      message = msg('?')
+      parser  = described_class.new(message)
       expect(parser.address_type).to be_nil
     end
   end
@@ -59,13 +59,13 @@ describe Healthy::A19::AddressParser do
 
     it 'returns home street' do
       message = msg('H', '?')
-      parser  = described_class.new(msg('H', '?'))
+      parser  = described_class.new(message)
       expect(parser.street).to eq("Homestreet 1")
     end
 
     it 'returns nil otherwise' do
-      message = msg
-      parser  = described_class.new(msg('?'))
+      message = msg('?')
+      parser  = described_class.new(message)
       expect(parser.street).to be_nil
     end
   end
@@ -79,13 +79,13 @@ describe Healthy::A19::AddressParser do
 
     it 'returns home city' do
       message = msg('H', '?')
-      parser  = described_class.new(msg('H', '?'))
+      parser  = described_class.new(message)
       expect(parser.city).to eq("Homecity")
     end
 
     it 'returns nil otherwise' do
-      message = msg
-      parser  = described_class.new(msg('?'))
+      message = msg('?')
+      parser  = described_class.new(message)
       expect(parser.city).to be_nil
     end
   end
@@ -99,13 +99,13 @@ describe Healthy::A19::AddressParser do
 
     it 'returns home zipcode' do
       message = msg('H', '?')
-      parser  = described_class.new(msg('H', '?'))
+      parser  = described_class.new(message)
       expect(parser.zipcode).to eq("Homezipcode")
     end
 
     it 'returns nil otherwise' do
-      message = msg
-      parser  = described_class.new(msg('?'))
+      message = msg('?')
+      parser  = described_class.new(message)
       expect(parser.zipcode).to be_nil
     end
   end
@@ -119,13 +119,13 @@ describe Healthy::A19::AddressParser do
 
     it 'returns home country' do
       message = msg('H', '?')
-      parser  = described_class.new(msg('H', '?'))
+      parser  = described_class.new(message)
       expect(parser.country).to eq("Homecountry")
     end
 
     it 'returns nil otherwise' do
-      message = msg
-      parser  = described_class.new(msg('?'))
+      message = msg('?')
+      parser  = described_class.new(message)
       expect(parser.country).to be_nil
     end
   end

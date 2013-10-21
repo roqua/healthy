@@ -6,14 +6,14 @@ describe 'Fetching A19 from Comez' do
     subject { Healthy::A19.fetch("0000123456") }
 
     its([:status])       { should == 'SUCCESS' }
-    its([:error])        { should == nil }
+    its([:error])        { should be_nil }
     its([:source])       { should == 'CS' }
     its([:identities])   { should == [{ident: '0000123456', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }
     its([:firstname])    { should == 'Voornaam' }
     its([:initials])     { should == 'A' }
     its([:lastname])     { should == 'Achternaam' }
-    its([:display_name]) { should == nil }
-    its([:email])        { should == nil }
+    its([:display_name]) { should be_nil }
+    its([:email])        { should be_nil }
     its([:address_type]) { should == 'M' }
     its([:street])       { should == 'Postadresstraat 42' }
     its([:city])         { should == 'PLAATSNAAM' }
