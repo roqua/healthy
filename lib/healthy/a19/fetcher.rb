@@ -23,12 +23,12 @@ module Healthy
           request.set_form_data(mirth_params)
           http.request request
         end
-      rescue ::Timeout::Error, Errno::ETIMEDOUT
-        raise ::Healthy::Timeout
-      rescue Errno::EHOSTUNREACH
-        raise ::Healthy::HostUnreachable
-      rescue Errno::ECONNREFUSED
-        raise ::Healthy::ConnectionRefused
+      rescue ::Timeout::Error, Errno::ETIMEDOUT => error
+        raise ::Healthy::Timeout, error.message
+      rescue Errno::EHOSTUNREACH => error
+        raise ::Healthy::HostUnreachable, error.message
+      rescue Errno::ECONNREFUSED => error
+        raise ::Healthy::ConnectionRefused, error.message
       end
 
       def raise_unless_valid_response(response)

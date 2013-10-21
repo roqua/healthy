@@ -22,3 +22,9 @@ SpaceInsideHashLiteralBraces:
 
 MethodLength:
   Max: 20
+
+FinalNewline:
+  Enabled: False
+
+SignalException:
+  Enabled: False
