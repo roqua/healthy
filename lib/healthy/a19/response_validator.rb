@@ -16,7 +16,7 @@ module Healthy
         when '500'
           validate_500
         else
-          raise ::Healthy::UnknownFailure, "Unexpected HTTP response code #{response.code} while fetching #{patient_id}."
+          raise ::Healthy::UnknownFailure, "Unexpected HTTP response code #{response.code}."
         end
       end
 
