@@ -8,10 +8,17 @@ module Healthy
     # @return [Hash] the patient details.
     def self.fetch(patient_id)
       message = Fetcher.new(patient_id).fetch
-      Transformer.new(message).to_patient
+      patient = Transformer.new(message).to_patient
+
+      unless CorrectPatientCheck.new(patient_id, patient).check
+        fail MirthErrors::WrongPatient, "Expected record for #{patient_id}, got #{patient[:identities].inspect}"
+      end
+
+      patient
     end
   end
 end
 
 require_relative 'a19/fetcher'
 require_relative 'a19/transformer'
+require_relative 'a19/correct_patient_check'

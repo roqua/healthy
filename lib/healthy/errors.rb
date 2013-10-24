@@ -5,4 +5,8 @@ module Healthy
   class Timeout < StandardError; end
   class HostUnreachable < StandardError; end
   class ConnectionRefused < StandardError; end
+
+  module MirthErrors
+    class WrongPatient < StandardError; end
+  end
 end
