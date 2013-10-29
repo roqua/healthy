@@ -10,12 +10,6 @@ module Healthy
 
       def check
         record[:identities].any? { |i| i[:ident] == patient_id }
-
-        # return unless body["identities"].present?
-        # if not body["identities"].find{|i| i["ident"] == patient_id }
-        #   raise ::PattyPatient::PatientIdNotInRemote, "Patient ID not in remote details"
-        # end
-        # body
       end
     end
   end
