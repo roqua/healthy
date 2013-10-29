@@ -66,4 +66,12 @@ describe 'Fetching A19 from XMcare' do
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
   end
+
+  describe 'a patient that does not exist' do
+    before { load_fixture 'xmcare_patient_not_found', '12345678901' }
+
+    it 'raises PatientNotFound' do
+      expect { Healthy::A19.fetch("12345678901") }.to raise_error(Healthy::PatientNotFound)
+    end
+  end
 end

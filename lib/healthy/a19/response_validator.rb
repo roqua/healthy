@@ -12,12 +12,18 @@ module Healthy
       def validate
         case response.code
         when '200'
-          true
+          validate_200
         when '500'
           validate_500
         else
           raise ::Healthy::UnknownFailure, "Unexpected HTTP response code #{response.code}."
         end
+      end
+
+      def validate_200
+        failure = ResponseParser.new(response).parse("HL7Message")
+        raise ::Healthy::PatientNotFound if failure.key?("ERR") && failure.fetch("ERR").fetch("ERR.1").fetch("ERR.1.4").fetch("ERR.1.4.2") =~ /Patient \(@\) niet gevonden\(.*\)/
+        true
       end
 
       def validate_500

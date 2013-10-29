@@ -6,6 +6,8 @@ module Healthy
   class HostUnreachable < StandardError; end
   class ConnectionRefused < StandardError; end
 
+  class PatientNotFound < StandardError; end
+
   module MirthErrors
     class WrongPatient < StandardError; end
   end
