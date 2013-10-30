@@ -11,7 +11,7 @@ module Healthy
 
       def parse(root)
         parsed = Hash.from_xml(response.body)
-        parsed.fetch(root) { Hash.new }
+        parsed[root] || {}
       rescue REXML::ParseException => e
         raise IllegalMirthResponse, e.message
       end
