@@ -9,9 +9,14 @@ module Healthy
         @response = response
       end
 
-      def parse(root)
-        parsed = Hash.from_xml(response.body)
-        parsed[root] || {}
+      def fetch(root)
+        parsed_body[root] || {}
+      end
+
+      private
+
+      def parsed_body
+        @parsed_body ||= Hash.from_xml(response.body)
       rescue REXML::ParseException => e
         raise IllegalMirthResponse, e.message
       end
