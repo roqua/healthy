@@ -45,7 +45,7 @@ describe 'Fetching A19 from XMcare' do
     its([:gender])       { should == 'F' }
   end
 
-  describe 'a patient with a maiden name' do
+  describe 'a patient with an email in an alternate place' do
     before { load_fixture 'xmcare_patient_email_in_field_number_four', '12345678901' }
     subject { Healthy::A19.fetch("12345678901") }
 
@@ -65,6 +65,28 @@ describe 'Fetching A19 from XMcare' do
     its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
+  end
+
+  describe 'a patient from an xmcare instance impersonating cdis' do
+    before { load_fixture 'xmcare_impersonating_cdis', '12345678901' }
+    subject { Healthy::A19.fetch("12345678901") }
+
+    its([:status])       { should == 'SUCCESS' }
+    its([:error])        { should be_nil }
+    its([:source])       { should == 'UMCG' }
+    its([:identities])   { should == [{ident: '12345678901', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}] }
+    its([:firstname])    { should == 'A' }
+    its([:initials])     { should == 'B C' }
+    its([:lastname])     { should == 'Achternaam' }
+    its([:display_name]) { should == 'Achternaam' }
+    its([:email])        { should == '' }
+    its([:address_type]) { should == 'H' }
+    its([:street])       { should == 'Straatnaam 37 h-42' }
+    its([:city])         { should == 'PLAATSNAAM' }
+    its([:zipcode])      { should == '1234AB' }
+    its([:country])      { should == 'NLD' }
+    its([:birthdate])    { should == '17070415' }
+    its([:gender])       { should == 'M' }
   end
 
   describe 'a patient that does not exist' do
