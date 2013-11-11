@@ -22,7 +22,7 @@ StringLiterals:
   Enabled: false
 
 SpaceInsideHashLiteralBraces:
-  EnforcedStyleIsWithSpaces: false
+  EnforcedStyle: no_space
 
 MethodLength:
   Max: 20

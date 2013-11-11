@@ -32,7 +32,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'guard', '~> 1.8'
   gem.add_development_dependency 'guard-rspec', '~> 2.5'
   gem.add_development_dependency 'listen', '~> 1.3'
-  gem.add_development_dependency 'guard-rubocop'
+  gem.add_development_dependency 'guard-rubocop', '~> 0.2'
+  gem.add_development_dependency 'rubocop', '~> 0.15'
   gem.add_development_dependency 'fuubar'
 
   # Documentation generation
