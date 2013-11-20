@@ -51,7 +51,8 @@ module Healthy
       end
 
       def birthdate
-        message.fetch('PID').fetch('PID.7').fetch('PID.7.1')
+        birthdate_details = message.fetch('PID').fetch('PID.7')
+        birthdate_details.fetch('PID.7.1') if birthdate_details
       end
 
       def email
