@@ -36,6 +36,7 @@ module Healthy
         @record = nil
         @record ||= message.fetch('PID').fetch('PID.11').find { |record| record.fetch('PID.11.7', :unknown_type_of_address_record) == 'M' }
         @record ||= message.fetch('PID').fetch('PID.11').find { |record| record.fetch('PID.11.7', :unknown_type_of_address_record) == 'H' }
+        @record ||= message.fetch('PID').fetch('PID.11').find { |record| record.fetch('PID.11.7', :unknown_type_of_address_record) == 'L' }
         @record
       end
     end
