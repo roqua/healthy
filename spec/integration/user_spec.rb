@@ -8,7 +8,7 @@ describe 'Fetching A19 from USER' do
     its([:status])       { should == 'SUCCESS' }
     its([:error])        { should be_nil }
     its([:source])       { should == 'IMPULSE' }
-    its([:identities])   { should == [{ident: '00000123', authority: 'PI'}] }
+    its([:identities])   { should == [{ident: '000123', authority: 'PI'}] }
     its([:firstname])    { should == 'Alice' }
     its([:initials])     { should == 'A.B.' }
     its([:lastname])     { should == 'Achternaam' }
