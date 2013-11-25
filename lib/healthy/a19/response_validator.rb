@@ -5,10 +5,12 @@ module Healthy
     class ResponseValidator
       attr_reader :response_code
       attr_reader :parser
+      attr_reader :patient_id
 
-      def initialize(response_code, parser)
+      def initialize(response_code, parser, patient_id)
         @response_code = response_code
         @parser        = parser
+        @patient_id    = patient_id
       end
 
       def validate
@@ -25,6 +27,7 @@ module Healthy
       def validate_200
         failure = parser.fetch("HL7Message")
         raise ::Healthy::PatientNotFound if failure.key?("ERR") && failure.fetch("ERR").fetch("ERR.1").fetch("ERR.1.4").fetch("ERR.1.4.2") =~ /Patient \(@\) niet gevonden\(.*\)/
+        raise ::Healthy::MirthErrors::WrongPatient if failure.key?('QRD') && failure.fetch("QRD").fetch("QRD.8").fetch("QRD.8.1") != patient_id
         true
       end
 

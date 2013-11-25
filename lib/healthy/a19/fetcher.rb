@@ -17,7 +17,7 @@ module Healthy
         response = mirth_response
         parser   = ResponseParser.new(response)
 
-        if ResponseValidator.new(response.code, parser).validate
+        if ResponseValidator.new(response.code, parser, patient_id).validate
           parser.fetch("HL7Message")
         end
       end

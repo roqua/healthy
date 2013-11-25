@@ -9,11 +9,6 @@ module Healthy
     def self.fetch(patient_id)
       message = Fetcher.new(patient_id).fetch
       patient = Transformer.new(message).to_patient
-
-      unless CorrectPatientCheck.new(patient_id, patient).check
-        fail MirthErrors::WrongPatient, "Expected record for #{patient_id}, got #{patient[:identities].inspect}"
-      end
-
       patient
     end
   end
