@@ -9,6 +9,7 @@ module Healthy
 
       def initialize(message)
         @message = message
+        @message['PID']['PID.3']  = [@message.fetch('PID').fetch('PID.3')].flatten.compact
         @message['PID']['PID.5']  = [@message.fetch('PID').fetch('PID.5')].flatten.compact
         @message['PID']['PID.11'] = [@message.fetch('PID').fetch('PID.11')].flatten.compact
         @message['PID']['PID.13'] = [@message.fetch('PID').fetch('PID.13')].flatten.compact
@@ -74,7 +75,7 @@ module Healthy
 
       def name
         case source
-        when "UMCG"
+        when "UMCG", "IMPULSE"
           CdisNameParser.new(message)
         else
           NameParser.new(message)
