@@ -14,3 +14,16 @@ Dir["spec/support/**/*.rb"].each { |filename| load filename }
 
 require 'healthy'
 Healthy.a19_endpoint = "http://10.220.0.101:60101"
+
+require 'stringio'
+LOG_FILE = StringIO.new
+Roqua.logger = Logger.new(LOG_FILE)
+
+RSpec.configure do |config|
+  config.after(:suite) do
+    if ENV["DEBUG"]
+      LOG_FILE.rewind
+      puts "", "Log file: ", LOG_FILE.read
+    end
+  end
+end

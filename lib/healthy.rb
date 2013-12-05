@@ -1,3 +1,5 @@
+require 'roqua/support'
+
 require 'healthy/version'
 require 'healthy/message_cleaner'
 require 'healthy/a19'
