@@ -1,0 +1,77 @@
+MSH|^~\&|Roqua|RGOc|||20111207153851||ORU^R01|01b7038d6d|P|2.4|||||||
+PID|1||12345678901^^^^^^^|||||||||||||||||||||||||||
+OBR|1||||||201002091636||||||||spsy1218o2||||||||||C
+OBX|1|ST|spsy1218o2_protocol^SPsy 12-18 2e Ouder Protocol^L||ROM||||||C|||201002091636
+OBX|2|ST|spsy1218o2_project^SPsy 12-18 2e Ouder Project^L||Meettraject 1||||||C|||201002091636
+OBX|3|ST|spsy1218o2_measurement^SPsy 12-18 2e Ouder Measurement^L||Intake||||||C|||201002091636
+OBX|4|ST|spsy1218o2_notes^SPsy 12-18 2e Ouder Notes^L||||||||C|||201002091636
+OBX|5|ST|spsy1218o2_location^SPsy 12-18 2e Ouder Location^L||Friesland||||||C|||201002091636
+OBX|6|ST|spsy1218o2_compl_by^SPsy 12-18 2e Ouder Completed By^L||12345678901||||||C|||201002091636
+OBX|7|NM|spsy1218o2_emotioneel^SPsy 12-18 2e Ouder Emotionele problemen^L||8||||||C|||201002091636
+OBX|8|NM|spsy1218o2_gedrag^SPsy 12-18 2e Ouder Gedragsproblemen^L||5||||||C|||201002091636
+OBX|9|NM|spsy1218o2_hyper_aandacht^SPsy 12-18 2e Ouder Hyperactiviteit / Aandachtstekortstoornis^L||4||||||C|||201002091636
+OBX|10|NM|spsy1218o2_sociaal^SPsy 12-18 2e Ouder Sociale problemen^L||5||||||C|||201002091636
+OBX|11|NM|spsy1218o2_prosociaal^SPsy 12-18 2e Ouder Prosociaal gedrag^L||3||||||C|||201002091636
+OBX|12|NM|spsy1218o2_drugs^SPsy 12-18 2e Ouder Problemen met drugs^L||1||||||C|||201002091636
+OBX|13|NM|spsy1218o2_eetstoornissen^SPsy 12-18 2e Ouder Eetstoornissen^L||0||||||C|||201002091636
+OBX|14|NM|spsy1218o2_zelfdest^SPsy 12-18 2e Ouder Zelfdestructief gedrag^L||1||||||C|||201002091636
+OBX|15|NM|spsy1218o2_psychotisch^SPsy 12-18 2e Ouder Psychotische kenmerken^L||0||||||C|||201002091636
+OBX|16|NM|spsy1218o2_sbg_prob^SPsy 12-18 2e Ouder SBG prob (emotioneel+gedrag+hyper_aandacht+sociaal)^L||22||||||C|||201002091636
+OBX|17|ST|spsy1218o2_1^SPsy 12-18 2e Ouder v_1^L||1||||||C|||201002091636
+OBX|18|ST|spsy1218o2_7^SPsy 12-18 2e Ouder v_7^L||1||||||C|||201002091636
+OBX|19|ST|spsy1218o2_3^SPsy 12-18 2e Ouder v_3^L||6||||||C|||201002091636
+OBX|20|ST|spsy1218o2_12^SPsy 12-18 2e Ouder v_12^L||concentratiestoornissen%2C chaotisch%2C druk||||||C|||201002091636
+OBX|21|ST|spsy1218o2_15^SPsy 12-18 2e Ouder v_15^L||1||||||C|||201002091636
+OBX|22|ST|spsy1218o2_16^SPsy 12-18 2e Ouder v_16^L||1||||||C|||201002091636
+OBX|23|ST|spsy1218o2_17^SPsy 12-18 2e Ouder v_17^L||1||||||C|||201002091636
+OBX|24|ST|spsy1218o2_18^SPsy 12-18 2e Ouder v_18^L||1||||||C|||201002091636
+OBX|25|ST|spsy1218o2_19^SPsy 12-18 2e Ouder v_19^L||1||||||C|||201002091636
+OBX|26|ST|spsy1218o2_20^SPsy 12-18 2e Ouder v_20^L||2||||||C|||201002091636
+OBX|27|ST|spsy1218o2_21^SPsy 12-18 2e Ouder v_21^L||1||||||C|||201002091636
+OBX|28|ST|spsy1218o2_22^SPsy 12-18 2e Ouder v_22^L||2||||||C|||201002091636
+OBX|29|ST|spsy1218o2_23^SPsy 12-18 2e Ouder v_23^L||0||||||C|||201002091636
+OBX|30|ST|spsy1218o2_24^SPsy 12-18 2e Ouder v_24^L||1||||||C|||201002091636
+OBX|31|ST|spsy1218o2_25^SPsy 12-18 2e Ouder v_25^L||0||||||C|||201002091636
+OBX|32|ST|spsy1218o2_26^SPsy 12-18 2e Ouder v_26^L||1||||||C|||201002091636
+OBX|33|ST|spsy1218o2_27^SPsy 12-18 2e Ouder v_27^L||1||||||C|||201002091636
+OBX|34|ST|spsy1218o2_28^SPsy 12-18 2e Ouder v_28^L||1||||||C|||201002091636
+OBX|35|ST|spsy1218o2_29^SPsy 12-18 2e Ouder v_29^L||1||||||C|||201002091636
+OBX|36|ST|spsy1218o2_30^SPsy 12-18 2e Ouder v_30^L||2||||||C|||201002091636
+OBX|37|ST|spsy1218o2_31^SPsy 12-18 2e Ouder v_31^L||0||||||C|||201002091636
+OBX|38|ST|spsy1218o2_32^SPsy 12-18 2e Ouder v_32^L||1||||||C|||201002091636
+OBX|39|ST|spsy1218o2_33^SPsy 12-18 2e Ouder v_33^L||0||||||C|||201002091636
+OBX|40|ST|spsy1218o2_34^SPsy 12-18 2e Ouder v_34^L||1||||||C|||201002091636
+OBX|41|ST|spsy1218o2_35^SPsy 12-18 2e Ouder v_35^L||0||||||C|||201002091636
+OBX|42|ST|spsy1218o2_36^SPsy 12-18 2e Ouder v_36^L||1||||||C|||201002091636
+OBX|43|ST|spsy1218o2_37^SPsy 12-18 2e Ouder v_37^L||2||||||C|||201002091636
+OBX|44|ST|spsy1218o2_38^SPsy 12-18 2e Ouder v_38^L||2||||||C|||201002091636
+OBX|45|ST|spsy1218o2_39^SPsy 12-18 2e Ouder v_39^L||1||||||C|||201002091636
+OBX|46|ST|spsy1218o2_40^SPsy 12-18 2e Ouder v_40^L||0||||||C|||201002091636
+OBX|47|ST|spsy1218o2_41^SPsy 12-18 2e Ouder v_41^L||0||||||C|||201002091636
+OBX|48|ST|spsy1218o2_42^SPsy 12-18 2e Ouder v_42^L||0||||||C|||201002091636
+OBX|49|ST|spsy1218o2_43^SPsy 12-18 2e Ouder v_43^L||0||||||C|||201002091636
+OBX|50|ST|spsy1218o2_44^SPsy 12-18 2e Ouder v_44^L||0||||||C|||201002091636
+OBX|51|ST|spsy1218o2_45^SPsy 12-18 2e Ouder v_45^L||0||||||C|||201002091636
+OBX|52|ST|spsy1218o2_46^SPsy 12-18 2e Ouder v_46^L||1||||||C|||201002091636
+OBX|53|ST|spsy1218o2_47^SPsy 12-18 2e Ouder v_47^L||0||||||C|||201002091636
+OBX|54|ST|spsy1218o2_48^SPsy 12-18 2e Ouder v_48^L||0||||||C|||201002091636
+OBX|55|ST|spsy1218o2_49^SPsy 12-18 2e Ouder v_49^L||0||||||C|||201002091636
+OBX|56|ST|spsy1218o2_50^SPsy 12-18 2e Ouder v_50^L||0||||||C|||201002091636
+OBX|57|ST|spsy1218o2_52^SPsy 12-18 2e Ouder v_52^L||0||||||C|||201002091636
+OBX|58|ST|spsy1218o2_58^SPsy 12-18 2e Ouder v_58^L||2||||||C|||201002091636
+OBX|59|ST|spsy1218o2_59^SPsy 12-18 2e Ouder v_59^L||1||||||C|||201002091636
+OBX|60|ST|spsy1218o2_60^SPsy 12-18 2e Ouder v_60^L||0||||||C|||201002091636
+OBX|61|ST|spsy1218o2_61^SPsy 12-18 2e Ouder v_61^L||0||||||C|||201002091636
+OBX|62|ST|spsy1218o2_62^SPsy 12-18 2e Ouder v_62^L||40||||||C|||201002091636
+OBX|63|ST|spsy1218o2_63^SPsy 12-18 2e Ouder v_63^L||1||||||C|||201002091636
+OBX|64|ST|spsy1218o2_64^SPsy 12-18 2e Ouder v_64^L||40||||||C|||201002091636
+OBX|65|ST|spsy1218o2_88^SPsy 12-18 2e Ouder v_88^L||2||||||C|||201002091636
+OBX|66|ST|spsy1218o2_89^SPsy 12-18 2e Ouder v_89^L||3||||||C|||201002091636
+OBX|67|ST|spsy1218o2_90^SPsy 12-18 2e Ouder v_90^L||2||||||C|||201002091636
+OBX|68|ST|spsy1218o2_96^SPsy 12-18 2e Ouder v_96^L||1||||||C|||201002091636
+OBX|69|ST|spsy1218o2_97^SPsy 12-18 2e Ouder v_97^L||2||||||C|||201002091636
+OBX|70|ST|spsy1218o2_98^SPsy 12-18 2e Ouder v_98^L||1||||||C|||201002091636
+OBX|71|ST|spsy1218o2_99^SPsy 12-18 2e Ouder v_99^L||2||||||C|||201002091636
+OBX|72|ST|spsy1218o2_100^SPsy 12-18 2e Ouder v_100^L||1||||||C|||201002091636
+OBX|73|ST|spsy1218o2_102^SPsy 12-18 2e Ouder v_102^L||2||||||C|||201002091636
+

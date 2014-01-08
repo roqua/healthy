@@ -1,0 +1,5 @@
+FAILURE: NACK sent from receiver:  [Application Error]
+Zie ERR-segment voor foutmelding.
+^^^-170030&Uitslagitem ontbreekt 20909/dd. 04-04-2012 08:33(1574703): MSH|^~\&|||Roqua|RGOc|20120404110019||ACK|946960|P|2.4||||NE
+MSA|AE|753aec98cc|Zie ERR-segment voor foutmelding.
+ERR|^^^-170030&Uitslagitem ontbreekt 20909/dd. 04-04-2012 08:33(1574703)

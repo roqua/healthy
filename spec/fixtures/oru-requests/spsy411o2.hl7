@@ -1,0 +1,71 @@
+MSH|^~\&|Roqua|RGOc|||20111207153922||ORU^R01|4c79907172|P|2.4|||||||
+PID|1||77777777^^^^^^^|||||||||||||||||||||||||||
+OBR|1||||||200912281129||||||||spsy411o2||||||||||C
+OBX|1|ST|spsy411o2_protocol^SPsy 4-11 2e Ouder Protocol^L||ROM||||||C|||200912281129
+OBX|2|ST|spsy411o2_project^SPsy 4-11 2e Ouder Project^L||Meettraject 3||||||C|||200912281129
+OBX|3|ST|spsy411o2_measurement^SPsy 4-11 2e Ouder Measurement^L||Intake||||||C|||200912281129
+OBX|4|ST|spsy411o2_notes^SPsy 4-11 2e Ouder Notes^L||||||||C|||200912281129
+OBX|5|ST|spsy411o2_location^SPsy 4-11 2e Ouder Location^L||Friesland||||||C|||200912281129
+OBX|6|ST|spsy411o2_compl_by^SPsy 4-11 2e Ouder Completed By^L||77777777||||||C|||200912281129
+OBX|7|NM|spsy411o2_emotioneel^SPsy 4-11 2e Ouder Emotionele problemen^L||1||||||C|||200912281129
+OBX|8|NM|spsy411o2_gedrag^SPsy 4-11 2e Ouder Gedragsproblemen^L||3||||||C|||200912281129
+OBX|9|NM|spsy411o2_hyper_aandacht^SPsy 4-11 2e Ouder Hyperactiviteit / Aandachtstekortstoornis^L||10||||||C|||200912281129
+OBX|10|NM|spsy411o2_sociaal^SPsy 4-11 2e Ouder Sociale problemen^L||4||||||C|||200912281129
+OBX|11|NM|spsy411o2_prosociaal^SPsy 4-11 2e Ouder Prosociaal gedrag^L||3||||||C|||200912281129
+OBX|12|NM|spsy411o2_eetstoornissen^SPsy 4-11 2e Ouder Eetstoornissen^L||0||||||C|||200912281129
+OBX|13|NM|spsy411o2_zelfdest^SPsy 4-11 2e Ouder Zelfdestructief gedrag^L||0||||||C|||200912281129
+OBX|14|NM|spsy411o2_psychotisch^SPsy 4-11 2e Ouder Psychotische kenmerken^L||0||||||C|||200912281129
+OBX|15|NM|spsy411o2_sbg_prob^SPsy 4-11 2e Ouder SBG prob (emotioneel+gedrag+hyper_aandacht+sociaal)^L||18||||||C|||200912281129
+OBX|16|ST|spsy411o2_1^SPsy 4-11 2e Ouder v_1^L||1||||||C|||200912281129
+OBX|17|ST|spsy411o2_7^SPsy 4-11 2e Ouder v_7^L||1||||||C|||200912281129
+OBX|18|ST|spsy411o2_3^SPsy 4-11 2e Ouder v_3^L||2||||||C|||200912281129
+OBX|19|ST|spsy411o2_12^SPsy 4-11 2e Ouder v_12^L||hyperactief||||||C|||200912281129
+OBX|20|ST|spsy411o2_15^SPsy 4-11 2e Ouder v_15^L||1||||||C|||200912281129
+OBX|21|ST|spsy411o2_16^SPsy 4-11 2e Ouder v_16^L||2||||||C|||200912281129
+OBX|22|ST|spsy411o2_17^SPsy 4-11 2e Ouder v_17^L||0||||||C|||200912281129
+OBX|23|ST|spsy411o2_18^SPsy 4-11 2e Ouder v_18^L||0||||||C|||200912281129
+OBX|24|ST|spsy411o2_19^SPsy 4-11 2e Ouder v_19^L||2||||||C|||200912281129
+OBX|25|ST|spsy411o2_20^SPsy 4-11 2e Ouder v_20^L||2||||||C|||200912281129
+OBX|26|ST|spsy411o2_21^SPsy 4-11 2e Ouder v_21^L||1||||||C|||200912281129
+OBX|27|ST|spsy411o2_22^SPsy 4-11 2e Ouder v_22^L||0||||||C|||200912281129
+OBX|28|ST|spsy411o2_23^SPsy 4-11 2e Ouder v_23^L||0||||||C|||200912281129
+OBX|29|ST|spsy411o2_24^SPsy 4-11 2e Ouder v_24^L||2||||||C|||200912281129
+OBX|30|ST|spsy411o2_25^SPsy 4-11 2e Ouder v_25^L||1||||||C|||200912281129
+OBX|31|ST|spsy411o2_26^SPsy 4-11 2e Ouder v_26^L||0||||||C|||200912281129
+OBX|32|ST|spsy411o2_27^SPsy 4-11 2e Ouder v_27^L||0||||||C|||200912281129
+OBX|33|ST|spsy411o2_28^SPsy 4-11 2e Ouder v_28^L||1||||||C|||200912281129
+OBX|34|ST|spsy411o2_29^SPsy 4-11 2e Ouder v_29^L||2||||||C|||200912281129
+OBX|35|ST|spsy411o2_30^SPsy 4-11 2e Ouder v_30^L||1||||||C|||200912281129
+OBX|36|ST|spsy411o2_31^SPsy 4-11 2e Ouder v_31^L||1||||||C|||200912281129
+OBX|37|ST|spsy411o2_32^SPsy 4-11 2e Ouder v_32^L||0||||||C|||200912281129
+OBX|38|ST|spsy411o2_33^SPsy 4-11 2e Ouder v_33^L||0||||||C|||200912281129
+OBX|39|ST|spsy411o2_34^SPsy 4-11 2e Ouder v_34^L||1||||||C|||200912281129
+OBX|40|ST|spsy411o2_35^SPsy 4-11 2e Ouder v_35^L||2||||||C|||200912281129
+OBX|41|ST|spsy411o2_36^SPsy 4-11 2e Ouder v_36^L||0||||||C|||200912281129
+OBX|42|ST|spsy411o2_37^SPsy 4-11 2e Ouder v_37^L||0||||||C|||200912281129
+OBX|43|ST|spsy411o2_38^SPsy 4-11 2e Ouder v_38^L||0||||||C|||200912281129
+OBX|44|ST|spsy411o2_39^SPsy 4-11 2e Ouder v_39^L||2||||||C|||200912281129
+OBX|45|ST|spsy411o2_40^SPsy 4-11 2e Ouder v_40^L||0||||||C|||200912281129
+OBX|46|ST|spsy411o2_41^SPsy 4-11 2e Ouder v_41^L||0||||||C|||200912281129
+OBX|47|ST|spsy411o2_42^SPsy 4-11 2e Ouder v_42^L||0||||||C|||200912281129
+OBX|48|ST|spsy411o2_43^SPsy 4-11 2e Ouder v_43^L||0||||||C|||200912281129
+OBX|49|ST|spsy411o2_44^SPsy 4-11 2e Ouder v_44^L||0||||||C|||200912281129
+OBX|50|ST|spsy411o2_45^SPsy 4-11 2e Ouder v_45^L||0||||||C|||200912281129
+OBX|51|ST|spsy411o2_46^SPsy 4-11 2e Ouder v_46^L||0||||||C|||200912281129
+OBX|52|ST|spsy411o2_47^SPsy 4-11 2e Ouder v_47^L||0||||||C|||200912281129
+OBX|53|ST|spsy411o2_48^SPsy 4-11 2e Ouder v_48^L||0||||||C|||200912281129
+OBX|54|ST|spsy411o2_49^SPsy 4-11 2e Ouder v_49^L||0||||||C|||200912281129
+OBX|55|ST|spsy411o2_50^SPsy 4-11 2e Ouder v_50^L||0||||||C|||200912281129
+OBX|56|ST|spsy411o2_62^SPsy 4-11 2e Ouder v_62^L||36||||||C|||200912281129
+OBX|57|ST|spsy411o2_63^SPsy 4-11 2e Ouder v_63^L||1||||||C|||200912281129
+OBX|58|ST|spsy411o2_64^SPsy 4-11 2e Ouder v_64^L||50||||||C|||200912281129
+OBX|59|ST|spsy411o2_88^SPsy 4-11 2e Ouder v_88^L||2||||||C|||200912281129
+OBX|60|ST|spsy411o2_89^SPsy 4-11 2e Ouder v_89^L||2||||||C|||200912281129
+OBX|61|ST|spsy411o2_90^SPsy 4-11 2e Ouder v_90^L||2||||||C|||200912281129
+OBX|62|ST|spsy411o2_96^SPsy 4-11 2e Ouder v_96^L||2||||||C|||200912281129
+OBX|63|ST|spsy411o2_97^SPsy 4-11 2e Ouder v_97^L||1||||||C|||200912281129
+OBX|64|ST|spsy411o2_98^SPsy 4-11 2e Ouder v_98^L||2||||||C|||200912281129
+OBX|65|ST|spsy411o2_99^SPsy 4-11 2e Ouder v_99^L||1||||||C|||200912281129
+OBX|66|ST|spsy411o2_100^SPsy 4-11 2e Ouder v_100^L||2||||||C|||200912281129
+OBX|67|ST|spsy411o2_103^SPsy 4-11 2e Ouder v_103^L||2||||||C|||200912281129
+

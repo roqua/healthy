@@ -1,0 +1,82 @@
+MSH|^~\&|Roqua|RGOc|||20111207144259||ORU^R01|9515bec132|P|2.4|||||||
+PID|1||12345678901^^^^^^^|||||||||||||||||||||||||||
+OBR|1||15||||201111101317||||||||spsy1218j||||||||||F
+OBX|1|ST|spsy1218j_protocol^SPsy 12-18 Jongeren Protocol^L||ROM||||||F|||201111101317
+OBX|2|ST|spsy1218j_project^SPsy 12-18 Jongeren Project^L||Meettraject 1||||||F|||201111101317
+OBX|3|ST|spsy1218j_measurement^SPsy 12-18 Jongeren Measurement^L||Intake||||||F|||201111101317
+OBX|4|ST|spsy1218j_notes^SPsy 12-18 Jongeren Notes^L||||||||F|||201111101317
+OBX|5|ST|spsy1218j_location^SPsy 12-18 Jongeren Location^L||Team||||||F|||201111101317
+OBX|6|ST|spsy1218j_compl_by^SPsy 12-18 Jongeren Completed By^L||12345678901||||||F|||201111101317
+OBX|7|NM|spsy1218j_emotioneel^SPsy 12-18 Jongeren Emotionele problemen^L||6||||||F|||201111101317
+OBX|8|NM|spsy1218j_gedrag^SPsy 12-18 Jongeren Gedragsproblemen^L||8||||||F|||201111101317
+OBX|9|NM|spsy1218j_hyper_aandacht^SPsy 12-18 Jongeren Hyperactiviteit / Aandachtstekortstoornis^L||8||||||F|||201111101317
+OBX|10|NM|spsy1218j_sociaal^SPsy 12-18 Jongeren Sociale problemen^L||2||||||F|||201111101317
+OBX|11|NM|spsy1218j_prosociaal^SPsy 12-18 Jongeren Prosociaal gedrag^L||4||||||F|||201111101317
+OBX|12|NM|spsy1218j_alcohol^SPsy 12-18 Jongeren Problemen met alcohol^L||5||||||F|||201111101317
+OBX|13|NM|spsy1218j_drugs^SPsy 12-18 Jongeren Problemen met drugs^L||5||||||F|||201111101317
+OBX|14|NM|spsy1218j_eetstoornissen^SPsy 12-18 Jongeren Eetstoornissen^L||1||||||F|||201111101317
+OBX|15|NM|spsy1218j_zelfdest^SPsy 12-18 Jongeren Zelfdestructief gedrag^L||1||||||F|||201111101317
+OBX|16|NM|spsy1218j_psychotisch^SPsy 12-18 Jongeren Psychotische kenmerken^L||0||||||F|||201111101317
+OBX|17|NM|spsy1218j_sbg_prob^SPsy 12-18 Jongeren SBG prob (emotioneel+gedrag+hyper_aandacht+sociaal)^L||24||||||F|||201111101317
+OBX|18|ST|spsy1218j_1^SPsy 12-18 Jongeren v_1^L||1||||||F|||201111101317
+OBX|19|ST|spsy1218j_7^SPsy 12-18 Jongeren v_7^L||1||||||F|||201111101317
+OBX|20|ST|spsy1218j_3^SPsy 12-18 Jongeren v_3^L||9||||||F|||201111101317
+OBX|21|ST|spsy1218j_12^SPsy 12-18 Jongeren v_12^L||ruzie thuis||||||F|||201111101317
+OBX|22|ST|spsy1218j_13^SPsy 12-18 Jongeren v_13^L||problemen op school||||||F|||201111101317
+OBX|23|ST|spsy1218j_14^SPsy 12-18 Jongeren v_14^L||geen vrienden||||||F|||201111101317
+OBX|24|ST|spsy1218j_15^SPsy 12-18 Jongeren v_15^L||1||||||F|||201111101317
+OBX|25|ST|spsy1218j_16^SPsy 12-18 Jongeren v_16^L||2||||||F|||201111101317
+OBX|26|ST|spsy1218j_17^SPsy 12-18 Jongeren v_17^L||1||||||F|||201111101317
+OBX|27|ST|spsy1218j_18^SPsy 12-18 Jongeren v_18^L||1||||||F|||201111101317
+OBX|28|ST|spsy1218j_19^SPsy 12-18 Jongeren v_19^L||1||||||F|||201111101317
+OBX|29|ST|spsy1218j_20^SPsy 12-18 Jongeren v_20^L||0||||||F|||201111101317
+OBX|30|ST|spsy1218j_21^SPsy 12-18 Jongeren v_21^L||2||||||F|||201111101317
+OBX|31|ST|spsy1218j_22^SPsy 12-18 Jongeren v_22^L||2||||||F|||201111101317
+OBX|32|ST|spsy1218j_23^SPsy 12-18 Jongeren v_23^L||1||||||F|||201111101317
+OBX|33|ST|spsy1218j_24^SPsy 12-18 Jongeren v_24^L||2||||||F|||201111101317
+OBX|34|ST|spsy1218j_25^SPsy 12-18 Jongeren v_25^L||1||||||F|||201111101317
+OBX|35|ST|spsy1218j_26^SPsy 12-18 Jongeren v_26^L||2||||||F|||201111101317
+OBX|36|ST|spsy1218j_27^SPsy 12-18 Jongeren v_27^L||2||||||F|||201111101317
+OBX|37|ST|spsy1218j_28^SPsy 12-18 Jongeren v_28^L||0||||||F|||201111101317
+OBX|38|ST|spsy1218j_29^SPsy 12-18 Jongeren v_29^L||1||||||F|||201111101317
+OBX|39|ST|spsy1218j_30^SPsy 12-18 Jongeren v_30^L||1||||||F|||201111101317
+OBX|40|ST|spsy1218j_31^SPsy 12-18 Jongeren v_31^L||1||||||F|||201111101317
+OBX|41|ST|spsy1218j_32^SPsy 12-18 Jongeren v_32^L||2||||||F|||201111101317
+OBX|42|ST|spsy1218j_33^SPsy 12-18 Jongeren v_33^L||1||||||F|||201111101317
+OBX|43|ST|spsy1218j_34^SPsy 12-18 Jongeren v_34^L||0||||||F|||201111101317
+OBX|44|ST|spsy1218j_35^SPsy 12-18 Jongeren v_35^L||1||||||F|||201111101317
+OBX|45|ST|spsy1218j_36^SPsy 12-18 Jongeren v_36^L||1||||||F|||201111101317
+OBX|46|ST|spsy1218j_37^SPsy 12-18 Jongeren v_37^L||0||||||F|||201111101317
+OBX|47|ST|spsy1218j_38^SPsy 12-18 Jongeren v_38^L||0||||||F|||201111101317
+OBX|48|ST|spsy1218j_39^SPsy 12-18 Jongeren v_39^L||2||||||F|||201111101317
+OBX|49|ST|spsy1218j_40^SPsy 12-18 Jongeren v_40^L||0||||||F|||201111101317
+OBX|50|ST|spsy1218j_41^SPsy 12-18 Jongeren v_41^L||0||||||F|||201111101317
+OBX|51|ST|spsy1218j_42^SPsy 12-18 Jongeren v_42^L||0||||||F|||201111101317
+OBX|52|ST|spsy1218j_43^SPsy 12-18 Jongeren v_43^L||0||||||F|||201111101317
+OBX|53|ST|spsy1218j_44^SPsy 12-18 Jongeren v_44^L||0||||||F|||201111101317
+OBX|54|ST|spsy1218j_45^SPsy 12-18 Jongeren v_45^L||1||||||F|||201111101317
+OBX|55|ST|spsy1218j_46^SPsy 12-18 Jongeren v_46^L||1||||||F|||201111101317
+OBX|56|ST|spsy1218j_47^SPsy 12-18 Jongeren v_47^L||0||||||F|||201111101317
+OBX|57|ST|spsy1218j_48^SPsy 12-18 Jongeren v_48^L||0||||||F|||201111101317
+OBX|58|ST|spsy1218j_49^SPsy 12-18 Jongeren v_49^L||0||||||F|||201111101317
+OBX|59|ST|spsy1218j_50^SPsy 12-18 Jongeren v_50^L||0||||||F|||201111101317
+OBX|60|ST|spsy1218j_52^SPsy 12-18 Jongeren v_52^L||4||||||F|||201111101317
+OBX|61|ST|spsy1218j_54^SPsy 12-18 Jongeren v_54^L||2||||||F|||201111101317
+OBX|62|ST|spsy1218j_55^SPsy 12-18 Jongeren v_55^L||1||||||F|||201111101317
+OBX|63|ST|spsy1218j_56^SPsy 12-18 Jongeren v_56^L||2||||||F|||201111101317
+OBX|64|ST|spsy1218j_58^SPsy 12-18 Jongeren v_58^L||2||||||F|||201111101317
+OBX|65|ST|spsy1218j_59^SPsy 12-18 Jongeren v_59^L||1||||||F|||201111101317
+OBX|66|ST|spsy1218j_60^SPsy 12-18 Jongeren v_60^L||2||||||F|||201111101317
+OBX|67|ST|spsy1218j_61^SPsy 12-18 Jongeren v_61^L||2||||||F|||201111101317
+OBX|68|ST|spsy1218j_62^SPsy 12-18 Jongeren v_62^L||80||||||F|||201111101317
+OBX|69|ST|spsy1218j_64^SPsy 12-18 Jongeren v_64^L||190||||||F|||201111101317
+OBX|70|ST|spsy1218j_88^SPsy 12-18 Jongeren v_88^L||2||||||F|||201111101317
+OBX|71|ST|spsy1218j_89^SPsy 12-18 Jongeren v_89^L||2||||||F|||201111101317
+OBX|72|ST|spsy1218j_90^SPsy 12-18 Jongeren v_90^L||1||||||F|||201111101317
+OBX|73|ST|spsy1218j_96^SPsy 12-18 Jongeren v_96^L||3||||||F|||201111101317
+OBX|74|ST|spsy1218j_97^SPsy 12-18 Jongeren v_97^L||2||||||F|||201111101317
+OBX|75|ST|spsy1218j_98^SPsy 12-18 Jongeren v_98^L||3||||||F|||201111101317
+OBX|76|ST|spsy1218j_99^SPsy 12-18 Jongeren v_99^L||2||||||F|||201111101317
+OBX|77|ST|spsy1218j_100^SPsy 12-18 Jongeren v_100^L||2||||||F|||201111101317
+OBX|78|ST|spsy1218j_101^SPsy 12-18 Jongeren v_101^L||Even controleren waar opmerkingen terechtkomen||||||F|||201111101317
+
