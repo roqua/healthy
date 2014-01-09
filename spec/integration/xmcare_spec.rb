@@ -21,6 +21,7 @@ describe 'Fetching A19 from XMcare' do
     its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
+    its([:phone_cell])   { should == '06-12345678' }
   end
 
   describe 'a patient with a maiden name' do
@@ -43,6 +44,7 @@ describe 'Fetching A19 from XMcare' do
     its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
+    its([:phone_cell])   { should == '06-12345678' }
   end
 
   describe 'a patient without a known birthdate' do
@@ -65,6 +67,7 @@ describe 'Fetching A19 from XMcare' do
     its([:country])      { should == 'NL' }
     its([:birthdate])    { should be_nil }
     its([:gender])       { should == 'F' }
+    its([:phone_cell])   { should == '06-12345678' }
   end
 
   describe 'a patient with an email in an alternate place' do
@@ -87,6 +90,8 @@ describe 'Fetching A19 from XMcare' do
     its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
+    its([:phone_cell])   { should == '06 12 34 56 78' }
+
   end
 
   describe 'a patient from an xmcare instance impersonating cdis' do
@@ -109,6 +114,7 @@ describe 'Fetching A19 from XMcare' do
     its([:country])      { should == 'NLD' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'M' }
+    its([:phone_cell])   { should == '06-12345678' }
   end
 
   describe 'a patient that does not exist' do

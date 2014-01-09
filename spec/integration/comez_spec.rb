@@ -21,5 +21,6 @@ describe 'Fetching A19 from Comez' do
     its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
+    its([:phone_cell])   { should be_nil }
   end
 end

@@ -32,7 +32,8 @@ module Healthy
           zipcode:      address.zipcode,
           country:      address.country,
           birthdate:    birthdate,
-          gender:       gender
+          gender:       gender,
+          phone_cell:   phone_cell
         }
       end
 
@@ -65,6 +66,15 @@ module Healthy
         email_address = email_record.fetch('PID.13.1', "")
         email_address = email_record.fetch('PID.13.4', "") if email_address.blank?
         email_address
+      end
+
+      def phone_cell
+        phone_cell_record = message.fetch('PID').fetch('PID.13').find do |record|
+          record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'ORN'
+        end
+        return nil unless phone_cell_record
+
+        phone_cell_record.fetch('PID.13.1', "")
       end
 
       def gender

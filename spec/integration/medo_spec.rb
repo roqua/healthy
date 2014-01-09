@@ -21,5 +21,6 @@ describe 'Fetching A19 from Medo' do
     its([:country])      { should == 'Nederland' }
     its([:birthdate])    { should == '19800525' }
     its([:gender])       { should == 'M' }
+    its([:phone_cell])   { should == '0698765432' }
   end
 end

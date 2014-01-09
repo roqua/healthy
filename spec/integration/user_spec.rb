@@ -21,6 +21,7 @@ describe 'Fetching A19 from USER' do
     its([:country])      { should == '6030' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'M' }
+    its([:phone_cell])   { should be_nil }
   end
 
   describe 'a patient' do
@@ -43,6 +44,7 @@ describe 'Fetching A19 from USER' do
     its([:country])      { should == '6030' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'F' }
+    its([:phone_cell])   { should be_nil }
   end
 
   describe 'a patient with gsm number and email address' do
@@ -65,5 +67,6 @@ describe 'Fetching A19 from USER' do
     its([:country])      { should == '6030' }
     its([:birthdate])    { should == '17070415' }
     its([:gender])       { should == 'M' }
+    its([:phone_cell])   { should be_nil }
   end
 end

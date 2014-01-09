@@ -21,6 +21,7 @@ describe 'Fetching A19 from CDIS' do
     its([:country])      { should == '' }
     its([:birthdate])    { should == '19800101' }
     its([:gender])       { should == 'M' }
+    its([:phone_cell])   { should be_nil }
   end
 
   describe 'the patient Piet Fictief' do
@@ -43,6 +44,7 @@ describe 'Fetching A19 from CDIS' do
     its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '19121212' }
     its([:gender])       { should == 'M' }
+    its([:phone_cell])   { should be_nil }
   end
 
   describe 'the patient Gerda Geit' do
@@ -65,5 +67,6 @@ describe 'Fetching A19 from CDIS' do
     its([:country])      { should == 'NL' }
     its([:birthdate])    { should == '19880101' }
     its([:gender])       { should == 'F' }
+    its([:phone_cell])   { should be_nil }
   end
 end
