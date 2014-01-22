@@ -8,12 +8,12 @@ module Healthy
 
       it 'returns true if record is for correct patient id' do
         checker = CorrectPatientCheck.new(id, record)
-        expect(checker.check).to be_true
+        expect(checker.check).to be_truthy
       end
 
       it 'returns false if record is for different patient id' do
         checker = CorrectPatientCheck.new('999', record)
-        expect(checker.check).to be_false
+        expect(checker.check).to be_falsey
       end
     end
   end

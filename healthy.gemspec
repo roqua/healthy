@@ -22,8 +22,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'roqua-support', '~> 0.1.0'
 
   gem.add_development_dependency 'bundler', '~> 1.0'
-  gem.add_development_dependency 'rake', '~> 0.8'
-  gem.add_development_dependency 'rspec', '~> 2.4'
+  gem.add_development_dependency 'rake', '~> 10.0'
+  gem.add_development_dependency 'rspec', '~> 2.99.0.beta1'
   gem.add_development_dependency 'yard', '~> 0.8'
 
   # Required for the tests
