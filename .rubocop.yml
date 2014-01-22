@@ -6,9 +6,6 @@ AllCops:
   Excludes:
     - vendor/**
 
-DefWithoutParentheses:
-  Enabled: false
-
 Documentation:
   Enabled: false
 

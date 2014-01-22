@@ -23,17 +23,17 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'bundler', '~> 1.0'
   gem.add_development_dependency 'rake', '~> 10.0'
-  gem.add_development_dependency 'rspec', '~> 2.99.0.beta1'
+  gem.add_development_dependency 'rspec', '~> 3.0.0.beta1'
   gem.add_development_dependency 'yard', '~> 0.8'
 
   # Required for the tests
   gem.add_development_dependency 'webmock', '~> 1.13'
 
   # Workflow and tools
-  gem.add_development_dependency 'guard', '~> 1.8'
-  gem.add_development_dependency 'guard-rspec', '~> 2.5'
-  gem.add_development_dependency 'listen', '~> 1.3'
-  gem.add_development_dependency 'guard-rubocop', '~> 0.2'
+  gem.add_development_dependency 'guard', '~> 2.1'
+  gem.add_development_dependency 'guard-rspec', '~> 4.2.4'
+  gem.add_development_dependency 'listen', '~> 2.1'
+  gem.add_development_dependency 'guard-rubocop', '~> 1.0.1'
   gem.add_development_dependency 'rubocop', '~> 0.15'
   gem.add_development_dependency 'fuubar'
 
