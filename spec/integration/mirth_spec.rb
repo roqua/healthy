@@ -11,7 +11,7 @@ describe 'Accounting for Mirth bugs' do
     before { load_fixture 'cdis_jan_fictief', '12345678' }
 
     it 'raises an error' do
-      expect { Healthy::A19.fetch("12345678") }.to raise_error(Healthy::MirthErrors::WrongPatient)
+      expect { Roqua::Healthy::A19.fetch("12345678") }.to raise_error(Roqua::Healthy::MirthErrors::WrongPatient)
     end
   end
 end

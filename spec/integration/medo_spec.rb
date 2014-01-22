@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Fetching A19 from Medo' do
   describe 'a patient' do
     before { load_fixture 'medo_patient', 'md-cdae5d100d8e0131d2623c075478eb56' }
-    subject { Healthy::A19.fetch("md-cdae5d100d8e0131d2623c075478eb56") }
+    subject { Roqua::Healthy::A19.fetch("md-cdae5d100d8e0131d2623c075478eb56") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }

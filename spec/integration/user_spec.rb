@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Fetching A19 from USER' do
   describe 'a patient' do
     before { load_fixture 'user_patient', '00000123' }
-    subject { Healthy::A19.fetch("00000123") }
+    subject { Roqua::Healthy::A19.fetch("00000123") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
@@ -26,7 +26,7 @@ describe 'Fetching A19 from USER' do
 
   describe 'a patient' do
     before { load_fixture 'user_patient_with_maiden_name', '00000123' }
-    subject { Healthy::A19.fetch("00000123") }
+    subject { Roqua::Healthy::A19.fetch("00000123") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
@@ -49,7 +49,7 @@ describe 'Fetching A19 from USER' do
 
   describe 'a patient with gsm number and email address' do
     before { load_fixture 'user_patient_with_gsm_and_email', '00000033' }
-    subject { Healthy::A19.fetch("00000033") }
+    subject { Roqua::Healthy::A19.fetch("00000033") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }

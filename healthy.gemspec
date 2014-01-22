@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 
-require File.expand_path('../lib/healthy/version', __FILE__)
+require File.expand_path('../lib/roqua/healthy/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "healthy"
-  gem.version       = Healthy::VERSION
+  gem.name          = "roqua-healthy"
+  gem.version       = Roqua::Healthy::VERSION
   gem.summary       = %q{Arranges communication between Mirth and RoQua}
   gem.description   = %q{Receives queries from RoQua, sends them to Mirth, and translates Mirth's responses back into Rubyland.}
   gem.license       = "MIT"

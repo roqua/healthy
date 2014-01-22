@@ -1,5 +1,5 @@
 def stub_mirth(patient_id = '123')
-  stub_request(:post, Healthy.a19_endpoint)
+  stub_request(:post, Roqua::Healthy.a19_endpoint)
     .with(body: {application: 'healthy', method: 'A19', patient_id: patient_id})
 end
 

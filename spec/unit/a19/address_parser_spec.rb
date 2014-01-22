@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Healthy::A19::AddressParser do
+describe Roqua::Healthy::A19::AddressParser do
   def msg(*types)
     addresses = []
     addresses << {'PID.11.7' => 'M',

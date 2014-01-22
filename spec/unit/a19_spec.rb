@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Healthy::A19 do
+describe Roqua::Healthy::A19 do
 end

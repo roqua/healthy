@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Fetching A19 from Comez' do
   describe 'a patient' do
     before { load_fixture 'comez_patient', '0000123456' }
-    subject { Healthy::A19.fetch("0000123456") }
+    subject { Roqua::Healthy::A19.fetch("0000123456") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }

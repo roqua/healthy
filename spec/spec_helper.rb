@@ -12,8 +12,8 @@ end
 # in spec/support/ and its subdirectories.
 Dir["spec/support/**/*.rb"].each { |filename| load filename }
 
-require 'healthy'
-Healthy.a19_endpoint = "http://10.220.0.101:60101"
+require 'roqua/healthy'
+Roqua::Healthy.a19_endpoint = "http://10.220.0.101:60101"
 
 require 'stringio'
 LOG_FILE = StringIO.new

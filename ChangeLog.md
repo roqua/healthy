@@ -1,3 +1,9 @@
+### 1.0.0 / 2014-01-22
+
+* Released under the name 'roqua-healthy' to work around name collision on Rubygems.org.
+  This new name also makes it clearer that this gem is probably not very useful to others.
+  Note that everything is now nested under the Roqua::Healthy module instead of Healthy.
+
 ### 0.1.0 / 2013-09-24
 
 * Initial release:

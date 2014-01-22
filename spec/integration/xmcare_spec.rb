@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Fetching A19 from XMcare' do
   describe 'a patient' do
     before { load_fixture 'xmcare_patient', '12345678901' }
-    subject { Healthy::A19.fetch("12345678901") }
+    subject { Roqua::Healthy::A19.fetch("12345678901") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
@@ -26,7 +26,7 @@ describe 'Fetching A19 from XMcare' do
 
   describe 'a patient with a maiden name' do
     before { load_fixture 'xmcare_patient_with_maiden_name', '12345678901' }
-    subject { Healthy::A19.fetch("12345678901") }
+    subject { Roqua::Healthy::A19.fetch("12345678901") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
@@ -49,7 +49,7 @@ describe 'Fetching A19 from XMcare' do
 
   describe 'a patient without a known birthdate' do
     before { load_fixture 'xmcare_patient_without_birthdate', '12345678901' }
-    subject { Healthy::A19.fetch("12345678901") }
+    subject { Roqua::Healthy::A19.fetch("12345678901") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
@@ -72,7 +72,7 @@ describe 'Fetching A19 from XMcare' do
 
   describe 'a patient with an email in an alternate place' do
     before { load_fixture 'xmcare_patient_email_in_field_number_four', '12345678901' }
-    subject { Healthy::A19.fetch("12345678901") }
+    subject { Roqua::Healthy::A19.fetch("12345678901") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
@@ -96,7 +96,7 @@ describe 'Fetching A19 from XMcare' do
 
   describe 'a patient from an xmcare instance impersonating cdis' do
     before { load_fixture 'xmcare_impersonating_cdis', '12345678901' }
-    subject { Healthy::A19.fetch("12345678901") }
+    subject { Roqua::Healthy::A19.fetch("12345678901") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
@@ -121,7 +121,7 @@ describe 'Fetching A19 from XMcare' do
     before { load_fixture 'xmcare_patient_not_found', '12345678901' }
 
     it 'raises PatientNotFound' do
-      expect { Healthy::A19.fetch("12345678901") }.to raise_error(Healthy::PatientNotFound)
+      expect { Roqua::Healthy::A19.fetch("12345678901") }.to raise_error(Roqua::Healthy::PatientNotFound)
     end
   end
 end
