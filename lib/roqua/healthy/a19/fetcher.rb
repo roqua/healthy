@@ -9,9 +9,11 @@ module Roqua
     module A19
       class Fetcher
         attr_reader :patient_id
+        attr_reader :client
 
-        def initialize(patient_id)
+        def initialize(patient_id, client = nil)
           @patient_id = patient_id
+          @client = client
         end
 
         def fetch
@@ -50,7 +52,7 @@ module Roqua
         def remote_url
           return @remote_url if @remote_url
 
-          url = Addressable::URI.parse(Healthy.a19_endpoint)
+          url = Addressable::URI.parse(client.try(:a19_endpoint) || Healthy.a19_endpoint)
           url.path = "/"
 
           @remote_url = URI.parse(url.to_s)

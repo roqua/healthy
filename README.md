@@ -8,6 +8,13 @@
 Healthy::A19.fetch(patient_identifier)
 ```
 
+or if you need multiple configurations
+
+```ruby
+client = Healthy::A19::Client(a19_endpoint: 'https://...')
+client.fetch_a19(patient_identifier)
+```
+
 ### Adding integration tests
 
 If you find any A19 response that Healthy currently does not handle correctly, please add a fixture and integration test for it.

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Roqua::Healthy::A19::Fetcher do
+  let(:client) { Roqua::Healthy::Client.new(a19_endpoint: 'http://foo.bar') }
+
   it 'succeeds when upstream returns XML' do
     stub_mirth_response("<HL7Message></HL7Message>")
     expect { Roqua::Healthy::A19::Fetcher.new("123").fetch }.not_to raise_error
@@ -29,7 +31,7 @@ describe Roqua::Healthy::A19::Fetcher do
     expect { Roqua::Healthy::A19::Fetcher.new("123").fetch }.to raise_exception(Roqua::Healthy::Timeout)
   end
 
-  it "raises upstream is returning 'connection refuesed' messages" do
+  it "raises upstream is returning 'connection refused' messages" do
     stub_mirth_response "<failure><error>Unable to connect to destination\tConnectException\tConnection refused</error></failure>", 500
     expect { Roqua::Healthy::A19::Fetcher.new("123").fetch }.to raise_exception(Roqua::Healthy::ConnectionRefused)
   end
@@ -50,5 +52,18 @@ describe Roqua::Healthy::A19::Fetcher do
 
     stub_mirth.to_raise Errno::ETIMEDOUT
     expect { Roqua::Healthy::A19::Fetcher.new("123").fetch }.to raise_exception(Roqua::Healthy::Timeout)
+  end
+
+  it 'saves the client' do
+    fetcher = Roqua::Healthy::A19::Fetcher.new('id', client)
+    expect(fetcher.client).to eq client
+  end
+
+  describe '#remote_url' do
+    let(:fetcher) { Roqua::Healthy::A19::Fetcher.new("123", client) }
+    it 'uses the client config if available' do
+      expect(client).to receive(:a19_endpoint).and_call_original
+      fetcher.send(:remote_url)
+    end
   end
 end
