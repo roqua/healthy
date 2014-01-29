@@ -1,6 +1,8 @@
 module Roqua
   module Healthy
     class Client
+      include ::Roqua::Logging
+
       attr_accessor :a19_endpoint
 
       def initialize(options = {})
@@ -12,7 +14,11 @@ module Roqua
       end
 
       def fetch_a19(patient_id)
-        A19.fetch(patient_id, self)
+        eventlog.lifecycle('roqua.hl7.a19', patient_id: patient_id) do
+          message = A19::Fetcher.new(patient_id, self).fetch
+          patient = A19::Transformer.new(message).to_patient
+          patient
+        end
       end
     end
   end

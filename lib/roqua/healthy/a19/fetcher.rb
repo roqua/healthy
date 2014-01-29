@@ -11,7 +11,7 @@ module Roqua
         attr_reader :patient_id
         attr_reader :client
 
-        def initialize(patient_id, client = nil)
+        def initialize(patient_id, client)
           @patient_id = patient_id
           @client = client
         end
@@ -52,7 +52,7 @@ module Roqua
         def remote_url
           return @remote_url if @remote_url
 
-          url = Addressable::URI.parse(client.try(:a19_endpoint) || Healthy.a19_endpoint)
+          url = Addressable::URI.parse(client.a19_endpoint)
           url.path = "/"
 
           @remote_url = URI.parse(url.to_s)
