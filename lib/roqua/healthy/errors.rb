@@ -1,16 +1,19 @@
 module Roqua
   module Healthy
-    class UnknownFailure < StandardError; end
-    class IllegalMirthResponse < StandardError; end
-    class PatientIdNotInRemote < StandardError; end
-    class Timeout < StandardError; end
-    class HostUnreachable < StandardError; end
-    class ConnectionRefused < StandardError; end
+    class Error < StandardError; end
+    class ConnectionError < Error; end
+    
+    class IllegalMirthResponse < ConnectionError; end
+    class Timeout < ConnectionError; end
+    class HostUnreachable < ConnectionError; end
+    class ConnectionRefused < ConnectionError; end
 
-    class PatientNotFound < StandardError; end
+    class UnknownFailure < Error; end
+    class PatientIdNotInRemote < Error; end
+    class PatientNotFound < Error; end
 
     module MirthErrors
-      class WrongPatient < StandardError; end
+      class WrongPatient < Error; end
     end
   end
 end
