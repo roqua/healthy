@@ -2,7 +2,7 @@ module Roqua
   module Healthy
     class Error < StandardError; end
     class ConnectionError < Error; end
-    
+
     class IllegalMirthResponse < ConnectionError; end
     class Timeout < ConnectionError; end
     class HostUnreachable < ConnectionError; end

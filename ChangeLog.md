@@ -1,3 +1,8 @@
+### 1.1.1
+
+* Added `Roqua::Healthy::Error` and `Roqua::Healthy::ConnectionError` base classes for exceptions
+  thrown by Healthy.
+
 ### 1.1.0 / 2014-01-29
 
 * Added possibility to work with more than one endpoint simultaneously through `Roqua::Healthy::Client`.
