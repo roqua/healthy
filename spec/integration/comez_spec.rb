@@ -21,6 +21,6 @@ describe 'Fetching A19 from Comez' do
     it { expect(subject[:country]).to      eq('NL') }
     it { expect(subject[:birthdate]).to    eq('17070415') }
     it { expect(subject[:gender]).to       eq('F') }
-    it { expect(subject[:phone_cell]).to   be_nil }
+    it { expect(subject[:phone_cell]).to   eq('0612345678mdr') }
   end
 end

@@ -73,6 +73,11 @@ module Roqua
           phone_cell_record = message.fetch('PID').fetch('PID.13').find do |record|
             record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'ORN'
           end
+
+          phone_cell_record ||= message.fetch('PID').fetch('PID.13').find do |record|
+            record.fetch('PID.13.1', '') =~ /\A06/
+          end
+
           return nil unless phone_cell_record
 
           phone_cell_record.fetch('PID.13.1', "")

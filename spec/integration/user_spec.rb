@@ -67,6 +67,6 @@ describe 'Fetching A19 from USER' do
     it { expect(subject[:country]).to      eq('6030') }
     it { expect(subject[:birthdate]).to    eq('17070415') }
     it { expect(subject[:gender]).to       eq('M') }
-    it { expect(subject[:phone_cell]).to   be_nil }
+    it { expect(subject[:phone_cell]).to   eq('0611223344') }
   end
 end
