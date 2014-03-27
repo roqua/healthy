@@ -29,3 +29,7 @@ FinalNewline:
 
 SignalException:
   Enabled: False
+
+# Gems typically have one file named the-gem-name.rb which can be autorequired by bundler
+FileName:
+  Enabled: false
