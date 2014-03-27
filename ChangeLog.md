@@ -1,3 +1,7 @@
+### 1.1.2
+
+* Fall back to PID.13.1 for cell_phone when type is undefined
+
 ### 1.1.1
 
 * Added `Roqua::Healthy::Error` and `Roqua::Healthy::ConnectionError` base classes for exceptions
