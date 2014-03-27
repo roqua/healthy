@@ -32,4 +32,5 @@ SignalException:
 
 # Gems typically have one file named the-gem-name.rb which can be autorequired by bundler
 FileName:
-  Enabled: false
+  Exclude:
+      - lib/roqua-healthy.rb
