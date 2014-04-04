@@ -71,7 +71,7 @@ describe 'Fetching A19 from CDIS' do
   end
 
   describe 'a patient with an empty 11.1 address field' do
-    before { load_fixture 'ucp_missing_address', '1234' }
+    before { load_fixture 'cdis_missing_address', '1234' }
     subject { Roqua::Healthy::A19.fetch('1234') }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
