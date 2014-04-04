@@ -8,7 +8,7 @@ describe 'Fetching A19 from UCP' do
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
     it { expect(subject[:source]).to       eq('UMCG') }
-    it { expect(subject[:identities]).to   eq([{:ident=>"1234", :authority=>"PI"}]) }
+    it { expect(subject[:identities]).to   eq([{ident: "1234", authority: "PI"}]) }
     it { expect(subject[:firstname]).to    eq('T.') }
     it { expect(subject[:initials]).to     eq('T.') }
     it { expect(subject[:lastname]).to     eq('Test') }
@@ -25,4 +25,3 @@ describe 'Fetching A19 from UCP' do
 
   end
 end
-
