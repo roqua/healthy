@@ -14,7 +14,7 @@ module Roqua
         end
 
         def street
-          return nil unless record
+          return nil if record.blank? || record.fetch('PID.11.1').blank?
           record.fetch('PID.11.1').fetch('PID.11.1.1')
         end
 
