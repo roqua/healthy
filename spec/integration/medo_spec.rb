@@ -23,4 +23,12 @@ describe 'Fetching A19 from Medo' do
     it { expect(subject[:gender]).to       eq('M') }
     it { expect(subject[:phone_cell]).to   eq('0698765432') }
   end
+
+  describe 'a patient that does not exist' do
+    before { stub_mirth_response '', 404, '12345678901' }
+
+    it 'raises PatientNotFound' do
+      expect { Roqua::Healthy::A19.fetch("12345678901") }.to raise_error(Roqua::Healthy::PatientNotFound)
+    end
+  end
 end
