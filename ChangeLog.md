@@ -1,6 +1,10 @@
-### 1.1.3
+### 1.1.4
 
 * Better handling for 403 and 404 responses.
+
+### 1.1.3
+
+* No idea. Someone forgot to update changelog
 
 ### 1.1.2
 
