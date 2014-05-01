@@ -27,7 +27,7 @@ describe 'Fetching A19 from Medo' do
   describe 'authentication failure' do
     before { stub_mirth_response '', 403, '12345678901' }
 
-    it 'raises PatientNotFound' do
+    it 'raises AuthenticationFailure' do
       expect { Roqua::Healthy::A19.fetch("12345678901") }.to raise_error(Roqua::Healthy::AuthenticationFailure)
     end
   end
