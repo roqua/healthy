@@ -11,6 +11,7 @@ module Roqua
     class UnknownFailure < Error; end
     class PatientIdNotInRemote < Error; end
     class PatientNotFound < Error; end
+    class AuthenticationFailure < Error; end
 
     module MirthErrors
       class WrongPatient < Error; end

@@ -18,6 +18,8 @@ module Roqua
           case response_code
           when '200'
             validate_200
+          when '403'
+            validate_403
           when '404'
             validate_404
           when '500'
@@ -32,6 +34,10 @@ module Roqua
           raise ::Roqua::Healthy::PatientNotFound if failure.key?("ERR") && failure.fetch("ERR").fetch("ERR.1").fetch("ERR.1.4").fetch("ERR.1.4.2") =~ /Patient \(@\) niet gevonden\(.*\)/
           raise ::Roqua::Healthy::MirthErrors::WrongPatient if failure.key?('QRD') && failure.fetch("QRD").fetch("QRD.8").fetch("QRD.8.1") != patient_id
           true
+        end
+
+        def validate_403
+          raise ::Roqua::Healthy::AuthenticationFailure
         end
 
         def validate_404
