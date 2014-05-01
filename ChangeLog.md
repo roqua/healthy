@@ -1,3 +1,7 @@
+### 1.1.3
+
+* Better handling for 403 and 404 responses.
+
 ### 1.1.2
 
 * Fall back to PID.13.1 for cell_phone when type is undefined
