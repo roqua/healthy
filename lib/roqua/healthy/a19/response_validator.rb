@@ -32,6 +32,7 @@ module Roqua
         def validate_200
           failure = parser.fetch("HL7Message")
           raise ::Roqua::Healthy::PatientNotFound if failure.key?("ERR") && failure.fetch("ERR").fetch("ERR.1").fetch("ERR.1.4").fetch("ERR.1.4.2") =~ /Patient \(@\) niet gevonden\(.*\)/
+          raise ::Roqua::Healthy::PatientNotFound if failure.key?("QAK") && failure.fetch("QAK").fetch("QAK.2").fetch("QAK.2.1") == "NF"
           raise ::Roqua::Healthy::MirthErrors::WrongPatient if failure.key?('QRD') && failure.fetch("QRD").fetch("QRD.8").fetch("QRD.8.1") != patient_id
           true
         end

@@ -69,4 +69,12 @@ describe 'Fetching A19 from USER' do
     it { expect(subject[:gender]).to       eq('M') }
     it { expect(subject[:phone_cell]).to   eq('0611223344') }
   end
+
+  describe 'a patient that does not exist' do
+    before { load_fixture 'user_patient_not_found', '123456' }
+
+    it 'raises PatientNotFound' do
+      expect { Roqua::Healthy::A19.fetch("123456") }.to raise_error(Roqua::Healthy::PatientNotFound)
+    end
+  end
 end
