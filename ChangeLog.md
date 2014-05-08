@@ -1,3 +1,7 @@
+### 1.1.5
+
+* Added support for QAK segments that signal that a patient record was not found
+
 ### 1.1.4
 
 * Better handling for 403 and 404 responses.
