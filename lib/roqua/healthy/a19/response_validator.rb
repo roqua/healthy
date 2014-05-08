@@ -30,10 +30,9 @@ module Roqua
         end
 
         def validate_200
-          failure = parser.fetch("HL7Message")
-          raise ::Roqua::Healthy::PatientNotFound if failure.key?("ERR") && failure.fetch("ERR").fetch("ERR.1").fetch("ERR.1.4").fetch("ERR.1.4.2") =~ /Patient \(@\) niet gevonden\(.*\)/
-          raise ::Roqua::Healthy::PatientNotFound if failure.key?("QAK") && failure.fetch("QAK").fetch("QAK.2").fetch("QAK.2.1") == "NF"
-          raise ::Roqua::Healthy::MirthErrors::WrongPatient if failure.key?('QRD') && failure.fetch("QRD").fetch("QRD.8").fetch("QRD.8.1") != patient_id
+          parsed_message = parser.fetch("HL7Message")
+          ensure_patient_found(parsed_message)
+          ensure_correct_patient(parsed_message)
           true
         end
 
@@ -51,6 +50,17 @@ module Roqua
           raise ::Roqua::Healthy::Timeout, failure["error"]           if failure["error"] == "Unable to connect to destination\tSocketTimeoutException\tconnect timed out"
           raise ::Roqua::Healthy::ConnectionRefused, failure["error"] if failure["error"] == "Unable to connect to destination\tConnectException\tConnection refused"
           raise ::Roqua::Healthy::UnknownFailure, failure["error"]
+        end
+
+        private
+
+        def ensure_patient_found(parsed_message)
+          raise ::Roqua::Healthy::PatientNotFound if parsed_message.key?("ERR") && parsed_message.fetch("ERR").fetch("ERR.1").fetch("ERR.1.4").fetch("ERR.1.4.2") =~ /Patient \(@\) niet gevonden\(.*\)/
+          raise ::Roqua::Healthy::PatientNotFound if parsed_message.key?("QAK") && parsed_message.fetch("QAK").fetch("QAK.2").fetch("QAK.2.1") == "NF"
+        end
+
+        def ensure_correct_patient(parsed_message)
+          raise ::Roqua::Healthy::MirthErrors::WrongPatient if parsed_message.key?('QRD') && parsed_message.fetch("QRD").fetch("QRD.8").fetch("QRD.8.1") != patient_id
         end
       end
     end
