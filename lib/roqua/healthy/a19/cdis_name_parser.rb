@@ -15,7 +15,7 @@ module Roqua
         end
 
         def lastname
-          names[:legal].fetch('PID.5.1').fetch('PID.5.1.3')
+          names[:legal].fetch('PID.5.1').fetch('PID.5.1.1')
         end
       end
     end

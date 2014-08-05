@@ -24,7 +24,7 @@ describe 'Fetching A19 from USER' do
     it { expect(subject[:phone_cell]).to   be_nil }
   end
 
-  describe 'a patient' do
+  describe 'a patient with a maiden name' do
     before { load_fixture 'user_patient_with_maiden_name', '00000123' }
     subject { Roqua::Healthy::A19.fetch("00000123") }
 
@@ -34,7 +34,7 @@ describe 'Fetching A19 from USER' do
     it { expect(subject[:identities]).to   eq([{ident: '00000123', authority: 'PI'}]) }
     it { expect(subject[:firstname]).to    eq('Babette') }
     it { expect(subject[:initials]).to     eq('A.B.C.') }
-    it { expect(subject[:lastname]).to     eq('Achternaam') }
+    it { expect(subject[:lastname]).to     eq('Meisjes-naam-Achternaam') }
     it { expect(subject[:display_name]).to be_nil }
     it { expect(subject[:email]).to        be_nil }
     it { expect(subject[:address_type]).to eq('L') }

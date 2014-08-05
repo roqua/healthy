@@ -80,7 +80,7 @@ describe 'Fetching A19 from CDIS' do
     it { expect(subject[:identities]).to   eq([{ident: "1234", authority: "PI"}]) }
     it { expect(subject[:firstname]).to    eq('T.') }
     it { expect(subject[:initials]).to     eq('T.') }
-    it { expect(subject[:lastname]).to     eq('Test') }
+    it { expect(subject[:lastname]).to     eq('Tester') }
     it { expect(subject[:display_name]).to eq(nil) }
     it { expect(subject[:email]).to        eq(nil) }
     it { expect(subject[:address_type]).to eq('M') }
