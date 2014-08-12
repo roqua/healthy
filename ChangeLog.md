@@ -1,3 +1,7 @@
+### 1.1.6
+
+* For CDIS name parser, now return last name that includes maiden name
+
 ### 1.1.5
 
 * Added support for QAK segments that signal that a patient record was not found
