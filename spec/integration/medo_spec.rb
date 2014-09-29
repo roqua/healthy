@@ -8,7 +8,8 @@ describe 'Fetching A19 from Medo' do
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
     it { expect(subject[:source]).to       eq('RGOC') }
-    it { expect(subject[:identities]).to   eq([{ident: 'md-cdae5d100d8e0131d2623c075478eb56', authority: 'epd'}]) }
+    it { expect(subject[:identities]).to   eq([{ident: 'md-cdae5d100d8e0131d2623c075478eb56', authority: 'epd'},
+                                               {ident: 'research-id-123', authority: 'medo-research-number'}]) }
     it { expect(subject[:firstname]).to    eq('Jan') }
     it { expect(subject[:initials]).to     eq('J.') }
     it { expect(subject[:lastname]).to     eq('Fictief') }

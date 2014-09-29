@@ -49,6 +49,10 @@
         <PID.3.1>md-cdae5d100d8e0131d2623c075478eb56</PID.3.1>
         <PID.3.5>epd</PID.3.5>
       </PID.3>
+      <PID.3>
+        <PID.3.1>research-id-123</PID.3.1>
+        <PID.3.5>medo-research-number</PID.3.5>
+      </PID.3>
     </PID.3>
     <PID.5 type="array">
       <PID.5>
