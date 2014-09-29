@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+# rubocop:disable Blocks,BlockAlignment
 describe 'Fetching A19 from Medo' do
   describe 'a patient' do
     before { load_fixture 'medo_patient', 'md-cdae5d100d8e0131d2623c075478eb56' }
