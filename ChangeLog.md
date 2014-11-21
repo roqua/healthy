@@ -1,3 +1,7 @@
+### 1.1.7
+
+* Bumped roqua-support to 0.1.18 to use Roqua.stats (through with_instrumentation)
+
 ### 1.1.6
 
 * For CDIS name parser, now return last name that includes maiden name
