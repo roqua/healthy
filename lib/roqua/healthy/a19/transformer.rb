@@ -1,5 +1,6 @@
 require 'roqua/healthy/a19/name_parser'
 require 'roqua/healthy/a19/cdis_name_parser'
+require 'roqua/healthy/a19/impulse_name_parser'
 require 'roqua/healthy/a19/address_parser'
 
 module Roqua
@@ -91,8 +92,10 @@ module Roqua
 
         def name
           case source
-          when "UMCG", "IMPULSE"
+          when "UMCG"
             CdisNameParser.new(message)
+          when "IMPULSE"
+            ImpulseNameParser.new(message)
           else
             NameParser.new(message)
           end
