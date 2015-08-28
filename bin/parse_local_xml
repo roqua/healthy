@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'roqua-healthy'
-require 'ap'
+require 'pp'
 
 body    = ARGF.read
 message = Hash.from_xml(body).fetch("HL7Message") { Hash.new }
 
-ap Roqua::Healthy::A19::Transformer.new(message).to_patient
+pp Roqua::Healthy::A19::Transformer.new(message).to_patient
