@@ -1,3 +1,7 @@
+### 1.1.8
+
+* Handle new Impulse/User name format
+
 ### 1.1.7
 
 * Bumped roqua-support to 0.1.18 to use Roqua.stats (through with_instrumentation)
