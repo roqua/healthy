@@ -12,7 +12,7 @@ describe Roqua::Healthy::A19::Fetcher do
 
   it "raises when upstream does not return HTTP 200" do
     stub_mirth_response "Request not successful", 500
-    expect { subject.fetch }.to raise_exception
+    expect { subject.fetch }.to raise_exception(Roqua::Healthy::IllegalMirthResponse)
   end
 
   it 'raises when upstream responds with illegal XML' do
@@ -33,8 +33,13 @@ describe Roqua::Healthy::A19::Fetcher do
     expect { subject.fetch }.to raise_exception(Roqua::Healthy::Timeout)
   end
 
-  it "raises upstream is returning 'connection refused' messages" do
+  it "raises if upstream is returning old style 'connection refused' messages" do
     stub_mirth_response "<failure><error>Unable to connect to destination\tConnectException\tConnection refused</error></failure>", 500
+    expect { subject.fetch }.to raise_exception(Roqua::Healthy::ConnectionRefused)
+  end
+
+  it "raises if upstream is returning new  style 'connection refused' messages" do
+    stub_mirth_response "<failure><error>ERROR: ConnectException: Connection refused</error></failure>", 500
     expect { subject.fetch }.to raise_exception(Roqua::Healthy::ConnectionRefused)
   end
 
