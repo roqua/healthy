@@ -23,8 +23,13 @@ describe Roqua::Healthy::A19::Fetcher do
     expect { subject.fetch }.to raise_error(Roqua::Healthy::IllegalMirthResponse)
   end
 
-  it "raises upstream is returning 'Timeout waiting for ACK' messages" do
+  it "raises upstream is returning old style 'Timeout waiting for ACK' messages" do
     stub_mirth_response "<failure><error>Timeout waiting for ACK</error></failure>", 500
+    expect { subject.fetch }.to raise_exception(Roqua::Healthy::Timeout)
+  end
+
+  it "raises upstream is returning new style 'Timeout waiting for response' messages" do
+    stub_mirth_response "<failure><error>ERROR: Timeout waiting for response</error></failure>", 500
     expect { subject.fetch }.to raise_exception(Roqua::Healthy::Timeout)
   end
 
