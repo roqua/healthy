@@ -1,3 +1,7 @@
+### 1.1.9
+
+* Handle upgraded mirth error messages
+
 ### 1.1.8
 
 * Handle new Impulse/User name format
