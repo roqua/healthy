@@ -46,9 +46,9 @@ module Roqua
 
         def validate_500
           failure = parser.fetch("failure")
-          raise ::Roqua::Healthy::Timeout, failure["error"]           if failure["error"] == "Timeout waiting for ACK"
+          raise ::Roqua::Healthy::Timeout, failure["error"]           if failure["error"] == "Timeout waiting for ACK" || failure["error"] == 'ERROR: Timeout waiting for response'
           raise ::Roqua::Healthy::Timeout, failure["error"]           if failure["error"] == "Unable to connect to destination\tSocketTimeoutException\tconnect timed out"
-          raise ::Roqua::Healthy::ConnectionRefused, failure["error"] if failure["error"] == "Unable to connect to destination\tConnectException\tConnection refused"
+          raise ::Roqua::Healthy::ConnectionRefused, failure["error"] if failure["error"] == "Unable to connect to destination\tConnectException\tConnection refused" || failure["error"] == 'ERROR: ConnectException: Connection refused'
           raise ::Roqua::Healthy::UnknownFailure, failure["error"]
         end
 
