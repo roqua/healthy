@@ -1,3 +1,7 @@
+### 1.2.0
+
+* Added support for MEDOQ hl7 a19 identities encoded in JSON
+
 ### 1.1.9
 
 * Handle upgraded mirth error messages
