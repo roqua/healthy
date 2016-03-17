@@ -1,3 +1,5 @@
+require 'andand'
+
 module Roqua
   module Healthy
     module A19
@@ -10,7 +12,8 @@ module Roqua
         end
 
         def check
-          record[:identities].any? { |i| i[:ident] == patient_id }
+          record[:identities].andand.any? { |i| i[:ident] == patient_id } ||
+            record[:medoq_data].andand[:epd] == patient_id
         end
       end
     end

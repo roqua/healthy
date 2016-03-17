@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Arranges communication between Mirth and RoQua}
   gem.description   = %q{Receives queries from RoQua, sends them to Mirth, and translates Mirth's responses back into Rubyland.}
   gem.license       = "MIT"
-  gem.authors       = ["Marten Veldthuis"]
-  gem.email         = "marten@roqua.nl"
+  gem.authors       = ["Marten Veldthuis", "Jorn van de Beek"]
+  gem.email         = "support@roqua.nl"
   gem.homepage      = "https://github.com/roqua/healthy"
 
   gem.files         = `git ls-files`.split($/)
@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'activesupport', '>= 3.2', '< 5.0'
   gem.add_dependency 'addressable', '~> 2.3'
   gem.add_dependency 'roqua-support', '~> 0.1.18'
+  gem.add_dependency 'andand', '~> 1.3.3'
 
   gem.add_development_dependency 'bundler', '~> 1.0'
   gem.add_development_dependency 'rake', '~> 10.0'

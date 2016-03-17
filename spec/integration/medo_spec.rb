@@ -9,8 +9,10 @@ describe 'Fetching A19 from Medoq' do
     it { expect(subject[:status]).to       eq('SUCCESS') }
     it { expect(subject[:error]).to        be_nil }
     it { expect(subject[:source]).to       eq('RGOC') }
-    it { expect(subject[:identities]).to   eq([{ident: {"medoq-research-number" => "research-id-123",
-                                                        "epd" => "md-cdae5d100d8e0131d2623c075478eb56"},
+    it { expect(subject[:identities]).to   eq([{ident: {"research_number" => "research-id-123",
+                                                        "epd_id" => "md-cdae5d100d8e0131d2623c075478eb56",
+                                                        "metadata" => {"test" => "12"}
+    },
                                                 authority: 'MEDOQ'}]) }
     it { expect(subject[:firstname]).to    eq('Jan') }
     it { expect(subject[:initials]).to     eq('J.') }

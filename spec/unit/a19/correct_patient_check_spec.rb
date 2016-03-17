@@ -16,6 +16,12 @@ module Roqua
           checker = CorrectPatientCheck.new('999', record)
           expect(checker.check).to be_falsey
         end
+
+        let(:medoq_record) { {medoq_data: {epd_id: '12345678'}} }
+        it 'also works for epd ids under medo identities' do
+          checker = CorrectPatientCheck.new(id, medoq_record)
+          expect(checker.check).to be_truthy
+        end
       end
     end
   end
