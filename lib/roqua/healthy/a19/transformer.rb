@@ -50,7 +50,15 @@ module Roqua
         def identities
           message.fetch('PID').fetch('PID.3').map do |identity|
             next if identity.fetch('PID.3.1').blank?
-            {ident: identity.fetch('PID.3.1'), authority: identity.fetch('PID.3.5')}
+            authority = identity.fetch('PID.3.5')
+            # medoq sends all its (possibly identifying) metadata in 1 json encoded identity
+            # non medoq hl7 clients could fake being medoq, so do not add any trusted behavior
+            # to medoq identities
+            if authority == 'MEDOQ'
+              {ident: JSON.parse(identity.fetch('PID.3.1')), authority: authority}
+            else
+              {ident: identity.fetch('PID.3.1'), authority: authority}
+            end
           end.compact
         end
 
