@@ -13,7 +13,7 @@ module Roqua
 
         def check
           record[:identities].andand.any? { |i| i[:ident] == patient_id } ||
-            record[:medoq_data].andand[:epd] == patient_id
+            record[:medoq_data].andand[:epd_id] == patient_id
         end
       end
     end
