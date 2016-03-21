@@ -2,6 +2,7 @@ require 'roqua/healthy/a19/name_parser'
 require 'roqua/healthy/a19/cdis_name_parser'
 require 'roqua/healthy/a19/impulse_name_parser'
 require 'roqua/healthy/a19/address_parser'
+require 'active_support/core_ext/hash'
 
 module Roqua
   module Healthy
@@ -56,7 +57,11 @@ module Roqua
             # non medoq hl7 clients could fake being medoq, so do not add any trusted behavior
             # to medoq identities beyond what a regular hl7 field would enable
             if authority == 'MEDOQ'
-              {ident: JSON.parse(identity.fetch('PID.3.1')), authority: authority}
+              medoq_data = JSON.parse(identity.fetch('PID.3.1')).with_indifferent_access
+              {ident: medoq_data[:epd_id],
+               research_number: medoq_data[:research_number],
+               metadata: medoq_data[:metadata],
+               authority: authority}
             else
               {ident: identity.fetch('PID.3.1'), authority: authority}
             end
