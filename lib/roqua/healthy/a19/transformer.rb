@@ -2,7 +2,6 @@ require 'roqua/healthy/a19/name_parser'
 require 'roqua/healthy/a19/cdis_name_parser'
 require 'roqua/healthy/a19/impulse_name_parser'
 require 'roqua/healthy/a19/address_parser'
-require 'andand'
 
 module Roqua
   module Healthy
@@ -67,7 +66,7 @@ module Roqua
         def medoq_data
           identities.find do |identity|
             identity[:authority] == 'MEDOQ'
-          end.andand[:ident] || {}
+          end.try(:fetch, :ident, {})
         end
 
         def birthdate
