@@ -71,7 +71,7 @@ module Roqua
         def medoq_data
           identities.find do |identity|
             identity[:authority] == 'MEDOQ'
-          end.try(:fetch, :ident, {})
+          end || {}
         end
 
         def birthdate
