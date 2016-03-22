@@ -10,7 +10,7 @@ module Roqua
         end
 
         def check
-          record[:identities].any? { |i| i[:ident] == patient_id }
+          record[:identities].try(:any?) { |i| i[:ident] == patient_id }
         end
       end
     end

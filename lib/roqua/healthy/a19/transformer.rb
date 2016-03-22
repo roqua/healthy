@@ -2,6 +2,7 @@ require 'roqua/healthy/a19/name_parser'
 require 'roqua/healthy/a19/cdis_name_parser'
 require 'roqua/healthy/a19/impulse_name_parser'
 require 'roqua/healthy/a19/address_parser'
+require 'active_support/core_ext/hash'
 
 module Roqua
   module Healthy
@@ -35,7 +36,8 @@ module Roqua
             country:      address.country,
             birthdate:    birthdate,
             gender:       gender,
-            phone_cell:   phone_cell
+            phone_cell:   phone_cell,
+            medoq_data:   medoq_data
           }
         end
 
@@ -48,10 +50,28 @@ module Roqua
         end
 
         def identities
-          message.fetch('PID').fetch('PID.3').map do |identity|
+          @identities ||= message.fetch('PID').fetch('PID.3').map do |identity|
             next if identity.fetch('PID.3.1').blank?
-            {ident: identity.fetch('PID.3.1'), authority: identity.fetch('PID.3.5')}
+            authority = identity.fetch('PID.3.5')
+            # medoq sends all its (possibly identifying) metadata in 1 json encoded identity
+            # non medoq hl7 clients could fake being medoq, so do not add any trusted behavior
+            # to medoq identities beyond what a regular hl7 field would enable
+            if authority == 'MEDOQ'
+              parsed_medoq_data = JSON.parse(identity.fetch('PID.3.1')).with_indifferent_access
+              {ident: parsed_medoq_data[:epd_id],
+               research_number: parsed_medoq_data[:research_number],
+               metadata: parsed_medoq_data[:metadata],
+               authority: authority}
+            else
+              {ident: identity.fetch('PID.3.1'), authority: authority}
+            end
           end.compact
+        end
+
+        def medoq_data
+          identities.find do |identity|
+            identity[:authority] == 'MEDOQ'
+          end || {}
         end
 
         def birthdate

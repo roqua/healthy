@@ -4,7 +4,7 @@
     <MSH.1>|</MSH.1>
     <MSH.2>^~\&amp;</MSH.2>
     <MSH.3>
-      <MSH.3.1>MEDO</MSH.3.1>
+      <MSH.3.1>MEDOQ</MSH.3.1>
     </MSH.3>
     <MSH.4>
       <MSH.4.1>RGOC</MSH.4.1>
@@ -46,12 +46,9 @@
     </PID.1>
     <PID.3 type="array">
       <PID.3>
-        <PID.3.1>md-cdae5d100d8e0131d2623c075478eb56</PID.3.1>
-        <PID.3.5>epd</PID.3.5>
-      </PID.3>
-      <PID.3>
-        <PID.3.1>research-id-123</PID.3.1>
-        <PID.3.5>medo-research-number</PID.3.5>
+        <PID.3.1>{"research_number":"research-id-123",
+          "epd_id":"md-cdae5d100d8e0131d2623c075478eb56", "metadata":{"test":"12"}}</PID.3.1>
+        <PID.3.5>MEDOQ</PID.3.5>
       </PID.3>
     </PID.3>
     <PID.5 type="array">
