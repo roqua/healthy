@@ -93,19 +93,21 @@ module Roqua
         # this is a heuristic to pick likely dutch cell phone numbers
         # out of the peculiar hl7 messages we receive
         def phone_cell
+          pid_13 = message.fetch('PID').fetch('PID.13')
+
           # prefer ORN (Other Residence Number, usually used for cell phone) that contains '06'
-          phone_cell_record = message.fetch('PID').fetch('PID.13').find do |record|
+          phone_cell_record = pid_13.find do |record|
             record.fetch('PID.13.1', '') =~ /\A06/ &&
               record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'ORN'
           end
 
           # otherwise choose the first occuring '06' number
-          phone_cell_record ||= message.fetch('PID').fetch('PID.13').find do |record|
+          phone_cell_record ||= pid_13.find do |record|
             record.fetch('PID.13.1', '') =~ /\A06/
           end
 
           # in the last case (possibly a +316 number), just choose the ORN number
-          phone_cell_record ||= message.fetch('PID').fetch('PID.13').find do |record|
+          phone_cell_record ||= pid_13.find do |record|
             record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'ORN'
           end
 
