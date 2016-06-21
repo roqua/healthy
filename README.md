@@ -35,4 +35,5 @@ These two commands are then chained together by `bin/get`:
 
 ## Copyright
 
-Copyright (c) 2013 Marten Veldthuis. Publicly available under an MIT license. See [LICENSE.txt](https://github.com/roqua/healthy/blob/master/LICENSE.txt) for details.
+Copyright (c) 2016 Marten Veldthuis, Jorn van de Beek, Samuel Esposito, Henk van der Veen
+Publicly available under an MIT license. See [LICENSE.txt](https://github.com/roqua/healthy/blob/master/LICENSE.txt) for details.

@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Arranges communication between Mirth and RoQua}
   gem.description   = %q{Receives queries from RoQua, sends them to Mirth, and translates Mirth's responses back into Rubyland.}
   gem.license       = "MIT"
-  gem.authors       = ["Marten Veldthuis", "Jorn van de Beek"]
+  gem.authors       = ["Marten Veldthuis", "Jorn van de Beek", 'Samuel Esposito', 'Henk van der Veen']
   gem.email         = "support@roqua.nl"
   gem.homepage      = "https://github.com/roqua/healthy"
 
