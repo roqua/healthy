@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 
 require File.expand_path('../lib/roqua/healthy/version', __FILE__)
-require 'English'
 
 Gem::Specification.new do |gem|
   gem.name          = "roqua-healthy"
@@ -13,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.email         = "support@roqua.nl"
   gem.homepage      = "https://github.com/roqua/healthy"
 
-  gem.files         = `git ls-files`.split($RS)
+  gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   gem.executables   = [] # executables in bin/ are helpers for use during development
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
@@ -35,7 +34,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'guard-rspec', '~> 4.2.4'
   gem.add_development_dependency 'listen', '~> 2.1'
   gem.add_development_dependency 'guard-rubocop', '~> 1.2.0'
-  gem.add_development_dependency 'rubocop', '~> 0.37'
+  gem.add_development_dependency 'rubocop', '~> 0.40'
   gem.add_development_dependency 'fuubar'
 
   # Documentation generation
