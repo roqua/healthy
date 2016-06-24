@@ -1,4 +1,4 @@
-# Healthy [![Code Climate](https://codeclimate.com/repos/524944dd56b10217490074e8/badges/5dd696b69c4614c83c2d/gpa.png)](https://codeclimate.com/repos/524944dd56b10217490074e8/feed) [![CircleCi](https://circleci.com/gh/roqua/healthy.png?circle-token=ece8f36798b00bc8659d5c76f720b22693d6600a)](https://circleci.com/gh/roqua/healthy)
+# Healthy [![Code Climate](https://codeclimate.com/github/roqua/healthy/badges/gpa.svg)](https://codeclimate.com/github/roqua/healthy) [![CircleCi](https://circleci.com/gh/roqua/healthy.png?circle-token=ece8f36798b00bc8659d5c76f720b22693d6600a)](https://circleci.com/gh/roqua/healthy)
 
 ## Patient details aka QRY\^A19
 
@@ -31,9 +31,10 @@ There are two helpers in `bin`: `get_xml_for_patient` and `parse_local_xml`. The
 
 These two commands are then chained together by `bin/get`:
 
-`bin/get 7767853 10.20.11.100:60201` NB: replace with the ip and port of the a19 channel you want to use
+`bin/get 7767853 10.20.11.100:60201` NB: replace the client id and the ip and port of the a19 channel you want to use
 
 ## Copyright
 
 Copyright (c) 2016 Marten Veldthuis, Jorn van de Beek, Samuel Esposito, Henk van der Veen
+
 Publicly available under an MIT license. See [LICENSE.txt](https://github.com/roqua/healthy/blob/master/LICENSE.txt) for details.
