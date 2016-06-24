@@ -1,18 +1,19 @@
 require 'spec_helper'
 
-# rubocop:disable Blocks,BlockAlignment
 describe 'Fetching A19 from Medoq' do
   describe 'a patient' do
     before { load_fixture 'medoq_patient', 'md-cdae5d100d8e0131d2623c075478eb56' }
     subject { Roqua::Healthy::A19.fetch("md-cdae5d100d8e0131d2623c075478eb56") }
 
-    it { expect(subject[:status]).to       eq('SUCCESS') }
-    it { expect(subject[:error]).to        be_nil }
-    it { expect(subject[:source]).to       eq('RGOC') }
-    it { expect(subject[:identities]).to   eq([{ident: "md-cdae5d100d8e0131d2623c075478eb56",
-                                                research_number: "research-id-123",
-                                                metadata: {"test" => "12"},
-                                                authority: 'MEDOQ'}]) }
+    it { expect(subject[:status]).to eq('SUCCESS') }
+    it { expect(subject[:error]).to  be_nil }
+    it { expect(subject[:source]).to eq('RGOC') }
+    it do
+      expect(subject[:identities]).to eq([{ident: "md-cdae5d100d8e0131d2623c075478eb56",
+                                           research_number: "research-id-123",
+                                           metadata: {"test" => "12"},
+                                           authority: 'MEDOQ'}])
+    end
     it { expect(subject[:firstname]).to    eq('Jan') }
     it { expect(subject[:initials]).to     eq('J.') }
     it { expect(subject[:lastname]).to     eq('Fictief') }

@@ -40,8 +40,7 @@ module Roqua
               names[:display] = record
             when 'N'
               names[:nick] = record
-            else
-              # ignore record
+              # else ignore record
             end
           end
           names

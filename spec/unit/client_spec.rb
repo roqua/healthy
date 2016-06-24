@@ -13,7 +13,5 @@ describe Roqua::Healthy::Client do
     it 'defaults to system wide config' do
       expect(subject.a19_endpoint).to eq Roqua::Healthy.a19_endpoint
     end
-
   end
-
 end
