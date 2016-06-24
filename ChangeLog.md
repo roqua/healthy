@@ -1,3 +1,7 @@
+### 1.2.1
+
+* Improved heuristic to pick cell phone numbers out of commonly used hl7 messages
+
 ### 1.2.0
 
 * Added support for MEDOQ hl7 a19 identities encoded in JSON

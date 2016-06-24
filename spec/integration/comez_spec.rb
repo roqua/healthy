@@ -5,10 +5,13 @@ describe 'Fetching A19 from Comez' do
     before { load_fixture 'comez_patient', '0000123456' }
     subject { Roqua::Healthy::A19.fetch("0000123456") }
 
-    it { expect(subject[:status]).to       eq('SUCCESS') }
-    it { expect(subject[:error]).to        be_nil }
-    it { expect(subject[:source]).to       eq('CS') }
-    it { expect(subject[:identities]).to   eq([{ident: '0000123456', authority: 'PI'}, {ident: '123456789',   authority: 'NNNLD'}]) }
+    it { expect(subject[:status]).to eq('SUCCESS') }
+    it { expect(subject[:error]).to  be_nil }
+    it { expect(subject[:source]).to eq('CS') }
+    it do
+      expect(subject[:identities]).to eq([{ident: '0000123456', authority: 'PI'},
+                                          {ident: '123456789', authority: 'NNNLD'}])
+    end
     it { expect(subject[:firstname]).to    eq('Voornaam') }
     it { expect(subject[:initials]).to     eq('A') }
     it { expect(subject[:lastname]).to     eq('Achternaam') }

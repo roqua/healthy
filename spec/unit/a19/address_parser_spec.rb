@@ -7,20 +7,17 @@ describe Roqua::Healthy::A19::AddressParser do
                   'PID.11.1' => {'PID.11.1.1' => 'Mailstreet 1'},
                   'PID.11.3' => 'Mailcity',
                   'PID.11.5' => 'Mailzipcode',
-                  'PID.11.6' => 'Mailcountry'
-                  } if types.include?('M')
+                  'PID.11.6' => 'Mailcountry'} if types.include?('M')
     addresses << {'PID.11.7' => 'H',
                   'PID.11.1' => {'PID.11.1.1' => 'Homestreet 1'},
                   'PID.11.3' => 'Homecity',
                   'PID.11.5' => 'Homezipcode',
-                  'PID.11.6' => 'Homecountry'
-                  } if types.include?('H')
+                  'PID.11.6' => 'Homecountry'} if types.include?('H')
     addresses << {'PID.11.7' => '?',
                   'PID.11.1' => {'PID.11.1.1' => '????street 1'},
                   'PID.11.3' => '????city',
                   'PID.11.5' => '????zipcode',
-                  'PID.11.6' => '????country'
-                  } if types.include?('?')
+                  'PID.11.6' => '????country'} if types.include?('?')
     {'PID' => {'PID.11' => addresses}}
   end
 

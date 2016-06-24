@@ -31,8 +31,9 @@ There are two helpers in `bin`: `get_xml_for_patient` and `parse_local_xml`. The
 
 These two commands are then chained together by `bin/get`:
 
-`bin/get 7767853 10.20.11.100:60201`
+`bin/get 7767853 10.20.11.100:60201` NB: replace with the ip and port of the a19 channel you want to use
 
 ## Copyright
 
-Copyright (c) 2013 Marten Veldthuis. Publicly available under an MIT license. See [LICENSE.txt](https://github.com/roqua/healthy/blob/master/LICENSE.txt) for details.
+Copyright (c) 2016 Marten Veldthuis, Jorn van de Beek, Samuel Esposito, Henk van der Veen
+Publicly available under an MIT license. See [LICENSE.txt](https://github.com/roqua/healthy/blob/master/LICENSE.txt) for details.

@@ -7,7 +7,7 @@ begin
 rescue LoadError => e
   warn e.message
   warn "Run `gem install bundler` to install Bundler."
-  exit -1
+  exit(-1)
 end
 
 begin
@@ -23,11 +23,11 @@ require 'rake'
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
 
-task :test    => :spec
-task :default => :spec
+task test: :spec
+task default: :spec
 
 require "bundler/gem_tasks"
 
 require 'yard'
-YARD::Rake::YardocTask.new  
-task :doc => :yard
+YARD::Rake::YardocTask.new
+task doc: :yard
