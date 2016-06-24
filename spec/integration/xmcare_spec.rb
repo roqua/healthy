@@ -132,7 +132,7 @@ describe 'Fetching A19 from XMcare' do
   end
 
   describe 'a patient with a cell phone number in the primary residence number field' do
-    before { load_fixture 'xmcare_phone_number', '88888888888' }
+    before { load_fixture 'xmcare_phone_cell_in_prn', '88888888888' }
     subject { Roqua::Healthy::A19.fetch("88888888888") }
 
     it { expect(subject[:status]).to       eq('SUCCESS') }
@@ -155,6 +155,50 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:birthdate]).to    eq('19900101') }
     it { expect(subject[:gender]).to       eq('F') }
     it { expect(subject[:phone_cell]).to   eq('0612345678') }
+  end
+
+  describe 'a patient with a 06 cell phone number only in the primary residence number field' do
+    before { load_fixture 'xmcare_phone_cell_in_prn', '88888888888' }
+    subject { Roqua::Healthy::A19.fetch("88888888888") }
+
+    it { expect(subject[:status]).to       eq('SUCCESS') }
+    it { expect(subject[:error]).to        be_nil }
+    it { expect(subject[:source]).to       eq('XMCARE') }
+    it do
+      expect(subject[:identities]).to eq([{ident: '88888888888', authority: 'PI'},
+                                          {ident: '222222222', authority: 'NNNLD'}])
+    end
+    it { expect(subject[:firstname]).to    eq('Voorname') }
+    it { expect(subject[:initials]).to     eq('V') }
+    it { expect(subject[:lastname]).to     eq('Achternom') }
+    it { expect(subject[:display_name]).to eq('Achternom') }
+    it { expect(subject[:email]).to        eq('support@roqua.nl') }
+    it { expect(subject[:address_type]).to eq('H') }
+    it { expect(subject[:street]).to       eq('Straat 8') }
+    it { expect(subject[:city]).to         eq('GRONINGEN') }
+    it { expect(subject[:zipcode]).to      eq('9711CR') }
+    it { expect(subject[:country]).to      eq('NED') }
+    it { expect(subject[:birthdate]).to    eq('19900101') }
+    it { expect(subject[:gender]).to       eq('F') }
+    it { expect(subject[:phone_cell]).to   eq('0612345678') }
+  end
+
+  describe 'a patient with a 06 cell phone number in the both residence number fields' do
+    before { load_fixture 'xmcare_phone_cell_in_prn_orn', '88888888888' }
+    subject { Roqua::Healthy::A19.fetch("88888888888") }
+
+    it 'prefers the orn cell phone number over the prn' do
+      expect(subject[:phone_cell]).to   eq('0612345678')
+    end
+  end
+
+  describe 'a patient with an unconventional cell phone number in the other residence number field' do
+    before { load_fixture 'xmcare_unconventional_phone_cell_in_orn', '88888888888' }
+    subject { Roqua::Healthy::A19.fetch("88888888888") }
+
+    it 'returns the orn number' do
+      expect(subject[:phone_cell]).to   eq('+31612345678')
+    end
   end
 
   describe 'a patient that does not exist' do
