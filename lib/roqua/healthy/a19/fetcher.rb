@@ -20,9 +20,7 @@ module Roqua
           response = mirth_response
           parser   = ResponseParser.new(response)
 
-          if ResponseValidator.new(response.code, parser, patient_id).validate
-            parser.fetch("HL7Message")
-          end
+          parser.fetch("HL7Message") if ResponseValidator.new(response.code, parser, patient_id).validate
         end
 
         def mirth_response
