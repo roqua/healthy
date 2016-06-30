@@ -106,7 +106,7 @@ module Roqua
             phone_cell_number?(record.fetch('PID.13.1', '') || '')
           end
 
-          # does not choose anything not passing phone_cell_number?
+          # any number for which phone_cell_number? returns false is ignored
 
           strip_non_phone_number_characters(phone_cell_record.fetch('PID.13.1')) if phone_cell_record.present?
         end
