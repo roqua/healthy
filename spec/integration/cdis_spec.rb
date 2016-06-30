@@ -21,7 +21,7 @@ describe 'Fetching A19 from CDIS' do
     it { expect(subject[:country]).to      eq('') }
     it { expect(subject[:birthdate]).to    eq('19800101') }
     it { expect(subject[:gender]).to       eq('M') }
-    it { expect(subject[:phone_cell]).to   eq('06-12345678') }
+    it { expect(subject[:phone_cell]).to   eq('0612345678') } # - stripped
   end
 
   describe 'the patient Piet Fictief' do

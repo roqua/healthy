@@ -24,6 +24,8 @@ describe 'Fetching A19 from Comez' do
     it { expect(subject[:country]).to      eq('NL') }
     it { expect(subject[:birthdate]).to    eq('17070415') }
     it { expect(subject[:gender]).to       eq('F') }
-    it { expect(subject[:phone_cell]).to   eq('0612345678mdr') }
+    # phone cells with letters are rejected, because it usually means they can not be used as a client's own
+    # cell phone number
+    it { expect(subject[:phone_cell]).to   eq(nil) }
   end
 end

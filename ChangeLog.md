@@ -1,3 +1,7 @@
+### 1.3.0
+
+* Prefer cell phone numbers in PRN fields over cell phone in ORN fields. All phone numbers not starting with 06, +316 or 00316 after rudimentary sanitation are rejected as cell phone numbers.
+
 ### 1.2.1
 
 * Improved heuristic to pick cell phone numbers out of commonly used hl7 messages

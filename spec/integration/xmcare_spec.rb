@@ -24,7 +24,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:country]).to      eq('NL') }
     it { expect(subject[:birthdate]).to    eq('17070415') }
     it { expect(subject[:gender]).to       eq('F') }
-    it { expect(subject[:phone_cell]).to   eq('06-12345678') }
+    it { expect(subject[:phone_cell]).to   eq('0612345678') } # - stripped
   end
 
   describe 'a patient with a maiden name' do
@@ -50,7 +50,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:country]).to      eq('NL') }
     it { expect(subject[:birthdate]).to    eq('17070415') }
     it { expect(subject[:gender]).to       eq('F') }
-    it { expect(subject[:phone_cell]).to   eq('06-12345678') }
+    it { expect(subject[:phone_cell]).to   eq('0612345678') } # - stripped
   end
 
   describe 'a patient without a known birthdate' do
@@ -76,7 +76,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:country]).to      eq('NL') }
     it { expect(subject[:birthdate]).to    be_nil }
     it { expect(subject[:gender]).to       eq('F') }
-    it { expect(subject[:phone_cell]).to   eq('06-12345678') }
+    it { expect(subject[:phone_cell]).to   eq('0612345678') } # - stripped
   end
 
   describe 'a patient with an email in an alternate place' do
@@ -102,7 +102,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:country]).to      eq('NL') }
     it { expect(subject[:birthdate]).to    eq('17070415') }
     it { expect(subject[:gender]).to       eq('F') }
-    it { expect(subject[:phone_cell]).to   eq('06 12 34 56 78') }
+    it { expect(subject[:phone_cell]).to   eq('0612345678') } # spaces stripped
   end
 
   describe 'a patient from an xmcare instance impersonating cdis' do
@@ -128,10 +128,10 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:country]).to      eq('NLD') }
     it { expect(subject[:birthdate]).to    eq('17070415') }
     it { expect(subject[:gender]).to       eq('M') }
-    it { expect(subject[:phone_cell]).to   eq('06-12345678') }
+    it { expect(subject[:phone_cell]).to   eq('0612345678') } # - stripped
   end
 
-  describe 'a patient with a 06 cell phone number only in the primary residence number field' do
+  describe 'a patient with a cell phone number only in the primary residence number field' do
     before { load_fixture 'xmcare_phone_cell_in_prn', '88888888888' }
     subject { Roqua::Healthy::A19.fetch("88888888888") }
 
@@ -157,12 +157,12 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:phone_cell]).to   eq('0612345678') }
   end
 
-  describe 'a patient with a 06 cell phone number in the both residence number fields' do
+  describe 'a patient with a cell phone number in the both residence number fields' do
     before { load_fixture 'xmcare_phone_cell_in_prn_orn', '88888888888' }
     subject { Roqua::Healthy::A19.fetch("88888888888") }
 
-    it 'prefers the orn cell phone number over the prn' do
-      expect(subject[:phone_cell]).to eq('0612345678')
+    it 'prefers the prn cell phone number over the orn' do
+      expect(subject[:phone_cell]).to eq('0612345600')
     end
   end
 
@@ -170,8 +170,26 @@ describe 'Fetching A19 from XMcare' do
     before { load_fixture 'xmcare_unconventional_phone_cell_in_orn', '88888888888' }
     subject { Roqua::Healthy::A19.fetch("88888888888") }
 
-    it 'returns the orn number' do
+    it 'returns that number' do
       expect(subject[:phone_cell]).to eq('+31612345678')
+    end
+  end
+
+  describe 'a patient with another unconventional cell phone number in the other residence number field' do
+    before { load_fixture 'xmcare_unconventional_phone_cell_in_orn2', '88888888888' }
+    subject { Roqua::Healthy::A19.fetch("88888888888") }
+
+    it 'returns that number' do
+      expect(subject[:phone_cell]).to eq('0031612345678')
+    end
+  end
+
+  describe 'a patient with a home phone number in the primary residence number field' do
+    before { load_fixture 'xmcare_phone_home_in_prn', '88888888888' }
+    subject { Roqua::Healthy::A19.fetch("88888888888") }
+
+    it 'returns nil' do
+      expect(subject[:phone_cell]).to be_nil
     end
   end
 

@@ -91,29 +91,24 @@ module Roqua
         end
 
         # this is a heuristic to pick likely dutch cell phone numbers
-        # out of the peculiar hl7 messages we receive
+        # out of the hl7 messages we receive
         def phone_cell
           pid_13 = message.fetch('PID').fetch('PID.13')
 
-          # prefer ORN (Other Residence Number, usually used for cell phone) that contains '06'
+          # prefer PRN (Primary Residence Number) that contains a cell phone number
           phone_cell_record = pid_13.find do |record|
-            phone_number = record.fetch('PID.13.1', '') || ''
-            phone_number.start_with?('06') &&
-              record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'ORN'
+            phone_cell_number?(record.fetch('PID.13.1', '') || '') &&
+              record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'PRN'
           end
 
-          # otherwise choose the first occuring '06' number
+          # otherwise choose the first occuring cell phone number
           phone_cell_record ||= pid_13.find do |record|
-            phone_number = record.fetch('PID.13.1', '') || ''
-            phone_number.start_with?('06')
+            phone_cell_number?(record.fetch('PID.13.1', '') || '')
           end
 
-          # in the last case (possibly a +316 number), just choose the ORN number
-          phone_cell_record ||= pid_13.find do |record|
-            record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'ORN'
-          end
+          # does not choose anything not passing phone_cell_number?
 
-          phone_cell_record.try(:fetch, 'PID.13.1', '')
+          strip_non_phone_number_characters(phone_cell_record.fetch('PID.13.1')) if phone_cell_record.present?
         end
 
         def gender
@@ -121,6 +116,17 @@ module Roqua
         end
 
         private
+
+        # we only strip characters that we can be sure to not matter
+        # letters are not stripped since they may be part of a comment, which usually means the
+        # phone number is not useable for the purpose of a client's cell phone number
+        def strip_non_phone_number_characters(number)
+          number.gsub(/[-\s\.]/, '')
+        end
+
+        def phone_cell_number?(number)
+          strip_non_phone_number_characters(number) =~ /\A(\+31|0|0031)6\d{8}\z/
+        end
 
         def name
           case source
