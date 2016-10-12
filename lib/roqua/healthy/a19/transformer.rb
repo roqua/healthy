@@ -94,16 +94,16 @@ module Roqua
         # this is a heuristic to pick likely dutch cell phone numbers
         # out of the hl7 messages we receive
         def phone_cell
-          pid_13 = message.fetch('PID').fetch('PID.13')
+          pid13 = message.fetch('PID').fetch('PID.13')
 
           # prefer PRN (Primary Residence Number) that contains a cell phone number
-          phone_cell_record = pid_13.find do |record|
+          phone_cell_record = pid13.find do |record|
             phone_cell_number?(record.fetch('PID.13.1', '') || '') &&
               record.fetch('PID.13.2', :unknown_type_of_phone_record) == 'PRN'
           end
 
           # otherwise choose the first occuring cell phone number
-          phone_cell_record ||= pid_13.find do |record|
+          phone_cell_record ||= pid13.find do |record|
             phone_cell_number?(record.fetch('PID.13.1', '') || '')
           end
 
