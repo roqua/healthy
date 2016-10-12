@@ -28,6 +28,10 @@ module Roqua
           names[:display].fetch('PID.5.1')
         end
 
+        def nickname
+          firstname
+        end
+
         private
 
         def names

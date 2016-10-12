@@ -9,6 +9,11 @@ module Roqua
         def lastname
           names[:legal].fetch('PID.5.1').fetch('PID.5.1.1')
         end
+
+        def nickname
+          return unless names[:nick]
+          names[:nick].fetch('PID.5.2')
+        end
       end
     end
   end

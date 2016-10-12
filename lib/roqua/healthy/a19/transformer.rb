@@ -28,6 +28,7 @@ module Roqua
             initials:     name.initials,
             lastname:     name.lastname,
             display_name: name.display_name,
+            nickname:     name.nickname,
             email:        email,
             address_type: address.address_type,
             street:       address.street,
