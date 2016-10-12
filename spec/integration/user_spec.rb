@@ -13,6 +13,7 @@ describe 'Fetching A19 from USER' do
     it { expect(subject[:initials]).to     eq('E. T.') }
     it { expect(subject[:lastname]).to     eq('de Achternaam') }
     it { expect(subject[:display_name]).to be_nil }
+    it { expect(subject[:nickname]).to     eq('Eerste') }
     it { expect(subject[:email]).to        be_nil }
     it { expect(subject[:address_type]).to eq('L') }
     it { expect(subject[:street]).to       eq('Van Straatstraat 8') }
@@ -36,6 +37,7 @@ describe 'Fetching A19 from USER' do
     it { expect(subject[:initials]).to     eq('D.') }
     it { expect(subject[:lastname]).to     eq('Meisjesnaam-Getrouwdenaam') }
     it { expect(subject[:display_name]).to be_nil }
+    it { expect(subject[:nickname]).to     be_nil }
     it { expect(subject[:email]).to        be_nil }
     it { expect(subject[:address_type]).to eq('L') }
     it { expect(subject[:street]).to       eq('Wegweg 2') }
@@ -59,6 +61,7 @@ describe 'Fetching A19 from USER' do
     it { expect(subject[:initials]).to     eq('V. R.S.') }
     it { expect(subject[:lastname]).to     eq("Achternaam") }
     it { expect(subject[:display_name]).to be_nil }
+    it { expect(subject[:nickname]).to     eq('Voornaam') }
     it { expect(subject[:email]).to        eq('test@roqua.nl') }
     it { expect(subject[:address_type]).to eq('L') }
     it { expect(subject[:street]).to       eq('Straatstraat 9') }

@@ -18,6 +18,7 @@ describe 'Fetching A19 from Medoq' do
     it { expect(subject[:initials]).to     eq('J.') }
     it { expect(subject[:lastname]).to     eq('Fictief') }
     it { expect(subject[:display_name]).to be_nil }
+    it { expect(subject[:nickname]).to     eq('Jan') }
     it { expect(subject[:email]).to        eq('j.fictief@roqua.nl') }
     it { expect(subject[:address_type]).to eq('H') }
     it { expect(subject[:street]).to       eq('Thuisstraat 42') }

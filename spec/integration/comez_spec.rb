@@ -16,6 +16,7 @@ describe 'Fetching A19 from Comez' do
     it { expect(subject[:initials]).to     eq('A') }
     it { expect(subject[:lastname]).to     eq('Achternaam') }
     it { expect(subject[:display_name]).to be_nil }
+    it { expect(subject[:nickname]).to     eq('Voornaam') }
     it { expect(subject[:email]).to        be_nil }
     it { expect(subject[:address_type]).to eq('M') }
     it { expect(subject[:street]).to       eq('Postadresstraat 42') }
