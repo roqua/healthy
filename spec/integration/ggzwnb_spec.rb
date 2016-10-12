@@ -7,16 +7,17 @@ describe 'Fetching A19 from GGZWNB' do
 
     it { expect(subject[:status]).to eq('SUCCESS') }
     it { expect(subject[:error]).to  be_nil }
-    it { expect(subject[:source]).to eq('GGZWNB') }
+    it { expect(subject[:source]).to eq('UMCG') }
     it do
       expect(subject[:identities]).to eq([{ident: '1234567', authority: 'PI'},
                                           {ident: '123456789', authority: 'NNNLD'}])
     end
-    it { expect(subject[:firstname]).to    eq('Gerda') }
-    it { expect(subject[:initials]).to     eq('G M') }
+    it { expect(subject[:firstname]).to    eq('G') }
+    it { expect(subject[:initials]).to     eq('M') }
     it { expect(subject[:lastname]).to     eq('Geit') }
     it { expect(subject[:display_name]).to eq('Geit') }
-    it { expect(subject[:email]).to        be_empty }
+    it { expect(subject[:nickname]).to     eq('Gerda') }
+    it { expect(subject[:email]).to        be_blank }
     it { expect(subject[:address_type]).to eq('H') }
     it { expect(subject[:street]).to       eq('Wegweg 1') }
     it { expect(subject[:city]).to         eq('Dorp') }
