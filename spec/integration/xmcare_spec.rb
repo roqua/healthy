@@ -16,6 +16,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:initials]).to     eq('A B') }
     it { expect(subject[:lastname]).to     eq('Achternaam') }
     it { expect(subject[:display_name]).to eq('Achternaam') }
+    it { expect(subject[:nickname]).to     eq('Babette') }
     it { expect(subject[:email]).to        eq('') }
     it { expect(subject[:address_type]).to eq('H') }
     it { expect(subject[:street]).to       eq('Straatnaam 37') }
@@ -42,6 +43,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:initials]).to     eq('A B') }
     it { expect(subject[:lastname]).to     eq('Achternaam') }
     it { expect(subject[:display_name]).to eq('Meisjesnaam - Achternaam') }
+    it { expect(subject[:nickname]).to     eq('Babette') }
     it { expect(subject[:email]).to        eq('email@example.com') }
     it { expect(subject[:address_type]).to eq('H') }
     it { expect(subject[:street]).to       eq('Straatnaam 37') }
@@ -68,6 +70,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:initials]).to     eq('A B') }
     it { expect(subject[:lastname]).to     eq('Achternaam') }
     it { expect(subject[:display_name]).to eq('Achternaam') }
+    it { expect(subject[:nickname]).to     eq('Babette') }
     it { expect(subject[:email]).to        eq('') }
     it { expect(subject[:address_type]).to eq('H') }
     it { expect(subject[:street]).to       eq('Straatnaam 37') }
@@ -94,6 +97,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:initials]).to     eq('A B') }
     it { expect(subject[:lastname]).to     eq('Achternaam') }
     it { expect(subject[:display_name]).to eq('Achternaam') }
+    it { expect(subject[:nickname]).to     eq('Babette') }
     it { expect(subject[:email]).to        eq('email@example.com') }
     it { expect(subject[:address_type]).to eq('H') }
     it { expect(subject[:street]).to       eq('Straatnaam 37') }
@@ -120,6 +124,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:initials]).to     eq('B C') }
     it { expect(subject[:lastname]).to     eq('Achternaam') }
     it { expect(subject[:display_name]).to eq('Achternaam') }
+    it { expect(subject[:nickname]).to     eq('') }
     it { expect(subject[:email]).to        eq('') }
     it { expect(subject[:address_type]).to eq('H') }
     it { expect(subject[:street]).to       eq('Straatnaam 37 h-42') }
@@ -146,6 +151,7 @@ describe 'Fetching A19 from XMcare' do
     it { expect(subject[:initials]).to     eq('V') }
     it { expect(subject[:lastname]).to     eq('Achternom') }
     it { expect(subject[:display_name]).to eq('Achternom') }
+    it { expect(subject[:nickname]).to     eq('Voorname') }
     it { expect(subject[:email]).to        eq('support@roqua.nl') }
     it { expect(subject[:address_type]).to eq('H') }
     it { expect(subject[:street]).to       eq('Straat 8') }

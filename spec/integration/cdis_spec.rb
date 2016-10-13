@@ -13,6 +13,7 @@ describe 'Fetching A19 from CDIS' do
     it { expect(subject[:initials]).to     eq('J.A.B.C.') }
     it { expect(subject[:lastname]).to     eq('Fictief') }
     it { expect(subject[:display_name]).to be_nil }
+    it { expect(subject[:nickname]).to     be_nil }
     it { expect(subject[:email]).to        be_nil }
     it { expect(subject[:address_type]).to eq('M') }
     it { expect(subject[:street]).to       eq('-Hanzepleinfout 1') }
@@ -36,6 +37,7 @@ describe 'Fetching A19 from CDIS' do
     it { expect(subject[:initials]).to     eq('P.X.X.X.') }
     it { expect(subject[:lastname]).to     eq('Fictief') }
     it { expect(subject[:display_name]).to be_nil }
+    it { expect(subject[:nickname]).to     be_nil }
     it { expect(subject[:email]).to        be_nil }
     it { expect(subject[:address_type]).to eq('M') }
     it { expect(subject[:street]).to       eq('Ziekenhuisplein 1') }
@@ -59,6 +61,7 @@ describe 'Fetching A19 from CDIS' do
     it { expect(subject[:initials]).to     eq('G.') }
     it { expect(subject[:lastname]).to     eq('Geit') }
     it { expect(subject[:display_name]).to be_nil }
+    it { expect(subject[:nickname]).to     be_nil }
     it { expect(subject[:email]).to        be_nil }
     it { expect(subject[:address_type]).to eq('M') }
     it { expect(subject[:street]).to       eq('-Oostersnglfout') }
@@ -82,6 +85,7 @@ describe 'Fetching A19 from CDIS' do
     it { expect(subject[:initials]).to     eq('T.') }
     it { expect(subject[:lastname]).to     eq('Tester') }
     it { expect(subject[:display_name]).to eq(nil) }
+    it { expect(subject[:nickname]).to     be_nil }
     it { expect(subject[:email]).to        eq(nil) }
     it { expect(subject[:address_type]).to eq('M') }
     it { expect(subject[:street]).to       eq(nil) }
