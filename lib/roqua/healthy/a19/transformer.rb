@@ -113,7 +113,7 @@ module Roqua
         end
 
         def gender
-          message.fetch('PID').fetch('PID.8').fetch('PID.8.1')
+          message.dig('PID', 'PID.8', 'PID.8.1')
         end
 
         private
