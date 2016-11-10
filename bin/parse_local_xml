@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require 'roqua-healthy'
+require 'roqua_healthy'
 require 'pp'
 
 body    = ARGF.read

@@ -1,7 +1,9 @@
 # -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 
 require File.expand_path('../lib/roqua/healthy/version', __FILE__)
 
+# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |gem|
   gem.name          = "roqua-healthy"
   gem.version       = Roqua::Healthy::VERSION

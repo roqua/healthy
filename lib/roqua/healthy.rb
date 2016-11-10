@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'roqua/support'
 
 require 'roqua/healthy/version'

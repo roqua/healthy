@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'roqua/healthy/a19/name_parser'
 require 'roqua/healthy/a19/cdis_name_parser'
 require 'roqua/healthy/a19/impulse_name_parser'
@@ -77,7 +78,7 @@ module Roqua
 
         def birthdate
           birthdate_details = message.fetch('PID').fetch('PID.7')
-          birthdate_details.fetch('PID.7.1') if birthdate_details
+          birthdate_details&.fetch('PID.7.1')
         end
 
         def email

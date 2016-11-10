@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'roqua/healthy/a19/name_parser'
 
 module Roqua

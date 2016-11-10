@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 def stub_mirth(patient_id = '123')
   stub_request(:post, Roqua::Healthy.a19_endpoint)
     .with(body: {application: 'healthy', method: 'A19', patient_id: patient_id})
