@@ -97,7 +97,7 @@ describe 'Fetching A19 from CDIS' do
     it { expect(subject[:phone_cell]).to   eq(nil) }
   end
 
-  describe 'a patient with no PID 8.1 (gender) field' do
+  describe 'epic epd example: a patient with no PID 8.1 (gender) field' do
     before { load_fixture 'epic_no_gender', '2001111' }
     subject { Roqua::Healthy::A19.fetch('2001111') }
 
