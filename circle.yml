@@ -3,3 +3,7 @@ machine:
     Europe/Amsterdam
   ruby:
     version: 2.3.1
+test:
+  post:
+    - bundle exec rubocop
+    - bundle exec codeclimate-test-reporter

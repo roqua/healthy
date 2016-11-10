@@ -39,6 +39,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'listen', '~> 2.1'
   gem.add_development_dependency 'guard-rubocop', '~> 1.2.0'
   gem.add_development_dependency 'rubocop', '~> 0.40'
+  gem.add_development_dependency 'simplecov'
   gem.add_development_dependency 'fuubar'
 
   # Documentation generation

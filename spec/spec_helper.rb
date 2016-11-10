@@ -1,13 +1,10 @@
 # frozen_string_literal: true
+require 'simplecov'
+SimpleCov.start
+
 require 'rspec'
 
 require 'webmock/rspec'
-WebMock.disable_net_connect! allow: "codeclimate.com"
-
-if ENV["CODECLIMATE_REPO_TOKEN"]
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
-end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
