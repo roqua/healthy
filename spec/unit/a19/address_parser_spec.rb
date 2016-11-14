@@ -1,23 +1,31 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe Roqua::Healthy::A19::AddressParser do
+  # rubocop:disable Metrics/MethodLength
   def msg(*types)
     addresses = []
-    addresses << {'PID.11.7' => 'M',
-                  'PID.11.1' => {'PID.11.1.1' => 'Mailstreet 1'},
-                  'PID.11.3' => 'Mailcity',
-                  'PID.11.5' => 'Mailzipcode',
-                  'PID.11.6' => 'Mailcountry'} if types.include?('M')
-    addresses << {'PID.11.7' => 'H',
-                  'PID.11.1' => {'PID.11.1.1' => 'Homestreet 1'},
-                  'PID.11.3' => 'Homecity',
-                  'PID.11.5' => 'Homezipcode',
-                  'PID.11.6' => 'Homecountry'} if types.include?('H')
-    addresses << {'PID.11.7' => '?',
-                  'PID.11.1' => {'PID.11.1.1' => '????street 1'},
-                  'PID.11.3' => '????city',
-                  'PID.11.5' => '????zipcode',
-                  'PID.11.6' => '????country'} if types.include?('?')
+    if types.include?('M')
+      addresses << {'PID.11.7' => 'M',
+                    'PID.11.1' => {'PID.11.1.1' => 'Mailstreet 1'},
+                    'PID.11.3' => 'Mailcity',
+                    'PID.11.5' => 'Mailzipcode',
+                    'PID.11.6' => 'Mailcountry'}
+    end
+    if types.include?('H')
+      addresses << {'PID.11.7' => 'H',
+                    'PID.11.1' => {'PID.11.1.1' => 'Homestreet 1'},
+                    'PID.11.3' => 'Homecity',
+                    'PID.11.5' => 'Homezipcode',
+                    'PID.11.6' => 'Homecountry'}
+    end
+    if types.include?('?')
+      addresses << {'PID.11.7' => '?',
+                    'PID.11.1' => {'PID.11.1.1' => '????street 1'},
+                    'PID.11.3' => '????city',
+                    'PID.11.5' => '????zipcode',
+                    'PID.11.6' => '????country'}
+    end
     {'PID' => {'PID.11' => addresses}}
   end
 

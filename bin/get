@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 unless ARGV[0] && ARGV[1]
   puts "Usage: get PATIENT_ID IP:PORT"

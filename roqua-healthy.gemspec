@@ -1,7 +1,9 @@
 # -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 
 require File.expand_path('../lib/roqua/healthy/version', __FILE__)
 
+# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |gem|
   gem.name          = "roqua-healthy"
   gem.version       = Roqua::Healthy::VERSION
@@ -11,6 +13,8 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Marten Veldthuis", "Jorn van de Beek", 'Samuel Esposito', 'Henk van der Veen']
   gem.email         = "support@roqua.nl"
   gem.homepage      = "https://github.com/roqua/healthy"
+
+  gem.required_ruby_version = '~> 2.3'
 
   gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   gem.executables   = [] # executables in bin/ are helpers for use during development
@@ -35,6 +39,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'listen', '~> 2.1'
   gem.add_development_dependency 'guard-rubocop', '~> 1.2.0'
   gem.add_development_dependency 'rubocop', '~> 0.40'
+  gem.add_development_dependency 'simplecov'
   gem.add_development_dependency 'fuubar'
 
   # Documentation generation

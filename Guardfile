@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 guard 'rspec', cmd: 'bundle exec rspec -f Fuubar' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/healthy/(.+)\.rb$}) { |m| ["spec/unit/#{m[1]}_spec.rb", "spec/integration"] }

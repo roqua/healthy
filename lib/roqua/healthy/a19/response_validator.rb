@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'roqua/healthy/a19/response_parser'
 
 module Roqua

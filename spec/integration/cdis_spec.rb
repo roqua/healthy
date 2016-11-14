@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe 'Fetching A19 from CDIS' do
@@ -94,6 +95,29 @@ describe 'Fetching A19 from CDIS' do
     it { expect(subject[:country]).to      eq('') }
     it { expect(subject[:birthdate]).to    eq('19900101') }
     it { expect(subject[:gender]).to       eq('M') }
+    it { expect(subject[:phone_cell]).to   eq(nil) }
+  end
+
+  describe 'epic epd example: a patient with no PID 8.1 (gender) field' do
+    before { load_fixture 'epic_no_gender', '2001111' }
+    subject { Roqua::Healthy::A19.fetch('2001111') }
+
+    it { expect(subject[:status]).to       eq('SUCCESS') }
+    it { expect(subject[:error]).to        be_nil }
+    it { expect(subject[:source]).to       eq('UMCG') }
+    it { expect(subject[:identities]).to   eq([{ident: "2001111", authority: "PI"}]) }
+    it { expect(subject[:firstname]).to    eq('H') }
+    it { expect(subject[:initials]).to     eq(nil) }
+    it { expect(subject[:lastname]).to     eq("CLINT\u00C9N") }
+    it { expect(subject[:display_name]).to eq(nil) }
+    it { expect(subject[:email]).to        eq(nil) }
+    it { expect(subject[:address_type]).to eq('M') }
+    it { expect(subject[:street]).to       eq(nil) }
+    it { expect(subject[:city]).to         eq(nil) }
+    it { expect(subject[:zipcode]).to      eq(nil) }
+    it { expect(subject[:country]).to      eq('NLD') }
+    it { expect(subject[:birthdate]).to    eq('2001153') }
+    it { expect(subject[:gender]).to       eq(nil) }
     it { expect(subject[:phone_cell]).to   eq(nil) }
   end
 end
