@@ -1,3 +1,12 @@
+### 1.4.2
+
+* If PID 8.1 (gender) is empty/unavailable, the to_patient's gender attribute will be nil instead of erroring
+* Bump required ruby version to 2.3
+
+### 1.4.1
+
+* PID 5.1 names of type nickname are now exposed in to_patient's nickname attribute
+
 ### 1.3.0
 
 * Prefer cell phone numbers in PRN fields over cell phone in ORN fields. All phone numbers not starting with 06, +316 or 00316 after rudimentary sanitation are rejected as cell phone numbers.
