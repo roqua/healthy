@@ -5,9 +5,26 @@ module Roqua
   module Healthy
     module A19
       class ResponseValidator
+        require 'roqua/healthy/errors'
+
         attr_reader :response_code
         attr_reader :parser
         attr_reader :patient_id
+
+        ERRORS = {
+          'Timeout waiting for ACK' =>
+            ::Roqua::Healthy::Timeout,
+          "Unable to connect to destination\tSocketTimeoutException\tconnect timed out" =>
+            ::Roqua::Healthy::Timeout,
+          'ERROR: Timeout waiting for response' =>
+            ::Roqua::Healthy::Timeout,
+          'ERROR: SocketTimeoutException: connect timed out' =>
+            ::Roqua::Healthy::Timeout,
+          "Unable to connect to destination\tConnectException\tConnection refused" =>
+            ::Roqua::Healthy::ConnectionRefused,
+          'ERROR: ConnectException: Connection refused' =>
+            ::Roqua::Healthy::ConnectionRefused
+        }.freeze
 
         def initialize(response_code, parser, patient_id)
           @response_code = response_code
@@ -46,11 +63,9 @@ module Roqua
         end
 
         def validate_500
-          failure = parser.fetch("failure")
-          raise ::Roqua::Healthy::Timeout, failure["error"]           if failure["error"] == "Timeout waiting for ACK" || failure["error"] == 'ERROR: Timeout waiting for response'
-          raise ::Roqua::Healthy::Timeout, failure["error"]           if failure["error"] == "Unable to connect to destination\tSocketTimeoutException\tconnect timed out"
-          raise ::Roqua::Healthy::ConnectionRefused, failure["error"] if failure["error"] == "Unable to connect to destination\tConnectException\tConnection refused" || failure["error"] == 'ERROR: ConnectException: Connection refused'
-          raise ::Roqua::Healthy::UnknownFailure, failure["error"]
+          error = parser.fetch('failure')['error']
+          raise ERRORS[error], error if ERRORS[error]
+          raise ::Roqua::Healthy::UnknownFailure, error
         end
 
         private
