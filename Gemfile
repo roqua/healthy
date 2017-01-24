@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem "roqua-support", git: 'git@github.com:roqua/roqua-support.git'
+gem 'roqua-support', git: 'git@github.com:roqua/roqua-support.git'
 
 # Only add dependencies here if they're only used by CI or other services.
 # Normal development dependencies should go in the gemspec. People shouldn't
