@@ -15,6 +15,10 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 104
 
+# Offense count: 9
+Metrics/BlockLength:
+  Max: 184
+
 # Offense count: 80
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
 # URISchemes: http, https

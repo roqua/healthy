@@ -18,7 +18,8 @@ module Roqua
         private
 
         def parsed_body
-          @parsed_body ||= Hash.from_xml(response.body)
+          # from_xml will throw 'IOError: not modifiable string' without using dup in ActiveSupport 4.*
+          @parsed_body ||= Hash.from_xml(response.body.dup)
         rescue REXML::ParseException => e
           raise IllegalMirthResponse, e.message
         end

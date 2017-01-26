@@ -2,6 +2,7 @@
 .idea
 .yardoc
 Gemfile.lock
+gemfiles/*.lock
 doc/
 pkg/
 tmp/

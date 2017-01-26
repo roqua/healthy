@@ -3,7 +3,6 @@
 
 require File.expand_path('../lib/roqua/healthy/version', __FILE__)
 
-# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |gem|
   gem.name          = "roqua-healthy"
   gem.version       = Roqua::Healthy::VERSION
@@ -21,14 +20,15 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'activesupport', '>= 3.2', '< 5.0'
+  gem.add_dependency 'activesupport', '>= 3.2', '< 6'
   gem.add_dependency 'addressable', '~> 2.3'
-  gem.add_dependency 'roqua-support', '~> 0.1.18'
+  gem.add_dependency 'roqua-support', '~> 0.1.22'
 
   gem.add_development_dependency 'bundler', '~> 1.0'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.3.0'
   gem.add_development_dependency 'yard', '~> 0.8'
+  gem.add_development_dependency 'appraisal'
 
   # Required for the tests
   gem.add_development_dependency 'webmock', '~> 1.13'
