@@ -27,7 +27,7 @@ module Roqua
         def mirth_response
           Net::HTTP.start(remote_url.host, remote_url.port, use_ssl: use_ssl?) do |http|
             request = Net::HTTP::Post.new(remote_url.path)
-            request.basic_auth(@client.a19_username, @client.a19_password) if @client.use_basic_auth?
+            request.basic_auth(@client.a19_username, @client.a19_password)
             request.set_form_data(mirth_params)
             http.request request
           end

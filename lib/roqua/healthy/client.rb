@@ -10,16 +10,20 @@ module Roqua
 
       def initialize(options = {})
         @a19_endpoint = options[:a19_endpoint]
-        @a19_username = options[:a19_username]
-        @a19_password = options[:a19_password]
+        @a19_username, @a19_password = vault_data.values_at(:username, :password)
       end
 
       def a19_endpoint
         @a19_endpoint || Roqua::Healthy.a19_endpoint
       end
 
-      def use_basic_auth?
-        @a19_username.present? && @a19_password.present?
+      def vault_data
+        Vault.address = ENV["VAULT_ADDR"]
+        Vault.token = ENV["VAULT_TOKEN"]
+        Vault.with_retries(Vault::HTTPConnectionError) do
+          # Vault.logical.read("secret/medo/#{::Rails.env}/a19_basic_auth").data
+          Vault.logical.read("secret/medo/#{ENV['RAILS_ENV']}/a19_basic_auth").data
+        end
       end
 
       def fetch_a19(patient_id)
