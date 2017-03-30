@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe Roqua::Healthy::A19::Fetcher do
-  let(:client) { Roqua::Healthy::Client.new(a19_endpoint: 'http://a19_endpoint.dev') }
+  let(:client) { Roqua::Healthy::Client.new }
 
   subject { Roqua::Healthy::A19::Fetcher.new("123", client) }
 
