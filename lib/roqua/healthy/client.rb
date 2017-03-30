@@ -21,7 +21,6 @@ module Roqua
         Vault.address = ENV["VAULT_ADDR"]
         Vault.token = ENV["VAULT_TOKEN"]
         Vault.with_retries(Vault::HTTPConnectionError) do
-          # Vault.logical.read("secret/medo/#{::Rails.env}/a19_basic_auth").data
           Vault.logical.read("secret/medo/#{ENV['RAILS_ENV']}/a19_basic_auth").data
         end
       end
