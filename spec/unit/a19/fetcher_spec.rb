@@ -6,6 +6,18 @@ describe Roqua::Healthy::A19::Fetcher do
 
   subject { Roqua::Healthy::A19::Fetcher.new("123", client) }
 
+  before do
+    ENV['RAILS_ENV'] = 'test'
+    allow_any_instance_of(Vault::Logical).to receive(:read).with("secret/medo/test/a19_basic_auth").and_return(
+      OpenStruct.new(
+        data: {
+          username: 'foo',
+          password: 'bar'
+        }
+      )
+    )
+  end
+
   it 'succeeds when upstream returns XML' do
     stub_mirth_response("<HL7Message></HL7Message>")
     expect { subject.fetch }.not_to raise_error
