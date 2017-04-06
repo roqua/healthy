@@ -67,6 +67,11 @@ describe Roqua::Healthy::A19::Fetcher do
     expect { subject.fetch }.to raise_exception(Roqua::Healthy::Timeout)
   end
 
+  it 'raises when upstream authentication fails' do
+    stub_mirth_response "<failure><error>Unauthorized</error></failure>", 401
+    expect { subject.fetch }.to raise_exception(Roqua::Healthy::AuthenticationFailure)
+  end
+
   it 'saves the client' do
     expect(subject.client).to eq client
   end

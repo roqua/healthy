@@ -36,7 +36,7 @@ module Roqua
           case response_code
           when '200'
             validate_200
-          when '403'
+          when '401', '403'
             validate_403
           when '404'
             validate_404
