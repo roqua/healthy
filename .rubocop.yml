@@ -25,3 +25,8 @@ SignalException:
 
 Style/EmptyLineAfterMagicComment:
   Enabled: False
+
+Style/FileName:
+  Exclude:
+    - Appraisals
+

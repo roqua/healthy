@@ -5,6 +5,6 @@ require 'roqua_healthy'
 require 'pp'
 
 body    = ARGF.read
-message = Hash.from_xml(body).fetch("HL7Message") { Hash.new }
+message = Hash.from_xml(body).fetch("HL7Message") { {} }
 
 pp Roqua::Healthy::A19::Transformer.new(message).to_patient

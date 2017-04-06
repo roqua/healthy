@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 appraise "rails41" do
   gem "activesupport", "4.1"
 end
