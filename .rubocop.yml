@@ -22,3 +22,6 @@ MethodLength:
 
 SignalException:
   Enabled: False
+
+Style/EmptyLineAfterMagicComment:
+  Enabled: False
