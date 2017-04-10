@@ -17,7 +17,7 @@ module Roqua
       end
 
       def use_basic_auth?
-        !(@a19_username.to_s.empty? || @a19_password.to_s.empty?)
+        @a19_username.present? || @a19_password.present?
       end
 
       def fetch_a19(patient_id)
