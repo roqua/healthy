@@ -15,6 +15,13 @@ client = Healthy::A19::Client(a19_endpoint: 'https://...')
 client.fetch_a19(patient_identifier)
 ```
 
+or if the server you connect to needs http basic authentication:
+
+```ruby
+client = Healthy::A19::Client(a19_endpoint: 'https://...', a19_username: 'foo', a19_password: 'bar')
+client.fetch_a19(patient_identifier)
+```
+
 ### Adding integration tests
 
 If you find any A19 response that Healthy currently does not handle correctly, please add a fixture and integration test for it.
